@@ -3,25 +3,160 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Goal Wear Store</title>
+<title>GoalWear</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#111;
+    color:white;
+}
+
+header{
+    background:#000;
+    text-align:center;
+    padding:25px;
+    border-bottom:3px solid gold;
+}
+
+header img{
+    width:180px;
+}
+
+h1{
+    color:gold;
+}
+
+.banner{
+    text-align:center;
+    padding:40px 20px;
+}
+
+.banner h2{
+    font-size:32px;
+}
+
+.productos{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    padding:20px;
+}
+
+.card{
+    background:#1c1c1c;
+    border-radius:15px;
+    overflow:hidden;
+    text-align:center;
+    padding-bottom:20px;
+}
+
+.card img{
+    width:100%;
+}
+
+.precio{
+    color:gold;
+    font-size:28px;
+    font-weight:bold;
+}
+
+button{
+    background:gold;
+    color:black;
+    border:none;
+    padding:12px 25px;
+    border-radius:30px;
+    font-size:18px;
+    cursor:pointer;
+}
+
+footer{
+    text-align:center;
+    padding:30px;
+    margin-top:40px;
+    background:#000;
+}
+</style>
+
 </head>
-<body style="font-family:Arial;background:#111;color:white;text-align:center;padding:40px;">
 
-<h1>⚽ GOAL WEAR STORE</h1>
+<body>
 
-<h2>Las mejores camisetas de fútbol</h2>
+<header>
 
-<p>España 2026 · Sevilla FC · Retro · NBA</p>
+<h1>GOALWEAR</h1>
 
-<h3>Precios</h3>
+<p>La mejor calidad en camisetas de fútbol</p>
 
-<p>👕 Camiseta: 18€</p>
-<p>🏷️ Camiseta + Parches: 20€</p>
-<p>⭐ Camiseta + Parches + Serigrafía: 22€</p>
+</header>
 
-<a href="https://wa.me/TUNUMERO" style="background:#25D366;color:white;padding:15px 25px;text-decoration:none;border-radius:10px;">
-Comprar por WhatsApp
-</a>
+<section class="banner">
+
+<h2>Temporada 2026/27</h2>
+
+<p>Envíos a toda España 🇪🇸</p>
+
+</section>
+
+<section class="productos">
+
+<div class="card">
+
+<img src="espana-local.jpg">
+
+<h2>España Local</h2>
+
+<p class="precio">22€</p>
+
+<button>Comprar</button>
+
+</div>
+
+<div class="card">
+
+<img src="espana-visitante.jpg">
+
+<h2>España Visitante</h2>
+
+<p class="precio">22€</p>
+
+<button>Comprar</button>
+
+</div>
+
+<div class="card">
+
+<img src="betis-local.jpg">
+
+<h2>Betis Local</h2>
+
+<p class="precio">22€</p>
+
+<button>Comprar</button>
+
+</div>
+
+<div class="card">
+
+<img src="betis-visitante.jpg">
+
+<h2>Betis Visitante</h2>
+
+<p class="precio">22€</p>
+
+<button>Comprar</button>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>WhatsApp: +34 633 32 94 23</p>
+
+</footer>
 
 </body>
 </html>
