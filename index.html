@@ -42,11 +42,15 @@ header{
 }
 
 .logo{
-    color:#f4c400;
-    font-size:27px;
-    font-weight:900;
-    letter-spacing:2px;
+    display:flex;
+    align-items:center;
     text-decoration:none;
+}
+
+.logo img{
+    width:115px;
+    height:auto;
+    display:block;
 }
 
 .menu{
@@ -140,7 +144,10 @@ header{
     padding:15px 25px;
     border-radius:30px;
     font-weight:bold;
-}
+    
+}    .logo img{
+        width:105px;
+    }
 </style>
 
 </head>
@@ -152,7 +159,7 @@ header{
 <div class="cabecera">
 
 <a href="index.html" class="logo">
-GOALWEAR
+    <img src="logo-goalwear.png" alt="Logo GOALWEAR">
 </a>
 
 <nav class="menu">
