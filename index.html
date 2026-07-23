@@ -125,14 +125,18 @@ header{
     .menu a{
         font-size:13px;
     }
-
-}
 .hero{
     min-height:520px;
     padding:60px 20px;
-    background:
-    linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.75)),
-    url("espana-local.jpg") center top/cover no-repeat;
+    background-image:
+        linear-gradient(
+            rgba(0,0,0,0.25),
+            rgba(0,0,0,0.80)
+        ),
+        url("espana-local.jpg");
+    background-size:cover;
+    background-position:center top;
+    background-repeat:no-repeat;
     display:flex;
     align-items:flex-end;
 }
@@ -140,8 +144,8 @@ header{
 .hero-contenido{
     width:100%;
     max-width:1200px;
-    margin:auto;
-    color:white;
+    margin:0 auto;
+    color:#ffffff;
     padding-bottom:35px;
 }
 
@@ -153,6 +157,7 @@ header{
 }
 
 .hero h1{
+    color:#ffffff;
     font-size:64px;
     line-height:1;
     margin-bottom:18px;
@@ -160,6 +165,7 @@ header{
 
 .hero-texto{
     max-width:560px;
+    color:#ffffff;
     font-size:20px;
     line-height:1.5;
     margin-bottom:28px;
@@ -167,14 +173,16 @@ header{
 
 .hero-boton{
     display:inline-block;
-    background:white;
-    color:black;
+    background:#ffffff;
+    color:#000000;
     text-decoration:none;
     padding:15px 25px;
     border-radius:30px;
-    font-weight:bold;
+    font-weight:800;
+}
+
     
-}    .logo img{
+  .logo img{
         width:150px;
       .catalogo{
         padding:50px 18px 25px;
