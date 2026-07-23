@@ -455,98 +455,98 @@ header{
     color:#000;
 }
 
-/* OPINIONES */
+/* CONFIANZA */
 
-.opiniones{
+.confianza{
     background:#fff;
     padding:85px 24px;
 }
 
-.opiniones-contenido{
+.confianza-contenido{
     max-width:1200px;
     margin:auto;
 }
 
-.opiniones-cabecera{
-    max-width:720px;
+.confianza-cabecera{
+    max-width:760px;
     margin-bottom:42px;
 }
 
-.opiniones h2{
+.confianza h2{
     font-size:46px;
     line-height:1.05;
     margin-bottom:16px;
 }
 
-.opiniones-descripcion{
+.confianza-descripcion{
     color:#555;
     font-size:18px;
     line-height:1.6;
 }
 
-.opiniones-grid{
+.confianza-grid{
     display:grid;
     grid-template-columns:repeat(3, minmax(0,1fr));
     gap:24px;
 }
 
-.opinion-card{
+.confianza-card{
     background:#f5f5f5;
+    border:1px solid #e5e5e5;
     border-radius:18px;
-    padding:28px;
-    border:1px solid #e7e7e7;
+    padding:30px;
 }
 
-.opinion-estrellas{
-    color:#f4c400;
-    font-size:22px;
-    letter-spacing:2px;
-    margin-bottom:18px;
-}
-
-.opinion-texto{
-    color:#333;
-    font-size:16px;
-    line-height:1.65;
-    margin-bottom:24px;
-}
-
-.opinion-cliente{
-    display:flex;
-    align-items:center;
-    gap:13px;
-}
-
-.opinion-avatar{
-    width:48px;
-    height:48px;
+.confianza-icono{
+    width:56px;
+    height:56px;
     border-radius:50%;
     background:#111;
     color:#f4c400;
     display:flex;
     align-items:center;
     justify-content:center;
-    font-weight:900;
-    font-size:18px;
+    font-size:26px;
+    margin-bottom:20px;
 }
 
-.opinion-nombre{
+.confianza-card h3{
+    font-size:21px;
+    margin-bottom:10px;
+}
+
+.confianza-card p{
+    color:#666;
     font-size:15px;
+    line-height:1.6;
+}
+
+.confianza-aviso{
+    margin-top:30px;
+    background:#111;
+    color:#fff;
+    padding:24px;
+    border-radius:16px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.confianza-aviso p{
+    color:#ddd;
+    font-size:15px;
+    line-height:1.6;
+}
+
+.confianza-boton{
+    flex-shrink:0;
+    background:#f4c400;
+    color:#000;
+    text-decoration:none;
+    padding:14px 22px;
+    border-radius:30px;
     font-weight:900;
-    margin-bottom:3px;
-}
-
-.opinion-tipo{
-    color:#777;
-    font-size:13px;
-}
-
-.opinion-ejemplo{
-    display:inline-block;
-    margin-top:22px;
-    color:#777;
-    font-size:12px;
-    font-weight:700;
 }
 
 /* VENTAJAS */
@@ -590,16 +590,71 @@ header{
 /* PIE DE PÁGINA */
 
 footer{
-    background:#000;
+    background:#050505;
     color:#fff;
-    padding:38px 24px;
-    text-align:center;
+    padding:65px 24px 30px;
 }
 
-footer p{
+.footer-contenido{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1.4fr 1fr 1fr;
+    gap:45px;
+    padding-bottom:40px;
+}
+
+.footer-logo{
+    width:145px;
+    margin-bottom:20px;
+}
+
+.footer-marca p{
+    max-width:410px;
     color:#aaa;
-    font-size:14px;
+    font-size:15px;
+    line-height:1.7;
+}
+
+.footer-columna h3{
+    color:#f4c400;
+    font-size:17px;
+    margin-bottom:18px;
+}
+
+.footer-columna a{
+    display:block;
+    color:#ddd;
+    text-decoration:none;
+    font-size:15px;
+    margin-bottom:13px;
+}
+
+.footer-columna a:hover{
+    color:#f4c400;
+}
+
+.footer-nota{
+    color:#999;
+    font-size:13px;
     line-height:1.6;
+    margin-top:18px;
+}
+
+.footer-inferior{
+    max-width:1200px;
+    margin:auto;
+    padding-top:25px;
+    border-top:1px solid #292929;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.footer-inferior p{
+    color:#777;
+    font-size:13px;
 }
 
 /* WHATSAPP */
@@ -737,24 +792,44 @@ footer p{
         height:430px;
     }
 
-    .opiniones{
+    .confianza{
         padding:65px 18px;
     }
 
-    .opiniones h2{
+    .confianza h2{
         font-size:38px;
     }
 
-    .opiniones-descripcion{
+    .confianza-descripcion{
         font-size:16px;
     }
 
-    .opiniones-grid{
+    .confianza-grid{
         grid-template-columns:1fr;
+    }
+
+    .confianza-aviso{
+        align-items:flex-start;
+        flex-direction:column;
+    }
+
+    .confianza-boton{
+        width:100%;
+        text-align:center;
     }
 
     .ventajas-contenido{
         grid-template-columns:1fr;
+    }
+
+    .footer-contenido{
+        grid-template-columns:1fr;
+        gap:35px;
+    }
+
+    .footer-inferior{
+        align-items:flex-start;
+        flex-direction:column;
     }
 
 }
@@ -837,7 +912,7 @@ footer p{
 
 <a href="#productos">Camisetas</a>
 
-<a href="#opiniones">Opiniones</a>
+<a href="#confianza">Confianza</a>
 
 <a href="https://wa.me/34633329423" class="contacto">
 Contacto
@@ -895,13 +970,9 @@ Accede directamente a las camisetas disponibles de España o del Real Betis.
 
 <div class="categoria-contenido">
 
-<span class="categoria-mini">
-SELECCIÓN
-</span>
+<span class="categoria-mini">SELECCIÓN</span>
 
-<h3>
-España
-</h3>
+<h3>España</h3>
 
 <p>
 Descubre las equipaciones local y visitante de la Selección Española.
@@ -919,13 +990,9 @@ Ver camisetas
 
 <div class="categoria-contenido">
 
-<span class="categoria-mini">
-LALIGA
-</span>
+<span class="categoria-mini">LALIGA</span>
 
-<h3>
-Real Betis
-</h3>
+<h3>Real Betis</h3>
 
 <p>
 Descubre las equipaciones local y visitante del Real Betis Balompié.
@@ -965,13 +1032,9 @@ Elige tu camiseta y personalízala con nombre, número y parches.
 
 <div class="grupo-titulo">
 
-<h3>
-Selección Española
-</h3>
+<h3>Selección Española</h3>
 
-<p>
-2 camisetas disponibles
-</p>
+<p>2 camisetas disponibles</p>
 
 </div>
 
@@ -1053,13 +1116,9 @@ Ver producto
 
 <div class="grupo-titulo">
 
-<h3>
-Real Betis
-</h3>
+<h3>Real Betis</h3>
 
-<p>
-2 camisetas disponibles
-</p>
+<p>2 camisetas disponibles</p>
 
 </div>
 
@@ -1139,129 +1198,77 @@ Ver producto
 
 </section>
 
-<section class="opiniones" id="opiniones">
+<section class="confianza" id="confianza">
 
-<div class="opiniones-contenido">
+<div class="confianza-contenido">
 
-<div class="opiniones-cabecera">
+<div class="confianza-cabecera">
 
 <p class="seccion-etiqueta">
-EXPERIENCIA GOALWEAR
+COMPRA CON TRANQUILIDAD
 </p>
 
 <h2>
-Opiniones de clientes
+Una atención cercana en cada pedido
 </h2>
 
-<p class="opiniones-descripcion">
-Aquí mostraremos las experiencias reales de personas que hayan comprado sus camisetas en GOALWEAR.
+<p class="confianza-descripcion">
+Antes de realizar el pago confirmamos contigo la camiseta, la talla, el acabado y la disponibilidad por WhatsApp.
 </p>
 
 </div>
 
-<div class="opiniones-grid">
+<div class="confianza-grid">
 
-<article class="opinion-card">
+<div class="confianza-card">
 
-<div class="opinion-estrellas">
-★★★★★
-</div>
+<div class="confianza-icono">✓</div>
 
-<p class="opinion-texto">
-“La camiseta llegó en muy buen estado y la atención por WhatsApp fue rápida y cercana.”
-</p>
+<h3>Pedido confirmado</h3>
 
-<div class="opinion-cliente">
-
-<div class="opinion-avatar">
-JM
-</div>
-
-<div>
-
-<p class="opinion-nombre">
-Cliente GOALWEAR
-</p>
-
-<p class="opinion-tipo">
-Opinión de ejemplo
+<p>
+Revisamos contigo todos los detalles del pedido para evitar errores en tallas, nombres, dorsales y parches.
 </p>
 
 </div>
 
-</div>
+<div class="confianza-card">
 
-</article>
+<div class="confianza-icono">💬</div>
 
-<article class="opinion-card">
+<h3>Atención personal</h3>
 
-<div class="opinion-estrellas">
-★★★★★
-</div>
-
-<p class="opinion-texto">
-“El nombre, el dorsal y los parches quedaron muy bien. Volvería a pedir otra camiseta.”
+<p>
+Puedes hablar directamente con GOALWEAR por WhatsApp antes y después de realizar tu pedido.
 </p>
 
-<div class="opinion-cliente">
-
-<div class="opinion-avatar">
-AC
 </div>
 
-<div>
+<div class="confianza-card">
 
-<p class="opinion-nombre">
-Cliente GOALWEAR
-</p>
+<div class="confianza-icono">📦</div>
 
-<p class="opinion-tipo">
-Opinión de ejemplo
+<h3>Seguimiento del pedido</h3>
+
+<p>
+Te informamos sobre la preparación, la llegada y la entrega de tus camisetas.
 </p>
 
 </div>
 
 </div>
 
-</article>
+<div class="confianza-aviso">
 
-<article class="opinion-card">
-
-<div class="opinion-estrellas">
-★★★★★
-</div>
-
-<p class="opinion-texto">
-“Me ayudaron con la talla antes de pedirla y todo el proceso fue sencillo.”
+<p>
+Las opiniones reales de compradores se añadirán próximamente. No publicamos reseñas inventadas.
 </p>
 
-<div class="opinion-cliente">
-
-<div class="opinion-avatar">
-LR
-</div>
-
-<div>
-
-<p class="opinion-nombre">
-Cliente GOALWEAR
-</p>
-
-<p class="opinion-tipo">
-Opinión de ejemplo
-</p>
+<a href="https://wa.me/34633329423" class="confianza-boton">
+Resolver una duda
+</a>
 
 </div>
-
-</div>
-
-</article>
-
-</div>
-
-<p class="opinion-ejemplo">
-Estas opiniones son ejemplos de diseño. Sustitúyelas por reseñas reales de tus clientes.
-</p>
 
 </div>
 
@@ -1315,13 +1322,72 @@ Resolvemos tus dudas y confirmamos tu pedido personalmente por WhatsApp.
 
 <footer>
 
+<div class="footer-contenido">
+
+<div class="footer-marca">
+
+<img
+src="logo-goalwear.png"
+alt="Logo GOALWEAR"
+class="footer-logo">
+
 <p>
-© 2026 GOALWEAR. Camisetas de fútbol y personalización.
+GOALWEAR es una tienda de camisetas de fútbol con opciones de parches y serigrafía personalizada. Todos los pedidos se confirman directamente por WhatsApp.
+</p>
+
+</div>
+
+<div class="footer-columna">
+
+<h3>
+Enlaces rápidos
+</h3>
+
+<a href="index.html">Inicio</a>
+
+<a href="#categorias">Equipos</a>
+
+<a href="#espana">Selección Española</a>
+
+<a href="#betis">Real Betis</a>
+
+<a href="#confianza">Cómo funciona</a>
+
+</div>
+
+<div class="footer-columna">
+
+<h3>
+Contacto
+</h3>
+
+<a href="https://wa.me/34633329423">
+WhatsApp: +34 633 32 94 23
+</a>
+
+<a href="https://www.instagram.com/goal.wearstore/">
+Instagram: @goal.wearstore
+</a>
+
+<p class="footer-nota">
+Consulta la disponibilidad, tallas, acabados, envíos y formas de pago antes de finalizar el pedido.
+</p>
+
+</div>
+
+</div>
+
+<div class="footer-inferior">
+
+<p>
+© 2026 GOALWEAR. Todos los derechos reservados.
 </p>
 
 <p>
-Pedidos y consultas: +34 633 32 94 23
+Pedidos gestionados personalmente por WhatsApp.
 </p>
+
+</div>
 
 </footer>
 
