@@ -111,11 +111,6 @@ header{
     color:#000 !important;
     padding:12px 20px;
     border-radius:30px;
-    transition:transform .2s ease;
-}
-
-.contacto:hover{
-    transform:translateY(-2px);
 }
 
 /* PORTADA */
@@ -174,12 +169,124 @@ header{
     border-radius:30px;
     font-size:16px;
     font-weight:900;
-    transition:transform .2s ease, background .2s ease;
+    transition:transform .2s ease;
 }
 
 .hero-boton:hover{
     transform:translateY(-3px);
+}
+
+/* CATEGORÍAS */
+
+.categorias{
+    max-width:1200px;
+    margin:auto;
+    padding:80px 24px 40px;
+}
+
+.seccion-etiqueta{
+    color:#777;
+    font-size:13px;
+    font-weight:900;
+    letter-spacing:2px;
+    margin-bottom:12px;
+}
+
+.categorias h2{
+    font-size:46px;
+    line-height:1.05;
+    margin-bottom:16px;
+}
+
+.categorias-descripcion{
+    max-width:650px;
+    color:#555;
+    font-size:18px;
+    line-height:1.6;
+    margin-bottom:40px;
+}
+
+.categorias-grid{
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0,1fr));
+    gap:25px;
+}
+
+.categoria-card{
+    position:relative;
+    min-height:460px;
+    border-radius:18px;
+    overflow:hidden;
+    color:#fff;
+    text-decoration:none;
+    display:flex;
+    align-items:flex-end;
+    box-shadow:0 12px 32px rgba(0,0,0,.15);
+}
+
+.categoria-card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        rgba(0,0,0,.05),
+        rgba(0,0,0,.85)
+    );
+    z-index:1;
+}
+
+.categoria-espana{
+    background:url("espana-local.jpg") center top/cover no-repeat;
+}
+
+.categoria-betis{
+    background:url("betis-local.jpg") center/cover no-repeat;
+}
+
+.categoria-contenido{
+    position:relative;
+    z-index:2;
+    width:100%;
+    padding:32px;
+}
+
+.categoria-mini{
+    display:inline-block;
+    background:#f4c400;
+    color:#000;
+    padding:8px 12px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:900;
+    letter-spacing:1px;
+    margin-bottom:13px;
+}
+
+.categoria-card h3{
+    font-size:38px;
+    line-height:1.05;
+    margin-bottom:12px;
+}
+
+.categoria-card p{
+    color:#eee;
+    font-size:16px;
+    line-height:1.5;
+    margin-bottom:20px;
+}
+
+.categoria-enlace{
+    display:inline-block;
     background:#fff;
+    color:#000;
+    padding:13px 20px;
+    border-radius:30px;
+    font-size:14px;
+    font-weight:900;
+}
+
+.categoria-card:hover .categoria-enlace{
+    background:#f4c400;
 }
 
 /* CATÁLOGO */
@@ -187,7 +294,7 @@ header{
 .catalogo{
     max-width:1200px;
     margin:auto;
-    padding:80px 24px 90px;
+    padding:70px 24px 90px;
 }
 
 .catalogo-cabecera{
@@ -213,6 +320,34 @@ header{
     color:#555;
     font-size:18px;
     line-height:1.6;
+}
+
+.grupo-productos{
+    scroll-margin-top:190px;
+    margin-bottom:70px;
+}
+
+.grupo-productos:last-child{
+    margin-bottom:0;
+}
+
+.grupo-titulo{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:20px;
+    padding-bottom:18px;
+    margin-bottom:28px;
+    border-bottom:2px solid #ddd;
+}
+
+.grupo-titulo h3{
+    font-size:34px;
+}
+
+.grupo-titulo p{
+    color:#666;
+    font-size:15px;
 }
 
 .productos-grid{
@@ -313,7 +448,6 @@ header{
     border-radius:30px;
     font-size:14px;
     font-weight:900;
-    transition:background .2s ease, color .2s ease;
 }
 
 .producto-boton:hover{
@@ -450,6 +584,30 @@ footer p{
         font-size:18px;
     }
 
+    .categorias{
+        padding:60px 18px 30px;
+    }
+
+    .categorias h2{
+        font-size:38px;
+    }
+
+    .categorias-descripcion{
+        font-size:16px;
+    }
+
+    .categorias-grid{
+        grid-template-columns:1fr;
+    }
+
+    .categoria-card{
+        min-height:430px;
+    }
+
+    .categoria-card h3{
+        font-size:34px;
+    }
+
     .catalogo{
         padding:60px 18px 70px;
     }
@@ -460,6 +618,20 @@ footer p{
 
     .catalogo-descripcion{
         font-size:16px;
+    }
+
+    .grupo-productos{
+        scroll-margin-top:210px;
+    }
+
+    .grupo-titulo{
+        align-items:flex-start;
+        flex-direction:column;
+        gap:7px;
+    }
+
+    .grupo-titulo h3{
+        font-size:30px;
     }
 
     .productos-grid{
@@ -497,6 +669,14 @@ footer p{
 
     .hero-texto{
         font-size:17px;
+    }
+
+    .categoria-card{
+        min-height:400px;
+    }
+
+    .categoria-contenido{
+        padding:25px;
     }
 
     .producto-imagen img{
@@ -541,17 +721,11 @@ footer p{
 
 <nav class="menu">
 
-<a href="index.html">
-Inicio
-</a>
+<a href="index.html">Inicio</a>
 
-<a href="#productos">
-Camisetas
-</a>
+<a href="#categorias">Equipos</a>
 
-<a href="#productos">
-Novedades
-</a>
+<a href="#productos">Camisetas</a>
 
 <a href="https://wa.me/34633329423" class="contacto">
 Contacto
@@ -581,8 +755,76 @@ Viste tu pasión.
 Camisetas de fútbol con parches y serigrafía personalizada. Elige tu equipo, tu talla y tu acabado.
 </p>
 
-<a href="#productos" class="hero-boton">
-Comprar ahora
+<a href="#categorias" class="hero-boton">
+Elegir equipo
+</a>
+
+</div>
+
+</section>
+
+<section class="categorias" id="categorias">
+
+<p class="seccion-etiqueta">
+ENCUENTRA TU CAMISETA
+</p>
+
+<h2>
+Elige tu equipo
+</h2>
+
+<p class="categorias-descripcion">
+Accede directamente a las camisetas disponibles de España o del Real Betis.
+</p>
+
+<div class="categorias-grid">
+
+<a href="#espana" class="categoria-card categoria-espana">
+
+<div class="categoria-contenido">
+
+<span class="categoria-mini">
+SELECCIÓN
+</span>
+
+<h3>
+España
+</h3>
+
+<p>
+Descubre las equipaciones local y visitante de la Selección Española.
+</p>
+
+<span class="categoria-enlace">
+Ver camisetas
+</span>
+
+</div>
+
+</a>
+
+<a href="#betis" class="categoria-card categoria-betis">
+
+<div class="categoria-contenido">
+
+<span class="categoria-mini">
+LALIGA
+</span>
+
+<h3>
+Real Betis
+</h3>
+
+<p>
+Descubre las equipaciones local y visitante del Real Betis Balompié.
+</p>
+
+<span class="categoria-enlace">
+Ver camisetas
+</span>
+
+</div>
+
 </a>
 
 </div>
@@ -602,7 +844,21 @@ Productos destacados
 </h2>
 
 <p class="catalogo-descripcion">
-Descubre las camisetas disponibles para la temporada 2026/27.
+Elige tu camiseta y personalízala con nombre, número y parches.
+</p>
+
+</div>
+
+<div class="grupo-productos" id="espana">
+
+<div class="grupo-titulo">
+
+<h3>
+Selección Española
+</h3>
+
+<p>
+2 camisetas disponibles
 </p>
 
 </div>
@@ -613,9 +869,7 @@ Descubre las camisetas disponibles para la temporada 2026/27.
 
 <a href="producto-espana-local.html" class="producto-imagen">
 
-<span class="producto-etiqueta">
-NUEVO
-</span>
+<span class="producto-etiqueta">NUEVO</span>
 
 <img src="espana-local.jpg" alt="Camiseta España Local 2026">
 
@@ -623,13 +877,9 @@ NUEVO
 
 <div class="producto-info">
 
-<p class="producto-categoria">
-España
-</p>
+<p class="producto-categoria">España</p>
 
-<h3>
-España Local 2026
-</h3>
+<h3>España Local 2026</h3>
 
 <p class="producto-descripcion">
 Disponible sola, con parches o con parches y serigrafía personalizada.
@@ -637,9 +887,7 @@ Disponible sola, con parches o con parches y serigrafía personalizada.
 
 <div class="producto-final">
 
-<span class="producto-precio">
-Desde 18€
-</span>
+<span class="producto-precio">Desde 18€</span>
 
 <a href="producto-espana-local.html" class="producto-boton">
 Ver producto
@@ -655,9 +903,7 @@ Ver producto
 
 <a href="producto-espana-visitante.html" class="producto-imagen">
 
-<span class="producto-etiqueta">
-NUEVO
-</span>
+<span class="producto-etiqueta">NUEVO</span>
 
 <img src="espana-visitante.jpg" alt="Camiseta España Visitante 2026">
 
@@ -665,13 +911,9 @@ NUEVO
 
 <div class="producto-info">
 
-<p class="producto-categoria">
-España
-</p>
+<p class="producto-categoria">España</p>
 
-<h3>
-España Visitante 2026
-</h3>
+<h3>España Visitante 2026</h3>
 
 <p class="producto-descripcion">
 Disponible sola, con parches o con parches y serigrafía personalizada.
@@ -679,9 +921,7 @@ Disponible sola, con parches o con parches y serigrafía personalizada.
 
 <div class="producto-final">
 
-<span class="producto-precio">
-Desde 18€
-</span>
+<span class="producto-precio">Desde 18€</span>
 
 <a href="producto-espana-visitante.html" class="producto-boton">
 Ver producto
@@ -693,13 +933,31 @@ Ver producto
 
 </article>
 
+</div>
+
+</div>
+
+<div class="grupo-productos" id="betis">
+
+<div class="grupo-titulo">
+
+<h3>
+Real Betis
+</h3>
+
+<p>
+2 camisetas disponibles
+</p>
+
+</div>
+
+<div class="productos-grid">
+
 <article class="producto-card">
 
 <a href="producto-betis-local.html" class="producto-imagen">
 
-<span class="producto-etiqueta">
-NUEVO
-</span>
+<span class="producto-etiqueta">NUEVO</span>
 
 <img src="betis-local.jpg" alt="Camiseta Betis Local 2026">
 
@@ -707,13 +965,9 @@ NUEVO
 
 <div class="producto-info">
 
-<p class="producto-categoria">
-Real Betis
-</p>
+<p class="producto-categoria">Real Betis</p>
 
-<h3>
-Betis Local 2026
-</h3>
+<h3>Betis Local 2026</h3>
 
 <p class="producto-descripcion">
 Disponible sola, con parches o con parches y serigrafía personalizada.
@@ -721,9 +975,7 @@ Disponible sola, con parches o con parches y serigrafía personalizada.
 
 <div class="producto-final">
 
-<span class="producto-precio">
-Desde 18€
-</span>
+<span class="producto-precio">Desde 18€</span>
 
 <a href="producto-betis-local.html" class="producto-boton">
 Ver producto
@@ -739,9 +991,7 @@ Ver producto
 
 <a href="producto-betis-visitante.html" class="producto-imagen">
 
-<span class="producto-etiqueta">
-NUEVO
-</span>
+<span class="producto-etiqueta">NUEVO</span>
 
 <img src="betis-visitante.jpg" alt="Camiseta Betis Visitante 2026">
 
@@ -749,13 +999,9 @@ NUEVO
 
 <div class="producto-info">
 
-<p class="producto-categoria">
-Real Betis
-</p>
+<p class="producto-categoria">Real Betis</p>
 
-<h3>
-Betis Visitante 2026
-</h3>
+<h3>Betis Visitante 2026</h3>
 
 <p class="producto-descripcion">
 Disponible sola, con parches o con parches y serigrafía personalizada.
@@ -763,9 +1009,7 @@ Disponible sola, con parches o con parches y serigrafía personalizada.
 
 <div class="producto-final">
 
-<span class="producto-precio">
-Desde 18€
-</span>
+<span class="producto-precio">Desde 18€</span>
 
 <a href="producto-betis-visitante.html" class="producto-boton">
 Ver producto
@@ -779,6 +1023,8 @@ Ver producto
 
 </div>
 
+</div>
+
 </section>
 
 <section class="ventajas">
@@ -787,13 +1033,9 @@ Ver producto
 
 <div class="ventaja">
 
-<div class="ventaja-icono">
-🚚
-</div>
+<div class="ventaja-icono">🚚</div>
 
-<h3>
-Envíos a toda España
-</h3>
+<h3>Envíos a toda España</h3>
 
 <p>
 Consulta por WhatsApp los plazos y las opciones de entrega disponibles.
@@ -803,13 +1045,9 @@ Consulta por WhatsApp los plazos y las opciones de entrega disponibles.
 
 <div class="ventaja">
 
-<div class="ventaja-icono">
-⭐
-</div>
+<div class="ventaja-icono">⭐</div>
 
-<h3>
-Personalización
-</h3>
+<h3>Personalización</h3>
 
 <p>
 Añade nombre, número y parches para preparar una camiseta a tu gusto.
@@ -819,13 +1057,9 @@ Añade nombre, número y parches para preparar una camiseta a tu gusto.
 
 <div class="ventaja">
 
-<div class="ventaja-icono">
-💬
-</div>
+<div class="ventaja-icono">💬</div>
 
-<h3>
-Atención directa
-</h3>
+<h3>Atención directa</h3>
 
 <p>
 Resolvemos tus dudas y confirmamos tu pedido personalmente por WhatsApp.
