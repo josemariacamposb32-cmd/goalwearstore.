@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Betis Local 2026 | GoalWear</title>
+
+<style>
+body{
+margin:0;
+background:#111;
+color:white;
+font-family:Arial,sans-serif;
+}
+
+header{
+background:#000;
+padding:20px;
+text-align:center;
+border-bottom:3px solid gold;
+}
+
+header h1{
+color:gold;
+margin:0;
+}
+
+.container{
+max-width:600px;
+margin:auto;
+padding:20px;
+}
+
+img{
+width:100%;
+border-radius:20px;
+}
+
+h2{
+font-size:42px;
+text-align:center;
+margin-top:25px;
+}
+
+.precio{
+text-align:center;
+font-size:60px;
+color:gold;
+font-weight:bold;
+}
+
+label{
+display:block;
+margin-top:20px;
+font-size:22px;
+font-weight:bold;
+}
+
+select,input{
+width:100%;
+padding:15px;
+font-size:20px;
+border-radius:12px;
+border:none;
+margin-top:8px;
+}
+
+button{
+width:100%;
+margin-top:30px;
+padding:20px;
+font-size:28px;
+font-weight:bold;
+background:gold;
+border:none;
+border-radius:50px;
+cursor:pointer;
+}
+
+.info{
+background:#222;
+margin-top:25px;
+padding:20px;
+border-radius:15px;
+font-size:20px;
+line-height:35px;
+}
+
+a{
+color:white;
+display:block;
+text-align:center;
+margin-top:30px;
+}
+</style>
+
+<script>
+
+function actualizarPrecio(){
+
+let acabado=document.getElementById("acabado").value;
+
+if(acabado=="sola"){
+document.getElementById("precio").innerHTML="18€";
+}
+
+if(acabado=="parches"){
+document.getElementById("precio").innerHTML="20€";
+}
+
+if(acabado=="serigrafia"){
+document.getElementById("precio").innerHTML="22€";
+}
+
+}
+
+function comprar(){
+
+let talla=document.getElementById("talla").value;
+
+let acabado=document.getElementById("acabado");
+
+let textoAcabado=acabado.options[acabado.selectedIndex].text;
+
+let precio=document.getElementById("precio").innerHTML;
+
+let nombre=document.getElementById("nombre").value;
+
+let numero=document.getElementById("numero").value;
+
+let mensaje=
+"Hola GoalWear 👋%0A%0A"+
+"Quiero pedir:%0A%0A"+
+"👕 Betis Local 2026%0A"+
+"📏 Talla: "+talla+"%0A"+
+"⭐ Acabado: "+textoAcabado+"%0A"+
+"💶 Precio: "+precio+"%0A"+
+"✍️ Nombre: "+nombre+"%0A"+
+"🔢 Número: "+numero+"%0A%0A"+
+"Foto:%0A"+
+"https://josemariacamposb32-cmd.github.io/goalwearstore/betis-local.jpg";
+
+window.open("https://wa.me/34633329423?text="+mensaje);
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>GOALWEAR</h1>
+
+</header>
+
+<div class="container">
+
+<img src="betis-local.jpg">
+
+<h2>Betis Local 2026</h2>
+
+<p class="precio" id="precio">18€</p>
+
+<label>Selecciona la talla</label>
+
+<select id="talla">
+
+<option>S</option>
+<option>M</option>
+<option>L</option>
+<option>XL</option>
+<option>2XL</option>
+
+</select>
+
+<label>Elige el acabado</label>
+
+<select id="acabado" onchange="actualizarPrecio()">
+
+<option value="sola">Camiseta sola — 18€</option>
+
+<option value="parches">Con parches — 20€</option>
+
+<option value="serigrafia">Con parches + serigrafía — 22€</option>
+
+</select>
+
+<label>Nombre para serigrafiar</label>
+
+<input id="nombre" placeholder="Ejemplo: ISCO">
+
+<label>Número</label>
+
+<input id="numero" placeholder="Ejemplo: 22">
+
+<button onclick="comprar()">Comprar por WhatsApp</button>
+
+<div class="info">
+
+✅ Envíos a toda España<br>
+
+✅ Atención personalizada por WhatsApp<br>
+
+✅ Confirma disponibilidad antes del pago
+
+</div>
+
+<a href="index.html">← Volver al catálogo</a>
+
+</div>
+
+</body>
+</html>
