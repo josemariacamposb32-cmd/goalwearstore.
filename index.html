@@ -33,6 +33,28 @@ img{
     max-width:100%;
 }
 
+/* BARRA SUPERIOR */
+
+.barra-promociones{
+    background:#f4c400;
+    color:#000;
+    min-height:38px;
+    padding:9px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:35px;
+    font-size:13px;
+    font-weight:900;
+    text-align:center;
+}
+
+.barra-promociones span{
+    white-space:nowrap;
+}
+
+/* CABECERA */
+
 header{
     background:#000;
     color:#fff;
@@ -96,6 +118,8 @@ header{
     transform:translateY(-2px);
 }
 
+/* PORTADA */
+
 .hero{
     min-height:650px;
     padding:70px 24px;
@@ -143,7 +167,7 @@ header{
 
 .hero-boton{
     display:inline-block;
-    background:#fff;
+    background:#f4c400;
     color:#000;
     text-decoration:none;
     padding:16px 28px;
@@ -155,8 +179,10 @@ header{
 
 .hero-boton:hover{
     transform:translateY(-3px);
-    background:#f4c400;
+    background:#fff;
 }
+
+/* CATÁLOGO */
 
 .catalogo{
     max-width:1200px;
@@ -295,6 +321,8 @@ header{
     color:#000;
 }
 
+/* VENTAJAS */
+
 .ventajas{
     background:#111;
     color:#fff;
@@ -331,6 +359,8 @@ header{
     line-height:1.5;
 }
 
+/* PIE DE PÁGINA */
+
 footer{
     background:#000;
     color:#fff;
@@ -343,6 +373,8 @@ footer p{
     font-size:14px;
     line-height:1.6;
 }
+
+/* WHATSAPP */
 
 .whatsapp-flotante{
     position:fixed;
@@ -362,7 +394,25 @@ footer p{
     z-index:1100;
 }
 
+/* TABLET Y MÓVIL */
+
 @media(max-width:850px){
+
+    .barra-promociones{
+        min-height:36px;
+        padding:9px 14px;
+        gap:0;
+        overflow:hidden;
+    }
+
+    .barra-promociones span{
+        display:none;
+    }
+
+    .barra-promociones span:first-child{
+        display:block;
+        white-space:normal;
+    }
 
     .cabecera{
         min-height:auto;
@@ -470,6 +520,16 @@ footer p{
 </head>
 
 <body>
+
+<div class="barra-promociones">
+
+<span>🚚 Envíos a toda España</span>
+
+<span>⭐ Personalización disponible</span>
+
+<span>💬 Atención por WhatsApp</span>
+
+</div>
 
 <header>
 
