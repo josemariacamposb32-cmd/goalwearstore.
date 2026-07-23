@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>España Visitante 2026 | GoalWear</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    background:#111;
+    color:white;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+header{
+    background:#000;
+    text-align:center;
+    padding:20px;
+    border-bottom:3px solid #ffd700;
+}
+
+header a{
+    color:#ffd700;
+    text-decoration:none;
+    font-size:28px;
+    font-weight:bold;
+}
+
+.producto{
+    max-width:650px;
+    margin:auto;
+    padding:20px;
+}
+
+.producto img{
+    width:100%;
+    display:block;
+    border-radius:18px;
+    background:white;
+}
+
+h1{
+    margin-top:25px;
+    font-size:32px;
+    text-align:center;
+}
+
+.precio{
+    color:#ffd700;
+    text-align:center;
+    font-size:38px;
+    font-weight:bold;
+    margin:20px 0;
+}
+
+label{
+    display:block;
+    font-weight:bold;
+    margin-top:18px;
+    margin-bottom:7px;
+}
+
+select,
+input{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    font-size:17px;
+}
+
+.boton{
+    width:100%;
+    margin-top:25px;
+    padding:17px;
+    border:none;
+    border-radius:30px;
+    background:#ffd700;
+    color:#111;
+    font-size:20px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.volver{
+    display:block;
+    text-align:center;
+    margin-top:20px;
+    color:white;
+}
+
+.aviso{
+    margin-top:20px;
+    padding:15px;
+    background:#1c1c1c;
+    border-radius:12px;
+    line-height:1.6;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <a href="index.html">GOALWEAR</a>
+</header>
+
+<main class="producto">
+
+    <img src="espana-visitante.jpg" alt="Camiseta España Visitante 2026">
+
+    <h1>España Visitante 2026</h1>
+
+    <div class="precio" id="precio">18€</div>
+
+    <label for="talla">Selecciona la talla</label>
+    <select id="talla">
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+        <option value="2XL">2XL</option>
+    </select>
+
+    <label for="acabado">Elige el acabado</label>
+    <select id="acabado" onchange="actualizarPrecio()">
+        <option value="Camiseta sola" data-precio="18">Camiseta sola — 18€</option>
+        <option value="Camiseta con parches" data-precio="20">Con parches — 20€</option>
+        <option value="Parches y serigrafía" data-precio="22">Parches + serigrafía — 22€</option>
+    </select>
+
+    <label for="nombre">Nombre para serigrafiar</label>
+    <input id="nombre" type="text" placeholder="Ejemplo: PEDRI">
+
+    <label for="dorsal">Número</label>
+    <input id="dorsal" type="number" min="0" max="99" placeholder="Ejemplo: 8">
+
+    <button class="boton" onclick="comprar()">
+        Comprar por WhatsApp
+    </button>
+
+    <div class="aviso">
+        ✅ Envíos a toda España<br>
+        ✅ Atención personalizada por WhatsApp<br>
+        ✅ Confirma disponibilidad antes del pago
+    </div>
+
+    <a class="volver" href="index.html">← Volver al catálogo</a>
+
+</main>
+
+<script>
+function actualizarPrecio(){
+    const acabado = document.getElementById("acabado");
+    const opcion = acabado.options[acabado.selectedIndex];
+    const precio = opcion.getAttribute("data-precio");
+
+    document.getElementById("precio").textContent = precio + "€";
+}
+
+function comprar(){
+    const talla = document.getElementById("talla").value;
+    const acabadoSelect = document.getElementById("acabado");
+    const acabado = acabadoSelect.value;
+    const precio = acabadoSelect.options[acabadoSelect.selectedIndex]
+        .getAttribute("data-precio");
+
+    const nombre = document.getElementById("nombre").value.trim();
+    const dorsal = document.getElementById("dorsal").value.trim();
+
+    let mensaje =
+`Hola GoalWear 👋
+
+Quiero pedir esta camiseta:
+
+👕 España Visitante 2026
+📏 Talla: ${talla}
+⭐ Acabado: ${acabado}
+💶 Precio: ${precio}€`;
+
+    if(nombre){
+        mensaje += `\n✍️ Nombre: ${nombre}`;
+    }
+
+    if(dorsal){
+        mensaje += `\n🔢 Dorsal: ${dorsal}`;
+    }
+
+    mensaje += `\n\nFoto del producto:\nhttps://josemariacamposb32-cmd.github.io/goalwearstore/espana-visitante.jpg`;
+
+    const url = "https://wa.me/34633329423?text=" + encodeURIComponent(mensaje);
+    window.open(url, "_blank");
+}
+</script>
+
+</body>
+</html>
