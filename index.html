@@ -99,7 +99,6 @@ header{
     text-decoration:none;
     font-size:15px;
     font-weight:800;
-    transition:color .2s ease;
 }
 
 .menu a:hover{
@@ -169,11 +168,6 @@ header{
     border-radius:30px;
     font-size:16px;
     font-weight:900;
-    transition:transform .2s ease;
-}
-
-.hero-boton:hover{
-    transform:translateY(-3px);
 }
 
 /* CATEGORÍAS */
@@ -264,7 +258,6 @@ header{
 
 .categoria-card h3{
     font-size:38px;
-    line-height:1.05;
     margin-bottom:12px;
 }
 
@@ -285,8 +278,87 @@ header{
     font-weight:900;
 }
 
-.categoria-card:hover .categoria-enlace{
+/* BUSCADOR Y FILTROS */
+
+.buscador-seccion{
+    max-width:1200px;
+    margin:auto;
+    padding:45px 24px 0;
+}
+
+.buscador-panel{
+    background:#111;
+    color:#fff;
+    padding:30px;
+    border-radius:18px;
+    box-shadow:0 12px 32px rgba(0,0,0,.12);
+}
+
+.buscador-panel h2{
+    font-size:30px;
+    margin-bottom:10px;
+}
+
+.buscador-panel > p{
+    color:#ccc;
+    font-size:15px;
+    line-height:1.5;
+    margin-bottom:22px;
+}
+
+.buscador-controles{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.buscador-campo{
+    flex:1;
+    position:relative;
+}
+
+.buscador-campo input{
+    width:100%;
+    border:none;
+    outline:none;
+    background:#fff;
+    color:#111;
+    border-radius:30px;
+    padding:15px 20px;
+    font-size:16px;
+}
+
+.filtros{
+    display:flex;
+    gap:10px;
+}
+
+.filtro-boton{
+    border:1px solid #444;
+    background:#222;
+    color:#fff;
+    padding:13px 18px;
+    border-radius:30px;
+    font-size:14px;
+    font-weight:800;
+    cursor:pointer;
+}
+
+.filtro-boton.activo{
     background:#f4c400;
+    color:#000;
+    border-color:#f4c400;
+}
+
+.sin-resultados{
+    display:none;
+    margin-top:22px;
+    background:#fff;
+    color:#111;
+    padding:18px;
+    border-radius:12px;
+    text-align:center;
+    font-weight:800;
 }
 
 /* CATÁLOGO */
@@ -294,7 +366,7 @@ header{
 .catalogo{
     max-width:1200px;
     margin:auto;
-    padding:70px 24px 90px;
+    padding:65px 24px 90px;
 }
 
 .catalogo-cabecera{
@@ -381,11 +453,6 @@ header{
     height:500px;
     object-fit:cover;
     display:block;
-    transition:transform .35s ease;
-}
-
-.producto-card:hover .producto-imagen img{
-    transform:scale(1.035);
 }
 
 .producto-etiqueta{
@@ -474,7 +541,6 @@ header{
 
 .confianza h2{
     font-size:46px;
-    line-height:1.05;
     margin-bottom:16px;
 }
 
@@ -549,44 +615,6 @@ header{
     font-weight:900;
 }
 
-/* VENTAJAS */
-
-.ventajas{
-    background:#111;
-    color:#fff;
-    padding:60px 24px;
-}
-
-.ventajas-contenido{
-    max-width:1200px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:repeat(3, minmax(0,1fr));
-    gap:24px;
-}
-
-.ventaja{
-    padding:24px;
-    border:1px solid #2e2e2e;
-    border-radius:14px;
-}
-
-.ventaja-icono{
-    font-size:30px;
-    margin-bottom:14px;
-}
-
-.ventaja h3{
-    font-size:20px;
-    margin-bottom:8px;
-}
-
-.ventaja p{
-    color:#cfcfcf;
-    font-size:15px;
-    line-height:1.5;
-}
-
 /* PIE DE PÁGINA */
 
 footer{
@@ -630,10 +658,6 @@ footer{
     margin-bottom:13px;
 }
 
-.footer-columna a:hover{
-    color:#f4c400;
-}
-
 .footer-nota{
     color:#999;
     font-size:13px;
@@ -647,7 +671,6 @@ footer{
     padding-top:25px;
     border-top:1px solid #292929;
     display:flex;
-    align-items:center;
     justify-content:space-between;
     gap:20px;
 }
@@ -677,16 +700,9 @@ footer{
     z-index:1100;
 }
 
-/* TABLET Y MÓVIL */
+/* MÓVIL */
 
 @media(max-width:850px){
-
-    .barra-promociones{
-        min-height:36px;
-        padding:9px 14px;
-        gap:0;
-        overflow:hidden;
-    }
 
     .barra-promociones span{
         display:none;
@@ -694,18 +710,12 @@ footer{
 
     .barra-promociones span:first-child{
         display:block;
-        white-space:normal;
     }
 
     .cabecera{
-        min-height:auto;
         padding:16px 18px;
         flex-direction:column;
         gap:15px;
-    }
-
-    .logo img{
-        width:150px;
     }
 
     .menu{
@@ -722,7 +732,6 @@ footer{
     .hero{
         min-height:620px;
         padding:50px 20px;
-        background-position:center top;
     }
 
     .hero h1{
@@ -741,10 +750,6 @@ footer{
         font-size:38px;
     }
 
-    .categorias-descripcion{
-        font-size:16px;
-    }
-
     .categorias-grid{
         grid-template-columns:1fr;
     }
@@ -753,24 +758,34 @@ footer{
         min-height:430px;
     }
 
-    .categoria-card h3{
-        font-size:34px;
+    .buscador-seccion{
+        padding:40px 18px 0;
+    }
+
+    .buscador-panel{
+        padding:24px;
+    }
+
+    .buscador-controles{
+        align-items:stretch;
+        flex-direction:column;
+    }
+
+    .filtros{
+        width:100%;
+    }
+
+    .filtro-boton{
+        flex:1;
+        padding:12px 8px;
     }
 
     .catalogo{
-        padding:60px 18px 70px;
+        padding:55px 18px 70px;
     }
 
     .catalogo h2{
         font-size:38px;
-    }
-
-    .catalogo-descripcion{
-        font-size:16px;
-    }
-
-    .grupo-productos{
-        scroll-margin-top:210px;
     }
 
     .grupo-titulo{
@@ -779,13 +794,8 @@ footer{
         gap:7px;
     }
 
-    .grupo-titulo h3{
-        font-size:30px;
-    }
-
     .productos-grid{
         grid-template-columns:1fr;
-        gap:24px;
     }
 
     .producto-imagen img{
@@ -798,10 +808,6 @@ footer{
 
     .confianza h2{
         font-size:38px;
-    }
-
-    .confianza-descripcion{
-        font-size:16px;
     }
 
     .confianza-grid{
@@ -818,17 +824,12 @@ footer{
         text-align:center;
     }
 
-    .ventajas-contenido{
-        grid-template-columns:1fr;
-    }
-
     .footer-contenido{
         grid-template-columns:1fr;
         gap:35px;
     }
 
     .footer-inferior{
-        align-items:flex-start;
         flex-direction:column;
     }
 
@@ -844,24 +845,12 @@ footer{
         padding:10px 16px;
     }
 
-    .hero{
-        min-height:590px;
-    }
-
     .hero h1{
         font-size:45px;
     }
 
-    .hero-texto{
-        font-size:17px;
-    }
-
     .categoria-card{
         min-height:400px;
-    }
-
-    .categoria-contenido{
-        padding:25px;
     }
 
     .producto-imagen img{
@@ -901,7 +890,7 @@ footer{
 <div class="cabecera">
 
 <a href="index.html" class="logo">
-    <img src="logo-goalwear.png" alt="Logo de GOALWEAR">
+<img src="logo-goalwear.png" alt="Logo GOALWEAR">
 </a>
 
 <nav class="menu">
@@ -910,9 +899,9 @@ footer{
 
 <a href="#categorias">Equipos</a>
 
-<a href="#productos">Camisetas</a>
+<a href="#buscador">Buscar</a>
 
-<a href="#confianza">Confianza</a>
+<a href="#productos">Camisetas</a>
 
 <a href="https://wa.me/34633329423" class="contacto">
 Contacto
@@ -934,9 +923,7 @@ Contacto
 NUEVA TEMPORADA 2026/27
 </p>
 
-<h1>
-Viste tu pasión.
-</h1>
+<h1>Viste tu pasión.</h1>
 
 <p class="hero-texto">
 Camisetas de fútbol con parches y serigrafía personalizada. Elige tu equipo, tu talla y tu acabado.
@@ -956,9 +943,7 @@ Elegir equipo
 ENCUENTRA TU CAMISETA
 </p>
 
-<h2>
-Elige tu equipo
-</h2>
+<h2>Elige tu equipo</h2>
 
 <p class="categorias-descripcion">
 Accede directamente a las camisetas disponibles de España o del Real Betis.
@@ -978,9 +963,7 @@ Accede directamente a las camisetas disponibles de España o del Real Betis.
 Descubre las equipaciones local y visitante de la Selección Española.
 </p>
 
-<span class="categoria-enlace">
-Ver camisetas
-</span>
+<span class="categoria-enlace">Ver camisetas</span>
 
 </div>
 
@@ -998,13 +981,59 @@ Ver camisetas
 Descubre las equipaciones local y visitante del Real Betis Balompié.
 </p>
 
-<span class="categoria-enlace">
-Ver camisetas
-</span>
+<span class="categoria-enlace">Ver camisetas</span>
 
 </div>
 
 </a>
+
+</div>
+
+</section>
+
+<section class="buscador-seccion" id="buscador">
+
+<div class="buscador-panel">
+
+<h2>Busca tu camiseta</h2>
+
+<p>
+Escribe España, Betis, local o visitante, o utiliza los filtros.
+</p>
+
+<div class="buscador-controles">
+
+<div class="buscador-campo">
+
+<input
+type="search"
+id="campo-busqueda"
+placeholder="Ejemplo: España local"
+aria-label="Buscar camisetas">
+
+</div>
+
+<div class="filtros">
+
+<button class="filtro-boton activo" data-filtro="todos">
+Todos
+</button>
+
+<button class="filtro-boton" data-filtro="espana">
+España
+</button>
+
+<button class="filtro-boton" data-filtro="betis">
+Betis
+</button>
+
+</div>
+
+</div>
+
+<div class="sin-resultados" id="sin-resultados">
+No hemos encontrado camisetas con esa búsqueda.
+</div>
 
 </div>
 
@@ -1018,9 +1047,7 @@ Ver camisetas
 NUEVA COLECCIÓN
 </p>
 
-<h2>
-Productos destacados
-</h2>
+<h2>Productos destacados</h2>
 
 <p class="catalogo-descripcion">
 Elige tu camiseta y personalízala con nombre, número y parches.
@@ -1028,7 +1055,7 @@ Elige tu camiseta y personalízala con nombre, número y parches.
 
 </div>
 
-<div class="grupo-productos" id="espana">
+<div class="grupo-productos" id="espana" data-grupo="espana">
 
 <div class="grupo-titulo">
 
@@ -1040,7 +1067,10 @@ Elige tu camiseta y personalízala con nombre, número y parches.
 
 <div class="productos-grid">
 
-<article class="producto-card">
+<article
+class="producto-card"
+data-equipo="espana"
+data-busqueda="españa espana local roja selección seleccion 2026">
 
 <a href="producto-espana-local.html" class="producto-imagen">
 
@@ -1074,7 +1104,10 @@ Ver producto
 
 </article>
 
-<article class="producto-card">
+<article
+class="producto-card"
+data-equipo="espana"
+data-busqueda="españa espana visitante blanca selección seleccion 2026">
 
 <a href="producto-espana-visitante.html" class="producto-imagen">
 
@@ -1112,7 +1145,7 @@ Ver producto
 
 </div>
 
-<div class="grupo-productos" id="betis">
+<div class="grupo-productos" id="betis" data-grupo="betis">
 
 <div class="grupo-titulo">
 
@@ -1124,7 +1157,10 @@ Ver producto
 
 <div class="productos-grid">
 
-<article class="producto-card">
+<article
+class="producto-card"
+data-equipo="betis"
+data-busqueda="betis real betis local verdiblanca verde blanca 2026">
 
 <a href="producto-betis-local.html" class="producto-imagen">
 
@@ -1158,7 +1194,10 @@ Ver producto
 
 </article>
 
-<article class="producto-card">
+<article
+class="producto-card"
+data-equipo="betis"
+data-busqueda="betis real betis visitante verde 2026">
 
 <a href="producto-betis-visitante.html" class="producto-imagen">
 
@@ -1208,9 +1247,7 @@ Ver producto
 COMPRA CON TRANQUILIDAD
 </p>
 
-<h2>
-Una atención cercana en cada pedido
-</h2>
+<h2>Una atención cercana en cada pedido</h2>
 
 <p class="confianza-descripcion">
 Antes de realizar el pago confirmamos contigo la camiseta, la talla, el acabado y la disponibilidad por WhatsApp.
@@ -1227,7 +1264,7 @@ Antes de realizar el pago confirmamos contigo la camiseta, la talla, el acabado 
 <h3>Pedido confirmado</h3>
 
 <p>
-Revisamos contigo todos los detalles del pedido para evitar errores en tallas, nombres, dorsales y parches.
+Revisamos contigo la talla, el nombre, el dorsal y los parches.
 </p>
 
 </div>
@@ -1239,7 +1276,7 @@ Revisamos contigo todos los detalles del pedido para evitar errores en tallas, n
 <h3>Atención personal</h3>
 
 <p>
-Puedes hablar directamente con GOALWEAR por WhatsApp antes y después de realizar tu pedido.
+Puedes hablar directamente con GOALWEAR por WhatsApp.
 </p>
 
 </div>
@@ -1248,10 +1285,10 @@ Puedes hablar directamente con GOALWEAR por WhatsApp antes y después de realiza
 
 <div class="confianza-icono">📦</div>
 
-<h3>Seguimiento del pedido</h3>
+<h3>Seguimiento</h3>
 
 <p>
-Te informamos sobre la preparación, la llegada y la entrega de tus camisetas.
+Te informamos sobre la preparación y entrega de tus camisetas.
 </p>
 
 </div>
@@ -1261,56 +1298,12 @@ Te informamos sobre la preparación, la llegada y la entrega de tus camisetas.
 <div class="confianza-aviso">
 
 <p>
-Las opiniones reales de compradores se añadirán próximamente. No publicamos reseñas inventadas.
+Confirma disponibilidad y plazo de entrega antes de realizar el pago.
 </p>
 
 <a href="https://wa.me/34633329423" class="confianza-boton">
 Resolver una duda
 </a>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="ventajas">
-
-<div class="ventajas-contenido">
-
-<div class="ventaja">
-
-<div class="ventaja-icono">🚚</div>
-
-<h3>Envíos a toda España</h3>
-
-<p>
-Consulta por WhatsApp los plazos y las opciones de entrega disponibles.
-</p>
-
-</div>
-
-<div class="ventaja">
-
-<div class="ventaja-icono">⭐</div>
-
-<h3>Personalización</h3>
-
-<p>
-Añade nombre, número y parches para preparar una camiseta a tu gusto.
-</p>
-
-</div>
-
-<div class="ventaja">
-
-<div class="ventaja-icono">💬</div>
-
-<h3>Atención directa</h3>
-
-<p>
-Resolvemos tus dudas y confirmamos tu pedido personalmente por WhatsApp.
-</p>
 
 </div>
 
@@ -1332,34 +1325,30 @@ alt="Logo GOALWEAR"
 class="footer-logo">
 
 <p>
-GOALWEAR es una tienda de camisetas de fútbol con opciones de parches y serigrafía personalizada. Todos los pedidos se confirman directamente por WhatsApp.
+GOALWEAR ofrece camisetas de fútbol con opciones de parches y serigrafía personalizada.
 </p>
 
 </div>
 
 <div class="footer-columna">
 
-<h3>
-Enlaces rápidos
-</h3>
+<h3>Enlaces rápidos</h3>
 
 <a href="index.html">Inicio</a>
 
 <a href="#categorias">Equipos</a>
 
+<a href="#buscador">Buscador</a>
+
 <a href="#espana">Selección Española</a>
 
 <a href="#betis">Real Betis</a>
-
-<a href="#confianza">Cómo funciona</a>
 
 </div>
 
 <div class="footer-columna">
 
-<h3>
-Contacto
-</h3>
+<h3>Contacto</h3>
 
 <a href="https://wa.me/34633329423">
 WhatsApp: +34 633 32 94 23
@@ -1370,7 +1359,7 @@ Instagram: @goal.wearstore
 </a>
 
 <p class="footer-nota">
-Consulta la disponibilidad, tallas, acabados, envíos y formas de pago antes de finalizar el pedido.
+Consulta disponibilidad, tallas, acabados, envíos y formas de pago.
 </p>
 
 </div>
@@ -1379,13 +1368,9 @@ Consulta la disponibilidad, tallas, acabados, envíos y formas de pago antes de 
 
 <div class="footer-inferior">
 
-<p>
-© 2026 GOALWEAR. Todos los derechos reservados.
-</p>
+<p>© 2026 GOALWEAR.</p>
 
-<p>
-Pedidos gestionados personalmente por WhatsApp.
-</p>
+<p>Pedidos gestionados por WhatsApp.</p>
 
 </div>
 
@@ -1397,6 +1382,91 @@ class="whatsapp-flotante"
 aria-label="Contactar por WhatsApp">
 💬
 </a>
+
+<script>
+
+const campoBusqueda = document.getElementById("campo-busqueda");
+const botonesFiltro = document.querySelectorAll(".filtro-boton");
+const productos = document.querySelectorAll(".producto-card");
+const grupos = document.querySelectorAll(".grupo-productos");
+const mensajeSinResultados = document.getElementById("sin-resultados");
+
+let filtroActivo = "todos";
+
+function normalizarTexto(texto){
+    return texto
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+}
+
+function filtrarProductos(){
+
+    const busqueda = normalizarTexto(campoBusqueda.value.trim());
+    let productosVisibles = 0;
+
+    productos.forEach(producto => {
+
+        const equipo = producto.dataset.equipo;
+        const textoProducto = normalizarTexto(producto.dataset.busqueda);
+
+        const coincideEquipo =
+            filtroActivo === "todos" ||
+            filtroActivo === equipo;
+
+        const coincideBusqueda =
+            busqueda === "" ||
+            textoProducto.includes(busqueda);
+
+        if(coincideEquipo && coincideBusqueda){
+            producto.style.display = "";
+            productosVisibles++;
+        }else{
+            producto.style.display = "none";
+        }
+
+    });
+
+    grupos.forEach(grupo => {
+
+        const productosDelGrupo =
+            grupo.querySelectorAll(".producto-card");
+
+        const hayProductosVisibles =
+            Array.from(productosDelGrupo).some(
+                producto => producto.style.display !== "none"
+            );
+
+        grupo.style.display =
+            hayProductosVisibles ? "" : "none";
+
+    });
+
+    mensajeSinResultados.style.display =
+        productosVisibles === 0 ? "block" : "none";
+}
+
+campoBusqueda.addEventListener("input", filtrarProductos);
+
+botonesFiltro.forEach(boton => {
+
+    boton.addEventListener("click", () => {
+
+        filtroActivo = boton.dataset.filtro;
+
+        botonesFiltro.forEach(otroBoton => {
+            otroBoton.classList.remove("activo");
+        });
+
+        boton.classList.add("activo");
+
+        filtrarProductos();
+
+    });
+
+});
+
+</script>
 
 </body>
 
