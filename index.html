@@ -15,13 +15,71 @@ body{
 
 header{
     background:#000;
-    text-align:center;
-    padding:25px;
-    border-bottom:3px solid gold;
+    border-bottom:1px solid #2c2c2c;
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
 
-header img{
-    width:180px;
+.cabecera{
+    max-width:1200px;
+    margin:auto;
+    padding:14px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.logo{
+    color:gold;
+    font-size:28px;
+    font-weight:900;
+    letter-spacing:2px;
+    text-decoration:none;
+}
+
+.menu{
+    display:flex;
+    align-items:center;
+    gap:24px;
+}
+
+.menu a{
+    color:white;
+    text-decoration:none;
+    font-size:15px;
+    font-weight:bold;
+}
+
+.menu a:hover{
+    color:gold;
+}
+
+.boton-contacto{
+    background:gold;
+    color:#000 !important;
+    padding:10px 18px;
+    border-radius:30px;
+}
+
+@media(max-width:700px){
+
+    .cabecera{
+        flex-direction:column;
+        gap:12px;
+    }
+
+    .menu{
+        width:100%;
+        justify-content:center;
+        gap:14px;
+        flex-wrap:wrap;
+    }
+
+    .menu a{
+        font-size:13px;
+    }
 }
 
 h1{
@@ -100,17 +158,27 @@ box-shadow:0 0 15px rgba(0,0,0,.4);
 
 <header>
 
-<h1>GOALWEAR</h1>
+<div class="cabecera">
 
-<p>La mejor calidad en camisetas de fútbol</p>
+<a href="index.html" class="logo">GOALWEAR</a>
+
+<nav class="menu">
+
+<a href="index.html">Inicio</a>
+
+<a href="#productos">Camisetas</a>
+
+<a href="#">Novedades</a>
+
+<a href="https://wa.me/34633329423" class="boton-contacto">
+Contacto
+</a>
+
+</nav>
+
+</div>
 
 </header>
-<nav style="background:#181818;padding:15px;display:flex;justify-content:center;gap:30px;border-bottom:2px solid gold;position:sticky;top:0;">
-    <a href="#" style="color:white;text-decoration:none;font-weight:bold;">Inicio</a>
-    <a href="#productos" style="color:white;text-decoration:none;font-weight:bold;">Camisetas</a>
-    <a href="#" style="color:white;text-decoration:none;font-weight:bold;">Ofertas</a>
-    <a href="#" style="color:white;text-decoration:none;font-weight:bold;">Contacto</a>
-</nav>
 <section class="banner">
 
 <h2>Temporada 2026/27</h2>
