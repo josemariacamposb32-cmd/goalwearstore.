@@ -1,216 +1,2109 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Betis Local 2026 | GoalWear</title>
+    <meta charset="UTF-8">
 
-<style>
-body{
-margin:0;
-background:#111;
-color:white;
-font-family:Arial,sans-serif;
-}
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-header{
-background:#000;
-padding:20px;
-text-align:center;
-border-bottom:3px solid gold;
-}
+    <meta
+        name="description"
+        content="Camiseta Betis Local 2026 personalizable con nombre, dorsal y parches.">
 
-header h1{
-color:gold;
-margin:0;
-}
+    <title>Betis Local 2026 | GOALWEAR</title>
 
-.container{
-max-width:600px;
-margin:auto;
-padding:20px;
-}
+    <style>
 
-img{
-width:100%;
-border-radius:20px;
-}
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-h2{
-font-size:42px;
-text-align:center;
-margin-top:25px;
-}
+        html {
+            scroll-behavior: smooth;
+        }
 
-.precio{
-text-align:center;
-font-size:60px;
-color:gold;
-font-weight:bold;
-}
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f4f4;
+            color: #111;
+        }
 
-label{
-display:block;
-margin-top:20px;
-font-size:22px;
-font-weight:bold;
-}
+        body.sin-scroll {
+            overflow: hidden;
+        }
 
-select,input{
-width:100%;
-padding:15px;
-font-size:20px;
-border-radius:12px;
-border:none;
-margin-top:8px;
-}
+        img {
+            display: block;
+            max-width: 100%;
+        }
 
-button{
-width:100%;
-margin-top:30px;
-padding:20px;
-font-size:28px;
-font-weight:bold;
-background:gold;
-border:none;
-border-radius:50px;
-cursor:pointer;
-}
+        button,
+        input {
+            font: inherit;
+        }
 
-.info{
-background:#222;
-margin-top:25px;
-padding:20px;
-border-radius:15px;
-font-size:20px;
-line-height:35px;
-}
+        button {
+            touch-action: manipulation;
+        }
 
-a{
-color:white;
-display:block;
-text-align:center;
-margin-top:30px;
-}
-</style>
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
 
-<script>
+        /* BARRA SUPERIOR */
 
-function actualizarPrecio(){
+        .barra-promociones {
+            min-height: 40px;
+            padding: 10px 20px;
+            background: #f4c400;
+            color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 35px;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 900;
+        }
 
-let acabado=document.getElementById("acabado").value;
+        .barra-promociones span {
+            white-space: nowrap;
+        }
 
-if(acabado=="sola"){
-document.getElementById("precio").innerHTML="18€";
-}
+        /* CABECERA */
 
-if(acabado=="parches"){
-document.getElementById("precio").innerHTML="20€";
-}
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #000;
+            color: #fff;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, .25);
+        }
 
-if(acabado=="serigrafia"){
-document.getElementById("precio").innerHTML="22€";
-}
+        .cabecera {
+            width: 100%;
+            max-width: 1200px;
+            min-height: 88px;
+            margin: auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
 
-}
+        .logo {
+            flex-shrink: 0;
+        }
 
-function comprar(){
+        .logo img {
+            width: 150px;
+        }
 
-let talla=document.getElementById("talla").value;
+        .menu {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
 
-let acabado=document.getElementById("acabado");
+        .menu a {
+            color: #fff;
+            font-size: 15px;
+            font-weight: 800;
+        }
 
-let textoAcabado=acabado.options[acabado.selectedIndex].text;
+        .menu a:hover {
+            color: #f4c400;
+        }
 
-let precio=document.getElementById("precio").innerHTML;
+        .menu .contacto {
+            padding: 12px 20px;
+            border-radius: 30px;
+            background: #f4c400;
+            color: #000;
+        }
 
-let nombre=document.getElementById("nombre").value;
+        /* MIGAS DE PAN */
 
-let numero=document.getElementById("numero").value;
+        .migas {
+            width: 100%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 24px 24px 0;
+            color: #777;
+            font-size: 14px;
+        }
 
-let mensaje=
-"Hola GoalWear 👋%0A%0A"+
-"Quiero pedir:%0A%0A"+
-"👕 Betis Local 2026%0A"+
-"📏 Talla: "+talla+"%0A"+
-"⭐ Acabado: "+textoAcabado+"%0A"+
-"💶 Precio: "+precio+"%0A"+
-"✍️ Nombre: "+nombre+"%0A"+
-"🔢 Número: "+numero+"%0A%0A"+
-"Foto:%0A"+
-"https://josemariacamposb32-cmd.github.io/goalwearstore/betis-local.jpg";
+        .migas a {
+            color: #111;
+            font-weight: 800;
+        }
 
-window.open("https://wa.me/34633329423?text="+mensaje);
+        .migas span {
+            margin: 0 8px;
+        }
 
-}
+        /* PRODUCTO */
 
-</script>
+        .producto {
+            width: 100%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 35px 24px 80px;
+            display: grid;
+            grid-template-columns:
+                minmax(0, 1.08fr)
+                minmax(360px, .92fr);
+            gap: 55px;
+            align-items: start;
+        }
 
+        .galeria {
+            position: sticky;
+            top: 145px;
+        }
+
+        .imagen-principal {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            background: #e9e9e9;
+            box-shadow: 0 14px 36px rgba(0, 0, 0, .10);
+        }
+
+        .imagen-principal img {
+            width: 100%;
+            height: 720px;
+            object-fit: cover;
+            cursor: zoom-in;
+            transition: transform .35s ease;
+        }
+
+        .imagen-principal:hover img {
+            transform: scale(1.025);
+        }
+
+        .etiqueta-nuevo {
+            position: absolute;
+            top: 18px;
+            left: 18px;
+            z-index: 2;
+            padding: 10px 16px;
+            border-radius: 30px;
+            background: #f4c400;
+            color: #000;
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        .aviso-imagen {
+            position: absolute;
+            left: 18px;
+            right: 18px;
+            bottom: 18px;
+            z-index: 2;
+            padding: 14px 16px;
+            border-radius: 12px;
+            background: rgba(0, 0, 0, .78);
+            color: #fff;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        /* DETALLES */
+
+        .detalles {
+            padding: 34px;
+            border-radius: 20px;
+            background: #fff;
+            box-shadow: 0 14px 36px rgba(0, 0, 0, .08);
+        }
+
+        .marca {
+            margin-bottom: 12px;
+            color: #777;
+            font-size: 13px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .detalles h1 {
+            margin-bottom: 12px;
+            font-size: 42px;
+            line-height: 1.08;
+        }
+
+        .subtitulo {
+            margin-bottom: 22px;
+            color: #666;
+            font-size: 17px;
+            line-height: 1.65;
+        }
+
+        .precio {
+            margin-bottom: 7px;
+            font-size: 36px;
+            font-weight: 900;
+        }
+
+        .precio-nota {
+            margin-bottom: 28px;
+            color: #888;
+            font-size: 13px;
+        }
+
+        .separador {
+            height: 1px;
+            margin: 28px 0;
+            background: #e4e4e4;
+        }
+
+        .bloque-opcion {
+            margin-bottom: 28px;
+        }
+
+        .bloque-opcion h2 {
+            margin-bottom: 14px;
+            font-size: 19px;
+        }
+
+        .ayuda {
+            margin-top: 10px;
+            color: #888;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        /* TALLAS */
+
+        .tallas {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .talla-boton {
+            min-height: 52px;
+            padding: 12px 8px;
+            border: 1px solid #d5d5d5;
+            border-radius: 12px;
+            background: #fff;
+            color: #111;
+            font-weight: 900;
+            cursor: pointer;
+            transition: .2s ease;
+        }
+
+        .talla-boton:hover {
+            border-color: #111;
+        }
+
+        .talla-boton.activo {
+            border-color: #111;
+            background: #111;
+            color: #fff;
+        }
+
+        /* ACABADOS */
+
+        .acabados {
+            display: grid;
+            gap: 12px;
+        }
+
+        .acabado-opcion {
+            width: 100%;
+            padding: 16px;
+            border: 1px solid #d8d8d8;
+            border-radius: 16px;
+            background: #fff;
+            color: #111;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            cursor: pointer;
+            transition: .2s ease;
+        }
+
+        .acabado-opcion:hover {
+            border-color: #111;
+        }
+
+        .acabado-opcion.activo {
+            border: 2px solid #111;
+            background: #fafafa;
+        }
+
+        .acabado-info {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            text-align: left;
+        }
+
+        .acabado-info strong {
+            font-size: 15px;
+        }
+
+        .acabado-info span {
+            color: #888;
+            font-size: 13px;
+        }
+
+        .acabado-precio {
+            font-size: 17px;
+            font-weight: 900;
+            white-space: nowrap;
+        }
+
+        /* PERSONALIZACIÓN */
+
+        .campos {
+            display: grid;
+            grid-template-columns: 1fr 130px;
+            gap: 12px;
+        }
+
+        .campo {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .campo label {
+            font-size: 14px;
+            font-weight: 900;
+        }
+
+        .campo input {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #d3d3d3;
+            border-radius: 12px;
+            background: #fff;
+            outline: none;
+        }
+
+        .campo input:focus {
+            border-color: #111;
+        }
+
+        .campo input:disabled {
+            background: #eee;
+            color: #999;
+        }
+
+        /* RESUMEN */
+
+        .resumen {
+            margin-top: 10px;
+            padding: 22px;
+            border: 1px solid #e4e4e4;
+            border-radius: 18px;
+            background: #f5f5f5;
+        }
+
+        .resumen h2 {
+            margin-bottom: 16px;
+            font-size: 21px;
+        }
+
+        .resumen-linea {
+            padding: 9px 0;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .resumen-linea strong {
+            color: #111;
+            text-align: right;
+        }
+
+        .resumen-total {
+            margin-top: 8px;
+            padding-top: 16px;
+            border-top: 1px solid #d5d5d5;
+            font-size: 19px;
+        }
+
+        /* MENSAJES Y BOTONES */
+
+        .mensaje-error {
+            display: none;
+            margin-top: 16px;
+            padding: 14px;
+            border: 1px solid #ffc9c9;
+            border-radius: 12px;
+            background: #fff1f1;
+            color: #a40000;
+            font-size: 14px;
+            font-weight: 800;
+        }
+
+        .boton-whatsapp {
+            width: 100%;
+            margin-top: 18px;
+            padding: 18px 22px;
+            border: none;
+            border-radius: 35px;
+            background: #25d366;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 900;
+            cursor: pointer;
+            box-shadow: 0 10px 24px rgba(37, 211, 102, .25);
+            transition: .2s ease;
+        }
+
+        .boton-whatsapp:hover {
+            transform: translateY(-2px);
+        }
+
+        .boton-volver {
+            display: block;
+            margin-top: 18px;
+            color: #111;
+            text-align: center;
+            font-weight: 900;
+        }
+
+        .confianza-mini {
+            margin-top: 24px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .confianza-mini div {
+            padding: 13px 10px;
+            border-radius: 12px;
+            background: #111;
+            color: #fff;
+            text-align: center;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+
+        /* INFORMACIÓN */
+
+        .informacion {
+            padding: 75px 24px;
+            background: #111;
+            color: #fff;
+        }
+
+        .informacion-contenido {
+            width: 100%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .informacion-cabecera {
+            max-width: 720px;
+            margin-bottom: 38px;
+        }
+
+        .informacion-etiqueta {
+            margin-bottom: 12px;
+            color: #f4c400;
+            font-size: 13px;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .informacion h2 {
+            margin-bottom: 14px;
+            font-size: 42px;
+        }
+
+        .informacion-cabecera p {
+            color: #ccc;
+            font-size: 17px;
+            line-height: 1.6;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .info-card {
+            padding: 26px;
+            border: 1px solid #333;
+            border-radius: 16px;
+        }
+
+        .info-icono {
+            margin-bottom: 14px;
+            font-size: 29px;
+        }
+
+        .info-card h3 {
+            margin-bottom: 9px;
+        }
+
+        .info-card p {
+            color: #c8c8c8;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* PRODUCTOS RELACIONADOS */
+
+        .relacionados {
+            width: 100%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 80px 24px;
+        }
+
+        .relacionados h2 {
+            margin-bottom: 30px;
+            font-size: 38px;
+        }
+
+        .relacionados-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .relacionado {
+            overflow: hidden;
+            border-radius: 16px;
+            background: #fff;
+            box-shadow: 0 10px 28px rgba(0, 0, 0, .08);
+        }
+
+        .relacionado img {
+            width: 100%;
+            height: 360px;
+            object-fit: cover;
+        }
+
+        .relacionado-info {
+            padding: 20px;
+        }
+
+        .relacionado-info h3 {
+            margin-bottom: 8px;
+            font-size: 20px;
+        }
+
+        .relacionado-info p {
+            margin-bottom: 18px;
+            color: #666;
+        }
+
+        .relacionado-info a {
+            display: inline-block;
+            padding: 12px 18px;
+            border-radius: 30px;
+            background: #111;
+            color: #fff;
+            font-size: 13px;
+            font-weight: 900;
+        }
+
+        /* PIE DE PÁGINA */
+
+        footer {
+            padding: 60px 24px 28px;
+            background: #050505;
+            color: #fff;
+        }
+
+        .footer-contenido {
+            width: 100%;
+            max-width: 1200px;
+            margin: auto;
+            padding-bottom: 38px;
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr;
+            gap: 45px;
+        }
+
+        .footer-logo {
+            width: 145px;
+            margin-bottom: 18px;
+        }
+
+        .footer-marca p {
+            max-width: 410px;
+            color: #aaa;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .footer-columna h3 {
+            margin-bottom: 18px;
+            color: #f4c400;
+            font-size: 17px;
+        }
+
+        .footer-columna a {
+            display: block;
+            margin-bottom: 13px;
+            color: #ddd;
+            font-size: 15px;
+        }
+
+        .footer-inferior {
+            width: 100%;
+            max-width: 1200px;
+            margin: auto;
+            padding-top: 24px;
+            border-top: 1px solid #292929;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .footer-inferior p {
+            color: #777;
+            font-size: 13px;
+        }
+
+        /* WHATSAPP FLOTANTE */
+
+        .whatsapp-flotante {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            z-index: 1100;
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            background: #25d366;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 29px;
+            box-shadow: 0 10px 28px rgba(0, 0, 0, .25);
+        }
+
+        /* VISOR DE IMAGEN */
+
+        .visor-imagen {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            padding: 70px 15px 25px;
+            background: rgba(0, 0, 0, .95);
+            align-items: center;
+            justify-content: center;
+            overflow: auto;
+        }
+
+        .visor-imagen.activo {
+            display: flex;
+        }
+
+        .visor-contenido {
+            position: relative;
+            width: 100%;
+            min-height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .visor-imagen img {
+            max-width: 95%;
+            max-height: 88vh;
+            object-fit: contain;
+            cursor: zoom-in;
+            user-select: none;
+            transition: transform .25s ease;
+        }
+
+        .visor-imagen img.ampliada {
+            max-width: none;
+            max-height: none;
+            width: auto;
+            height: auto;
+            transform: scale(1.7);
+            cursor: zoom-out;
+        }
+
+        .cerrar-visor {
+            position: fixed;
+            top: 18px;
+            right: 18px;
+            z-index: 100001;
+            width: 48px;
+            height: 48px;
+            border: none;
+            border-radius: 50%;
+            background: #fff;
+            color: #111;
+            font-size: 34px;
+            line-height: 1;
+            cursor: pointer;
+        }
+
+        .texto-visor {
+            position: fixed;
+            left: 50%;
+            bottom: 18px;
+            z-index: 100001;
+            transform: translateX(-50%);
+            padding: 10px 16px;
+            border-radius: 30px;
+            background: rgba(0, 0, 0, .75);
+            color: #fff;
+            font-size: 13px;
+            white-space: nowrap;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 950px) {
+
+            .producto {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .galeria {
+                position: static;
+            }
+
+            .imagen-principal img {
+                height: 650px;
+            }
+
+            .info-grid,
+            .relacionados-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .relacionado img {
+                height: 430px;
+            }
+        }
+
+        @media (max-width: 850px) {
+
+            .barra-promociones span {
+                display: none;
+            }
+
+            .barra-promociones span:first-child {
+                display: block;
+            }
+
+            .cabecera {
+                padding: 16px 18px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .menu {
+                width: 100%;
+                justify-content: center;
+                gap: 14px;
+                flex-wrap: wrap;
+            }
+
+            .menu a {
+                font-size: 13px;
+            }
+
+            .migas {
+                padding: 20px 18px 0;
+            }
+
+            .producto {
+                padding: 28px 18px 65px;
+            }
+
+            .detalles {
+                padding: 26px;
+            }
+
+            .detalles h1 {
+                font-size: 36px;
+            }
+
+            .imagen-principal img {
+                height: 560px;
+            }
+
+            .informacion {
+                padding: 60px 18px;
+            }
+
+            .informacion h2 {
+                font-size: 35px;
+            }
+
+            .relacionados {
+                padding: 65px 18px;
+            }
+
+            .footer-contenido {
+                grid-template-columns: 1fr;
+                gap: 34px;
+            }
+
+            .footer-inferior {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 520px) {
+
+            .menu {
+                gap: 10px;
+            }
+
+            .menu .contacto {
+                padding: 10px 15px;
+            }
+
+            .imagen-principal img {
+                height: 470px;
+            }
+
+            .aviso-imagen {
+                font-size: 12px;
+            }
+
+            .detalles {
+                padding: 22px;
+            }
+
+            .detalles h1 {
+                font-size: 31px;
+            }
+
+            .tallas {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .campos {
+                grid-template-columns: 1fr;
+            }
+
+            .confianza-mini {
+                grid-template-columns: 1fr;
+            }
+
+            .relacionado img {
+                height: 370px;
+            }
+
+            .texto-visor {
+                bottom: 12px;
+                font-size: 11px;
+            }
+        }
+
+    </style>
 </head>
 
 <body>
 
-<header>
+    <div class="barra-promociones">
 
-<h1>GOALWEAR</h1>
+        <span>🚚 Envíos a toda España</span>
 
-</header>
+        <span>⭐ Personalización disponible</span>
 
-<div class="container">
+        <span>💬 Atención por WhatsApp</span>
 
-<img src="betis-local.jpg">
+    </div>
 
-<h2>Betis Local 2026</h2>
+    <header>
 
-<p class="precio" id="precio">18€</p>
+        <div class="cabecera">
 
-<label>Selecciona la talla</label>
+            <a
+                href="index.html"
+                class="logo">
 
-<select id="talla">
+                <img
+                    src="logo-goalwear.png"
+                    alt="Logo GOALWEAR">
 
-<option>S</option>
-<option>M</option>
-<option>L</option>
-<option>XL</option>
-<option>2XL</option>
+            </a>
 
-</select>
+            <nav class="menu">
 
-<label>Elige el acabado</label>
+                <a href="index.html">
+                    Inicio
+                </a>
 
-<select id="acabado" onchange="actualizarPrecio()">
+                <a href="index.html#categorias">
+                    Equipos
+                </a>
 
-<option value="sola">Camiseta sola — 18€</option>
+                <a href="index.html#productos">
+                    Camisetas
+                </a>
 
-<option value="parches">Con parches — 20€</option>
+                <a
+                    href="https://wa.me/34633329423"
+                    class="contacto">
 
-<option value="serigrafia">Con parches + serigrafía — 22€</option>
+                    Contacto
 
-</select>
+                </a>
 
-<label>Nombre para serigrafiar</label>
+            </nav>
 
-<input id="nombre" placeholder="Ejemplo: ISCO">
+        </div>
 
-<label>Número</label>
+    </header>
 
-<input id="numero" placeholder="Ejemplo: 22">
+    <div class="migas">
 
-<button onclick="comprar()">Comprar por WhatsApp</button>
+        <a href="index.html">
+            Inicio
+        </a>
 
-<div class="info">
+        <span>›</span>
 
-✅ Envíos a toda España<br>
+        <a href="index.html#betis">
+            Real Betis
+        </a>
 
-✅ Atención personalizada por WhatsApp<br>
+        <span>›</span>
 
-✅ Confirma disponibilidad antes del pago
+        Betis Local 2026
 
-</div>
+    </div>
 
-<a href="index.html">← Volver al catálogo</a>
+    <main>
 
-</div>
+        <section class="producto">
+
+            <div class="galeria">
+
+                <div class="imagen-principal">
+
+                    <span class="etiqueta-nuevo">
+                        NUEVO
+                    </span>
+
+                    <img
+                        src="betis-local.jpg"
+                        alt="Camiseta Betis Local 2026"
+                        id="imagen-producto">
+
+                    <p class="aviso-imagen">
+
+                        Pulsa sobre la imagen para verla ampliada.
+                        Confirma por WhatsApp los detalles,
+                        parches y disponibilidad.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="detalles">
+
+                <p class="marca">
+                    Real Betis Balompié
+                </p>
+
+                <h1>
+                    Betis Local 2026
+                </h1>
+
+                <p class="subtitulo">
+
+                    Camiseta local del Real Betis disponible sola,
+                    con parches o completamente personalizada
+                    con nombre y dorsal.
+
+                </p>
+
+                <div
+                    class="precio"
+                    id="precio-principal">
+
+                    18€
+
+                </div>
+
+                <p class="precio-nota">
+                    Precio final según el acabado seleccionado.
+                </p>
+
+                <div class="separador"></div>
+
+                <div class="bloque-opcion">
+
+                    <h2>
+                        1. Elige tu talla
+                    </h2>
+
+                    <div class="tallas">
+
+                        <button
+                            type="button"
+                            class="talla-boton"
+                            data-talla="S">
+                            S
+                        </button>
+
+                        <button
+                            type="button"
+                            class="talla-boton"
+                            data-talla="M">
+                            M
+                        </button>
+
+                        <button
+                            type="button"
+                            class="talla-boton"
+                            data-talla="L">
+                            L
+                        </button>
+
+                        <button
+                            type="button"
+                            class="talla-boton"
+                            data-talla="XL">
+                            XL
+                        </button>
+
+                        <button
+                            type="button"
+                            class="talla-boton"
+                            data-talla="2XL">
+                            2XL
+                        </button>
+
+                        <button
+                            type="button"
+                            class="talla-boton"
+                            data-talla="3XL">
+                            3XL
+                        </button>
+
+                        <button
+                            type="button"
+                            class="talla-boton"
+                            data-talla="4XL">
+                            4XL
+                        </button>
+
+                    </div>
+
+                    <p class="ayuda">
+                        Consulta por WhatsApp la disponibilidad de tu talla.
+                    </p>
+
+                </div>
+
+                <div class="bloque-opcion">
+
+                    <h2>
+                        2. Elige el acabado
+                    </h2>
+
+                    <div class="acabados">
+
+                        <button
+                            type="button"
+                            class="acabado-opcion activo"
+                            data-acabado="Camiseta sola"
+                            data-precio="18">
+
+                            <span class="acabado-info">
+
+                                <strong>
+                                    Camiseta sola
+                                </strong>
+
+                                <span>
+                                    Sin parches ni serigrafía
+                                </span>
+
+                            </span>
+
+                            <span class="acabado-precio">
+                                18€
+                            </span>
+
+                        </button>
+
+                        <button
+                            type="button"
+                            class="acabado-opcion"
+                            data-acabado="Camiseta con parches"
+                            data-precio="20">
+
+                            <span class="acabado-info">
+
+                                <strong>
+                                    Con parches
+                                </strong>
+
+                                <span>
+                                    Parches añadidos a la camiseta
+                                </span>
+
+                            </span>
+
+                            <span class="acabado-precio">
+                                20€
+                            </span>
+
+                        </button>
+
+                        <button
+                            type="button"
+                            class="acabado-opcion"
+                            data-acabado="Camiseta con parches y serigrafía"
+                            data-precio="22">
+
+                            <span class="acabado-info">
+
+                                <strong>
+                                    Parches + serigrafía
+                                </strong>
+
+                                <span>
+                                    Nombre, dorsal y parches
+                                </span>
+
+                            </span>
+
+                            <span class="acabado-precio">
+                                22€
+                            </span>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <div
+                    class="bloque-opcion"
+                    id="bloque-personalizacion">
+
+                    <h2>
+                        3. Personalización
+                    </h2>
+
+                    <div class="campos">
+
+                        <div class="campo">
+
+                            <label for="nombre">
+                                Nombre
+                            </label>
+
+                            <input
+                                type="text"
+                                id="nombre"
+                                maxlength="15"
+                                placeholder="Ejemplo: ISCO">
+
+                        </div>
+
+                        <div class="campo">
+
+                            <label for="dorsal">
+                                Dorsal
+                            </label>
+
+                            <input
+                                type="number"
+                                id="dorsal"
+                                min="0"
+                                max="99"
+                                placeholder="22">
+
+                        </div>
+
+                    </div>
+
+                    <p class="ayuda">
+
+                        Los campos solo se activan al seleccionar
+                        parches y serigrafía.
+
+                    </p>
+
+                </div>
+
+                <div class="resumen">
+
+                    <h2>
+                        Resumen del pedido
+                    </h2>
+
+                    <div class="resumen-linea">
+
+                        <span>
+                            Producto
+                        </span>
+
+                        <strong>
+                            Betis Local 2026
+                        </strong>
+
+                    </div>
+
+                    <div class="resumen-linea">
+
+                        <span>
+                            Talla
+                        </span>
+
+                        <strong id="resumen-talla">
+                            Sin elegir
+                        </strong>
+
+                    </div>
+
+                    <div class="resumen-linea">
+
+                        <span>
+                            Acabado
+                        </span>
+
+                        <strong id="resumen-acabado">
+                            Camiseta sola
+                        </strong>
+
+                    </div>
+
+                    <div class="resumen-linea">
+
+                        <span>
+                            Nombre
+                        </span>
+
+                        <strong id="resumen-nombre">
+                            Sin personalización
+                        </strong>
+
+                    </div>
+
+                    <div class="resumen-linea">
+
+                        <span>
+                            Dorsal
+                        </span>
+
+                        <strong id="resumen-dorsal">
+                            Sin personalización
+                        </strong>
+
+                    </div>
+
+                    <div class="resumen-linea resumen-total">
+
+                        <span>
+                            Total
+                        </span>
+
+                        <strong id="resumen-precio">
+                            18€
+                        </strong>
+
+                    </div>
+
+                </div>
+
+                <div
+                    class="mensaje-error"
+                    id="mensaje-error">
+
+                    Selecciona una talla antes de continuar.
+
+                </div>
+
+                <button
+                    type="button"
+                    class="boton-whatsapp"
+                    id="boton-whatsapp">
+
+                    Pedir por WhatsApp
+
+                </button>
+
+                <a
+                    href="index.html#betis"
+                    class="boton-volver">
+
+                    ← Volver al catálogo
+
+                </a>
+
+                <div class="confianza-mini">
+
+                    <div>
+                        ✓ Pedido confirmado
+                    </div>
+
+                    <div>
+                        💬 Atención directa
+                    </div>
+
+                    <div>
+                        📦 Seguimiento
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="informacion">
+
+            <div class="informacion-contenido">
+
+                <div class="informacion-cabecera">
+
+                    <p class="informacion-etiqueta">
+                        INFORMACIÓN IMPORTANTE
+                    </p>
+
+                    <h2>
+                        Así gestionamos tu pedido
+                    </h2>
+
+                    <p>
+
+                        Antes de realizar el pago comprobamos contigo
+                        todos los detalles para que el pedido
+                        llegue correctamente.
+
+                    </p>
+
+                </div>
+
+                <div class="info-grid">
+
+                    <div class="info-card">
+
+                        <div class="info-icono">
+                            📏
+                        </div>
+
+                        <h3>
+                            Confirma tu talla
+                        </h3>
+
+                        <p>
+
+                            Pregunta por la disponibilidad y solicita
+                            ayuda si tienes dudas con las medidas.
+
+                        </p>
+
+                    </div>
+
+                    <div class="info-card">
+
+                        <div class="info-icono">
+                            ⭐
+                        </div>
+
+                        <h3>
+                            Revisa la personalización
+                        </h3>
+
+                        <p>
+
+                            Comprueba la escritura del nombre,
+                            el dorsal y los parches antes de confirmar.
+
+                        </p>
+
+                    </div>
+
+                    <div class="info-card">
+
+                        <div class="info-icono">
+                            🚚
+                        </div>
+
+                        <h3>
+                            Consulta el plazo
+                        </h3>
+
+                        <p>
+
+                            El plazo puede variar según disponibilidad,
+                            personalización, transporte y aduanas.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="relacionados">
+
+            <h2>
+                También puede gustarte
+            </h2>
+
+            <div class="relacionados-grid">
+
+                <article class="relacionado">
+
+                    <img
+                        src="betis-visitante.jpg"
+                        alt="Betis Visitante 2026">
+
+                    <div class="relacionado-info">
+
+                        <h3>
+                            Betis Visitante 2026
+                        </h3>
+
+                        <p>
+                            Desde 18€
+                        </p>
+
+                        <a href="producto-betis-visitante.html">
+                            Ver producto
+                        </a>
+
+                    </div>
+
+                </article>
+
+                <article class="relacionado">
+
+                    <img
+                        src="espana-local.jpg"
+                        alt="España Local 2026">
+
+                    <div class="relacionado-info">
+
+                        <h3>
+                            España Local 2026
+                        </h3>
+
+                        <p>
+                            Desde 18€
+                        </p>
+
+                        <a href="producto-espana-local.html">
+                            Ver producto
+                        </a>
+
+                    </div>
+
+                </article>
+
+                <article class="relacionado">
+
+                    <img
+                        src="espana-visitante.jpg"
+                        alt="España Visitante 2026">
+
+                    <div class="relacionado-info">
+
+                        <h3>
+                            España Visitante 2026
+                        </h3>
+
+                        <p>
+                            Desde 18€
+                        </p>
+
+                        <a href="producto-espana-visitante.html">
+                            Ver producto
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <div class="footer-contenido">
+
+            <div class="footer-marca">
+
+                <img
+                    src="logo-goalwear.png"
+                    alt="Logo GOALWEAR"
+                    class="footer-logo">
+
+                <p>
+
+                    GOALWEAR ofrece camisetas de fútbol
+                    con parches y serigrafía personalizada.
+
+                </p>
+
+            </div>
+
+            <div class="footer-columna">
+
+                <h3>
+                    Enlaces rápidos
+                </h3>
+
+                <a href="index.html">
+                    Inicio
+                </a>
+
+                <a href="index.html#categorias">
+                    Equipos
+                </a>
+
+                <a href="index.html#productos">
+                    Camisetas
+                </a>
+
+                <a href="index.html#betis">
+                    Real Betis
+                </a>
+
+            </div>
+
+            <div class="footer-columna">
+
+                <h3>
+                    Contacto
+                </h3>
+
+                <a href="https://wa.me/34633329423">
+                    WhatsApp: +34 633 32 94 23
+                </a>
+
+                <a href="https://www.instagram.com/goal.wearstore/">
+                    Instagram: @goal.wearstore
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="footer-inferior">
+
+            <p>
+                © 2026 GOALWEAR.
+            </p>
+
+            <p>
+                Pedidos gestionados personalmente por WhatsApp.
+            </p>
+
+        </div>
+
+    </footer>
+
+    <a
+        href="https://wa.me/34633329423"
+        class="whatsapp-flotante"
+        aria-label="Contactar por WhatsApp">
+
+        💬
+
+    </a>
+
+    <div
+        id="visor-imagen"
+        class="visor-imagen"
+        aria-hidden="true">
+
+        <button
+            type="button"
+            class="cerrar-visor"
+            id="cerrar-visor"
+            aria-label="Cerrar imagen">
+
+            ×
+
+        </button>
+
+        <div class="visor-contenido">
+
+            <img
+                src="betis-local.jpg"
+                alt="Camiseta Betis Local 2026 ampliada"
+                id="imagen-ampliada">
+
+        </div>
+
+        <p class="texto-visor">
+            Pulsa la imagen para ampliar
+        </p>
+
+    </div>
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                const botonesTalla =
+                    document.querySelectorAll(
+                        ".talla-boton"
+                    );
+
+                const opcionesAcabado =
+                    document.querySelectorAll(
+                        ".acabado-opcion"
+                    );
+
+                const precioPrincipal =
+                    document.getElementById(
+                        "precio-principal"
+                    );
+
+                const resumenTalla =
+                    document.getElementById(
+                        "resumen-talla"
+                    );
+
+                const resumenAcabado =
+                    document.getElementById(
+                        "resumen-acabado"
+                    );
+
+                const resumenNombre =
+                    document.getElementById(
+                        "resumen-nombre"
+                    );
+
+                const resumenDorsal =
+                    document.getElementById(
+                        "resumen-dorsal"
+                    );
+
+                const resumenPrecio =
+                    document.getElementById(
+                        "resumen-precio"
+                    );
+
+                const campoNombre =
+                    document.getElementById(
+                        "nombre"
+                    );
+
+                const campoDorsal =
+                    document.getElementById(
+                        "dorsal"
+                    );
+
+                const bloquePersonalizacion =
+                    document.getElementById(
+                        "bloque-personalizacion"
+                    );
+
+                const mensajeError =
+                    document.getElementById(
+                        "mensaje-error"
+                    );
+
+                const botonWhatsapp =
+                    document.getElementById(
+                        "boton-whatsapp"
+                    );
+
+                const imagenProducto =
+                    document.getElementById(
+                        "imagen-producto"
+                    );
+
+                const visorImagen =
+                    document.getElementById(
+                        "visor-imagen"
+                    );
+
+                const cerrarVisor =
+                    document.getElementById(
+                        "cerrar-visor"
+                    );
+
+                const imagenAmpliada =
+                    document.getElementById(
+                        "imagen-ampliada"
+                    );
+
+                let tallaElegida = "";
+
+                let acabadoElegido =
+                    "Camiseta sola";
+
+                let precioElegido = 18;
+
+                function actualizarResumen() {
+
+                    resumenTalla.textContent =
+                        tallaElegida || "Sin elegir";
+
+                    resumenAcabado.textContent =
+                        acabadoElegido;
+
+                    resumenPrecio.textContent =
+                        precioElegido + "€";
+
+                    precioPrincipal.textContent =
+                        precioElegido + "€";
+
+                    const esPersonalizada =
+                        acabadoElegido ===
+                        "Camiseta con parches y serigrafía";
+
+                    if (esPersonalizada) {
+
+                        bloquePersonalizacion.style.opacity =
+                            "1";
+
+                        campoNombre.disabled =
+                            false;
+
+                        campoDorsal.disabled =
+                            false;
+
+                        resumenNombre.textContent =
+                            campoNombre.value.trim() ||
+                            "Pendiente";
+
+                        resumenDorsal.textContent =
+                            campoDorsal.value.trim() ||
+                            "Pendiente";
+
+                    } else {
+
+                        bloquePersonalizacion.style.opacity =
+                            ".55";
+
+                        campoNombre.disabled =
+                            true;
+
+                        campoDorsal.disabled =
+                            true;
+
+                        resumenNombre.textContent =
+                            "Sin personalización";
+
+                        resumenDorsal.textContent =
+                            "Sin personalización";
+
+                    }
+
+                }
+
+                botonesTalla.forEach(
+                    function (boton) {
+
+                        boton.addEventListener(
+                            "click",
+                            function () {
+
+                                botonesTalla.forEach(
+                                    function (otroBoton) {
+
+                                        otroBoton.classList.remove(
+                                            "activo"
+                                        );
+
+                                    }
+                                );
+
+                                boton.classList.add(
+                                    "activo"
+                                );
+
+                                tallaElegida =
+                                    boton.getAttribute(
+                                        "data-talla"
+                                    );
+
+                                mensajeError.style.display =
+                                    "none";
+
+                                actualizarResumen();
+
+                            }
+                        );
+
+                    }
+                );
+
+                opcionesAcabado.forEach(
+                    function (opcion) {
+
+                        opcion.addEventListener(
+                            "click",
+                            function () {
+
+                                opcionesAcabado.forEach(
+                                    function (otraOpcion) {
+
+                                        otraOpcion.classList.remove(
+                                            "activo"
+                                        );
+
+                                    }
+                                );
+
+                                opcion.classList.add(
+                                    "activo"
+                                );
+
+                                acabadoElegido =
+                                    opcion.getAttribute(
+                                        "data-acabado"
+                                    );
+
+                                precioElegido =
+                                    Number(
+                                        opcion.getAttribute(
+                                            "data-precio"
+                                        )
+                                    );
+
+                                mensajeError.style.display =
+                                    "none";
+
+                                actualizarResumen();
+
+                            }
+                        );
+
+                    }
+                );
+
+                campoNombre.addEventListener(
+                    "input",
+                    actualizarResumen
+                );
+
+                campoDorsal.addEventListener(
+                    "input",
+                    actualizarResumen
+                );
+
+                botonWhatsapp.addEventListener(
+                    "click",
+                    function () {
+
+                        if (!tallaElegida) {
+
+                            mensajeError.textContent =
+                                "Selecciona una talla antes de continuar.";
+
+                            mensajeError.style.display =
+                                "block";
+
+                            mensajeError.scrollIntoView({
+                                behavior: "smooth",
+                                block: "center"
+                            });
+
+                            return;
+
+                        }
+
+                        const esPersonalizada =
+                            acabadoElegido ===
+                            "Camiseta con parches y serigrafía";
+
+                        const nombre =
+                            campoNombre.value.trim();
+
+                        const dorsal =
+                            campoDorsal.value.trim();
+
+                        if (
+                            esPersonalizada &&
+                            (!nombre || !dorsal)
+                        ) {
+
+                            mensajeError.textContent =
+                                "Escribe el nombre y el dorsal para pedir la camiseta personalizada.";
+
+                            mensajeError.style.display =
+                                "block";
+
+                            mensajeError.scrollIntoView({
+                                behavior: "smooth",
+                                block: "center"
+                            });
+
+                            return;
+
+                        }
+
+                        mensajeError.style.display =
+                            "none";
+
+                        let mensaje =
+`Hola GOALWEAR, quiero pedir esta camiseta:
+
+Producto: Betis Local 2026
+Talla: ${tallaElegida}
+Acabado: ${acabadoElegido}
+Precio: ${precioElegido}€`;
+
+                        if (esPersonalizada) {
+
+                            mensaje +=
+`
+Nombre: ${nombre.toUpperCase()}
+Dorsal: ${dorsal}`;
+
+                        }
+
+                        mensaje +=
+`
+
+¿Puedes confirmarme la disponibilidad y el plazo de entrega?`;
+
+                        const url =
+                            "https://wa.me/34633329423?text=" +
+                            encodeURIComponent(mensaje);
+
+                        window.open(
+                            url,
+                            "_blank",
+                            "noopener,noreferrer"
+                        );
+
+                    }
+                );
+
+                function abrirImagen() {
+
+                    visorImagen.classList.add(
+                        "activo"
+                    );
+
+                    visorImagen.setAttribute(
+                        "aria-hidden",
+                        "false"
+                    );
+
+                    document.body.classList.add(
+                        "sin-scroll"
+                    );
+
+                    imagenAmpliada.classList.remove(
+                        "ampliada"
+                    );
+
+                }
+
+                function cerrarImagen() {
+
+                    visorImagen.classList.remove(
+                        "activo"
+                    );
+
+                    visorImagen.setAttribute(
+                        "aria-hidden",
+                        "true"
+                    );
+
+                    document.body.classList.remove(
+                        "sin-scroll"
+                    );
+
+                    imagenAmpliada.classList.remove(
+                        "ampliada"
+                    );
+
+                }
+
+                imagenProducto.addEventListener(
+                    "click",
+                    abrirImagen
+                );
+
+                cerrarVisor.addEventListener(
+                    "click",
+                    cerrarImagen
+                );
+
+                visorImagen.addEventListener(
+                    "click",
+                    function (evento) {
+
+                        if (
+                            evento.target === visorImagen ||
+                            evento.target.classList.contains(
+                                "visor-contenido"
+                            )
+                        ) {
+
+                            cerrarImagen();
+
+                        }
+
+                    }
+                );
+
+                imagenAmpliada.addEventListener(
+                    "click",
+                    function (evento) {
+
+                        evento.stopPropagation();
+
+                        imagenAmpliada.classList.toggle(
+                            "ampliada"
+                        );
+
+                    }
+                );
+
+                document.addEventListener(
+                    "keydown",
+                    function (evento) {
+
+                        if (evento.key === "Escape") {
+
+                            cerrarImagen();
+
+                        }
+
+                    }
+                );
+
+                actualizarResumen();
+
+            }
+        );
+
+    </script>
 
 </body>
+
 </html>
