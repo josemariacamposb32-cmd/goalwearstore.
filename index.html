@@ -7,6 +7,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<meta name="description" content="GOALWEAR - Camisetas de fútbol, parches y serigrafía personalizada.">
+
 <title>GOALWEAR | Camisetas de fútbol</title>
 
 <style>
@@ -23,37 +25,43 @@ html{
 
 body{
     font-family:Arial, Helvetica, sans-serif;
-    background:#f5f5f5;
+    background:#f4f4f4;
     color:#111;
+}
+
+img{
+    max-width:100%;
 }
 
 header{
     background:#000;
-    color:white;
+    color:#fff;
     position:sticky;
     top:0;
     z-index:1000;
+    box-shadow:0 2px 15px rgba(0,0,0,.25);
 }
 
 .cabecera{
     max-width:1200px;
+    min-height:88px;
     margin:auto;
-    min-height:72px;
-    padding:0 20px;
+    padding:0 24px;
     display:flex;
     align-items:center;
     justify-content:space-between;
-    gap:25px;
+    gap:30px;
 }
 
 .logo{
     display:flex;
     align-items:center;
     text-decoration:none;
+    flex-shrink:0;
 }
 
 .logo img{
-    width:170px;
+    width:150px;
     height:auto;
     display:block;
 }
@@ -65,10 +73,11 @@ header{
 }
 
 .menu a{
-    color:white;
+    color:#fff;
     text-decoration:none;
     font-size:15px;
-    font-weight:700;
+    font-weight:800;
+    transition:color .2s ease;
 }
 
 .menu a:hover{
@@ -78,17 +87,22 @@ header{
 .contacto{
     background:#f4c400;
     color:#000 !important;
-    padding:11px 18px;
+    padding:12px 20px;
     border-radius:30px;
+    transition:transform .2s ease;
+}
+
+.contacto:hover{
+    transform:translateY(-2px);
 }
 
 .hero{
-    min-height:520px;
-    padding:60px 20px;
+    min-height:650px;
+    padding:70px 24px;
     background-image:
         linear-gradient(
-            rgba(0,0,0,0.25),
-            rgba(0,0,0,0.80)
+            rgba(0,0,0,.15),
+            rgba(0,0,0,.82)
         ),
         url("espana-local.jpg");
     background-size:cover;
@@ -101,81 +115,260 @@ header{
 .hero-contenido{
     width:100%;
     max-width:1200px;
-    margin:0 auto;
-    color:#ffffff;
-    padding-bottom:35px;
+    margin:auto;
+    color:#fff;
+    padding-bottom:30px;
 }
 
 .hero-etiqueta{
     font-size:14px;
-    font-weight:800;
-    letter-spacing:2px;
-    margin-bottom:14px;
-}
-
-.hero h1{
-    color:#ffffff;
-    font-size:64px;
-    line-height:1;
+    font-weight:900;
+    letter-spacing:2.5px;
     margin-bottom:18px;
 }
 
+.hero h1{
+    max-width:760px;
+    font-size:72px;
+    line-height:.98;
+    margin-bottom:22px;
+}
+
 .hero-texto{
-    max-width:560px;
-    color:#ffffff;
-    font-size:20px;
+    max-width:650px;
+    font-size:21px;
     line-height:1.5;
-    margin-bottom:28px;
+    margin-bottom:32px;
 }
 
 .hero-boton{
     display:inline-block;
-    background:#ffffff;
-    color:#000000;
+    background:#fff;
+    color:#000;
     text-decoration:none;
-    padding:15px 25px;
+    padding:16px 28px;
     border-radius:30px;
-    font-weight:800;
+    font-size:16px;
+    font-weight:900;
+    transition:transform .2s ease, background .2s ease;
+}
+
+.hero-boton:hover{
+    transform:translateY(-3px);
+    background:#f4c400;
 }
 
 .catalogo{
     max-width:1200px;
     margin:auto;
-    padding:70px 20px 30px;
+    padding:80px 24px 90px;
 }
 
 .catalogo-cabecera{
-    max-width:680px;
-    margin-bottom:40px;
+    max-width:720px;
+    margin-bottom:42px;
 }
 
 .catalogo-etiqueta{
-    font-size:13px;
-    font-weight:800;
-    letter-spacing:2px;
     color:#777;
+    font-size:13px;
+    font-weight:900;
+    letter-spacing:2px;
     margin-bottom:12px;
 }
 
 .catalogo h2{
-    font-size:42px;
-    line-height:1.1;
+    font-size:46px;
+    line-height:1.05;
+    margin-bottom:16px;
+}
+
+.catalogo-descripcion{
+    color:#555;
+    font-size:18px;
+    line-height:1.6;
+}
+
+.productos-grid{
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0,1fr));
+    gap:28px;
+}
+
+.producto-card{
+    background:#fff;
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    transition:transform .25s ease, box-shadow .25s ease;
+}
+
+.producto-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 18px 40px rgba(0,0,0,.14);
+}
+
+.producto-imagen{
+    position:relative;
+    display:block;
+    overflow:hidden;
+    background:#e9e9e9;
+}
+
+.producto-imagen img{
+    width:100%;
+    height:500px;
+    object-fit:cover;
+    display:block;
+    transition:transform .35s ease;
+}
+
+.producto-card:hover .producto-imagen img{
+    transform:scale(1.035);
+}
+
+.producto-etiqueta{
+    position:absolute;
+    top:16px;
+    left:16px;
+    z-index:2;
+    background:#f4c400;
+    color:#000;
+    padding:9px 13px;
+    font-size:12px;
+    font-weight:900;
+    letter-spacing:1px;
+    border-radius:20px;
+}
+
+.producto-info{
+    padding:24px;
+}
+
+.producto-categoria{
+    color:#777;
+    font-size:13px;
+    font-weight:900;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    margin-bottom:8px;
+}
+
+.producto-info h3{
+    font-size:26px;
+    line-height:1.2;
+    margin-bottom:11px;
+}
+
+.producto-descripcion{
+    color:#666;
+    font-size:15px;
+    line-height:1.55;
+    margin-bottom:24px;
+}
+
+.producto-final{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+}
+
+.producto-precio{
+    font-size:21px;
+    font-weight:900;
+}
+
+.producto-boton{
+    background:#111;
+    color:#fff;
+    text-decoration:none;
+    padding:13px 19px;
+    border-radius:30px;
+    font-size:14px;
+    font-weight:900;
+    transition:background .2s ease, color .2s ease;
+}
+
+.producto-boton:hover{
+    background:#f4c400;
+    color:#000;
+}
+
+.ventajas{
+    background:#111;
+    color:#fff;
+    padding:60px 24px;
+}
+
+.ventajas-contenido{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3, minmax(0,1fr));
+    gap:24px;
+}
+
+.ventaja{
+    padding:24px;
+    border:1px solid #2e2e2e;
+    border-radius:14px;
+}
+
+.ventaja-icono{
+    font-size:30px;
     margin-bottom:14px;
 }
 
-.catalogo-cabecera > p:last-child{
-    color:#555;
-    font-size:18px;
+.ventaja h3{
+    font-size:20px;
+    margin-bottom:8px;
+}
+
+.ventaja p{
+    color:#cfcfcf;
+    font-size:15px;
     line-height:1.5;
 }
 
-@media(max-width:700px){
+footer{
+    background:#000;
+    color:#fff;
+    padding:38px 24px;
+    text-align:center;
+}
+
+footer p{
+    color:#aaa;
+    font-size:14px;
+    line-height:1.6;
+}
+
+.whatsapp-flotante{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    background:#25d366;
+    color:#fff;
+    text-decoration:none;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:29px;
+    box-shadow:0 10px 28px rgba(0,0,0,.25);
+    z-index:1100;
+}
+
+@media(max-width:850px){
 
     .cabecera{
         min-height:auto;
         padding:16px 18px;
         flex-direction:column;
-        gap:14px;
+        gap:15px;
     }
 
     .logo img{
@@ -194,29 +387,80 @@ header{
     }
 
     .hero{
-        min-height:560px;
-        padding:40px 20px;
+        min-height:620px;
+        padding:50px 20px;
         background-position:center top;
     }
 
     .hero h1{
-        font-size:48px;
+        font-size:52px;
+    }
+
+    .hero-texto{
+        font-size:18px;
+    }
+
+    .catalogo{
+        padding:60px 18px 70px;
+    }
+
+    .catalogo h2{
+        font-size:38px;
+    }
+
+    .catalogo-descripcion{
+        font-size:16px;
+    }
+
+    .productos-grid{
+        grid-template-columns:1fr;
+        gap:24px;
+    }
+
+    .producto-imagen img{
+        height:430px;
+    }
+
+    .ventajas-contenido{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:480px){
+
+    .menu{
+        gap:12px;
+    }
+
+    .contacto{
+        padding:10px 16px;
+    }
+
+    .hero{
+        min-height:590px;
+    }
+
+    .hero h1{
+        font-size:45px;
     }
 
     .hero-texto{
         font-size:17px;
     }
 
-    .catalogo{
-        padding:50px 18px 25px;
+    .producto-imagen img{
+        height:390px;
     }
 
-    .catalogo h2{
-        font-size:34px;
+    .producto-final{
+        align-items:flex-start;
+        flex-direction:column;
     }
 
-    .catalogo-cabecera > p:last-child{
-        font-size:16px;
+    .producto-boton{
+        width:100%;
+        text-align:center;
     }
 
 }
@@ -232,7 +476,7 @@ header{
 <div class="cabecera">
 
 <a href="index.html" class="logo">
-    <img src="logo-goalwear.png" alt="Logo GOALWEAR">
+    <img src="logo-goalwear.png" alt="Logo de GOALWEAR">
 </a>
 
 <nav class="menu">
@@ -259,6 +503,8 @@ Contacto
 
 </header>
 
+<main>
+
 <section class="hero">
 
 <div class="hero-contenido">
@@ -272,7 +518,7 @@ Viste tu pasión.
 </h1>
 
 <p class="hero-texto">
-Las mejores camisetas de fútbol con parches oficiales y serigrafía personalizada.
+Camisetas de fútbol con parches y serigrafía personalizada. Elige tu equipo, tu talla y tu acabado.
 </p>
 
 <a href="#productos" class="hero-boton">
@@ -295,13 +541,262 @@ NUEVA COLECCIÓN
 Productos destacados
 </h2>
 
-<p>
+<p class="catalogo-descripcion">
 Descubre las camisetas disponibles para la temporada 2026/27.
 </p>
 
 </div>
 
+<div class="productos-grid">
+
+<article class="producto-card">
+
+<a href="producto-espana-local.html" class="producto-imagen">
+
+<span class="producto-etiqueta">
+NUEVO
+</span>
+
+<img src="espana-local.jpg" alt="Camiseta España Local 2026">
+
+</a>
+
+<div class="producto-info">
+
+<p class="producto-categoria">
+España
+</p>
+
+<h3>
+España Local 2026
+</h3>
+
+<p class="producto-descripcion">
+Disponible sola, con parches o con parches y serigrafía personalizada.
+</p>
+
+<div class="producto-final">
+
+<span class="producto-precio">
+Desde 18€
+</span>
+
+<a href="producto-espana-local.html" class="producto-boton">
+Ver producto
+</a>
+
+</div>
+
+</div>
+
+</article>
+
+<article class="producto-card">
+
+<a href="producto-espana-visitante.html" class="producto-imagen">
+
+<span class="producto-etiqueta">
+NUEVO
+</span>
+
+<img src="espana-visitante.jpg" alt="Camiseta España Visitante 2026">
+
+</a>
+
+<div class="producto-info">
+
+<p class="producto-categoria">
+España
+</p>
+
+<h3>
+España Visitante 2026
+</h3>
+
+<p class="producto-descripcion">
+Disponible sola, con parches o con parches y serigrafía personalizada.
+</p>
+
+<div class="producto-final">
+
+<span class="producto-precio">
+Desde 18€
+</span>
+
+<a href="producto-espana-visitante.html" class="producto-boton">
+Ver producto
+</a>
+
+</div>
+
+</div>
+
+</article>
+
+<article class="producto-card">
+
+<a href="producto-betis-local.html" class="producto-imagen">
+
+<span class="producto-etiqueta">
+NUEVO
+</span>
+
+<img src="betis-local.jpg" alt="Camiseta Betis Local 2026">
+
+</a>
+
+<div class="producto-info">
+
+<p class="producto-categoria">
+Real Betis
+</p>
+
+<h3>
+Betis Local 2026
+</h3>
+
+<p class="producto-descripcion">
+Disponible sola, con parches o con parches y serigrafía personalizada.
+</p>
+
+<div class="producto-final">
+
+<span class="producto-precio">
+Desde 18€
+</span>
+
+<a href="producto-betis-local.html" class="producto-boton">
+Ver producto
+</a>
+
+</div>
+
+</div>
+
+</article>
+
+<article class="producto-card">
+
+<a href="producto-betis-visitante.html" class="producto-imagen">
+
+<span class="producto-etiqueta">
+NUEVO
+</span>
+
+<img src="betis-visitante.jpg" alt="Camiseta Betis Visitante 2026">
+
+</a>
+
+<div class="producto-info">
+
+<p class="producto-categoria">
+Real Betis
+</p>
+
+<h3>
+Betis Visitante 2026
+</h3>
+
+<p class="producto-descripcion">
+Disponible sola, con parches o con parches y serigrafía personalizada.
+</p>
+
+<div class="producto-final">
+
+<span class="producto-precio">
+Desde 18€
+</span>
+
+<a href="producto-betis-visitante.html" class="producto-boton">
+Ver producto
+</a>
+
+</div>
+
+</div>
+
+</article>
+
+</div>
+
 </section>
+
+<section class="ventajas">
+
+<div class="ventajas-contenido">
+
+<div class="ventaja">
+
+<div class="ventaja-icono">
+🚚
+</div>
+
+<h3>
+Envíos a toda España
+</h3>
+
+<p>
+Consulta por WhatsApp los plazos y las opciones de entrega disponibles.
+</p>
+
+</div>
+
+<div class="ventaja">
+
+<div class="ventaja-icono">
+⭐
+</div>
+
+<h3>
+Personalización
+</h3>
+
+<p>
+Añade nombre, número y parches para preparar una camiseta a tu gusto.
+</p>
+
+</div>
+
+<div class="ventaja">
+
+<div class="ventaja-icono">
+💬
+</div>
+
+<h3>
+Atención directa
+</h3>
+
+<p>
+Resolvemos tus dudas y confirmamos tu pedido personalmente por WhatsApp.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+<footer>
+
+<p>
+© 2026 GOALWEAR. Camisetas de fútbol y personalización.
+</p>
+
+<p>
+Pedidos y consultas: +34 633 32 94 23
+</p>
+
+</footer>
+
+<a
+href="https://wa.me/34633329423"
+class="whatsapp-flotante"
+aria-label="Contactar por WhatsApp">
+💬
+</a>
 
 </body>
 
