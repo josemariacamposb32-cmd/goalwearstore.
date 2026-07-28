@@ -1,0 +1,1761 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Gestiona tus datos personales y consulta tus pedidos en GOALWEAR."
+  >
+
+  <title>Mi perfil | GOALWEAR</title>
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    :root {
+      --bg: #f4f6f8;
+      --surface: #ffffff;
+      --surface-soft: #f8fafb;
+      --text: #15191d;
+      --text-soft: #66707a;
+      --border: #dfe4e8;
+      --primary: #0b6b3a;
+      --primary-hover: #07572f;
+      --danger: #b42318;
+      --success: #067647;
+      --warning: #b54708;
+      --shadow: 0 18px 55px rgba(16, 24, 40, 0.10);
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: "Inter", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(
+          circle at top left,
+          rgba(11, 107, 58, 0.12),
+          transparent 32%
+        ),
+        linear-gradient(
+          135deg,
+          #f8fafb 0%,
+          #eef2f4 100%
+        );
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      min-height: 76px;
+      padding: 14px clamp(18px, 5vw, 70px);
+      color: #ffffff;
+      background: rgba(16, 19, 22, 0.96);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      border-radius: 50%;
+      background: #ffffff;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.05;
+    }
+
+    .brand-text strong {
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+    }
+
+    .brand-text span {
+      margin-top: 5px;
+      font-size: 0.78rem;
+      color: #bfc7ce;
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .top-link,
+    .logout-top {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 0 16px;
+      font-size: 0.84rem;
+      font-weight: 800;
+      border-radius: 999px;
+      transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .top-link {
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .logout-top {
+      color: #ffffff;
+      border: 0;
+      background: var(--primary);
+    }
+
+    .top-link:hover,
+    .logout-top:hover {
+      transform: translateY(-1px);
+    }
+
+    .top-link:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .logout-top:hover {
+      background: var(--primary-hover);
+    }
+
+    .page {
+      width: min(1180px, calc(100% - 30px));
+      margin: 0 auto;
+      padding: 42px 0 60px;
+    }
+
+    .loading-screen {
+      display: grid;
+      place-items: center;
+      min-height: 55vh;
+      text-align: center;
+    }
+
+    .loading-card {
+      padding: 34px;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      background: #ffffff;
+      box-shadow: var(--shadow);
+    }
+
+    .spinner {
+      width: 38px;
+      height: 38px;
+      margin: 0 auto 18px;
+      border: 4px solid #dfe7e2;
+      border-top-color: var(--primary);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .dashboard {
+      display: none;
+    }
+
+    .dashboard.show {
+      display: block;
+    }
+
+    .profile-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+
+    .profile-title span {
+      display: inline-flex;
+      padding: 7px 11px;
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--primary);
+      border: 1px solid rgba(11, 107, 58, 0.18);
+      border-radius: 999px;
+      background: rgba(11, 107, 58, 0.07);
+    }
+
+    .profile-title h1 {
+      margin-top: 13px;
+      font-size: clamp(2rem, 5vw, 3.8rem);
+      line-height: 1;
+      letter-spacing: -0.05em;
+    }
+
+    .profile-title p {
+      margin-top: 12px;
+      color: var(--text-soft);
+      line-height: 1.6;
+    }
+
+    .user-badge {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      min-width: 260px;
+      padding: 15px 18px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: #ffffff;
+      box-shadow: var(--shadow);
+    }
+
+    .user-avatar {
+      display: grid;
+      place-items: center;
+      flex: 0 0 48px;
+      width: 48px;
+      height: 48px;
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #ffffff;
+      border-radius: 50%;
+      background: var(--primary);
+    }
+
+    .user-info {
+      min-width: 0;
+    }
+
+    .user-info strong {
+      display: block;
+      font-size: 0.92rem;
+    }
+
+    .user-info span {
+      display: block;
+      margin-top: 4px;
+      font-size: 0.76rem;
+      color: var(--text-soft);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .card-header {
+      padding: 24px 26px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .card-header h2 {
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    .card-header p {
+      margin-top: 7px;
+      font-size: 0.85rem;
+      line-height: 1.55;
+      color: var(--text-soft);
+    }
+
+    .card-body {
+      padding: 26px;
+    }
+
+    .profile-form {
+      display: grid;
+      gap: 19px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .field label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 0.84rem;
+      font-weight: 800;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      min-height: 50px;
+      padding: 0 15px;
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      outline: none;
+      background: #ffffff;
+      transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .field textarea {
+      min-height: 105px;
+      padding-top: 14px;
+      resize: vertical;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(11, 107, 58, 0.11);
+    }
+
+    .field input[readonly] {
+      color: var(--text-soft);
+      background: #f4f6f8;
+    }
+
+    .field-help {
+      margin-top: 7px;
+      font-size: 0.73rem;
+      line-height: 1.45;
+      color: var(--text-soft);
+    }
+
+    .save-button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 52px;
+      margin-top: 4px;
+      padding: 0 20px;
+      font-weight: 800;
+      color: #ffffff;
+      border: 0;
+      border-radius: 14px;
+      background: var(--primary);
+      transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        opacity 0.2s ease;
+    }
+
+    .save-button:hover {
+      background: var(--primary-hover);
+      transform: translateY(-1px);
+    }
+
+    .save-button:disabled {
+      cursor: not-allowed;
+      opacity: 0.65;
+      transform: none;
+    }
+
+    .button-loader {
+      width: 18px;
+      height: 18px;
+      margin-right: 9px;
+      border: 2px solid rgba(255, 255, 255, 0.35);
+      border-top-color: #ffffff;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    .message {
+      display: none;
+      margin-bottom: 18px;
+      padding: 13px 15px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      line-height: 1.5;
+      border-radius: 12px;
+    }
+
+    .message.show {
+      display: block;
+    }
+
+    .message.success {
+      color: var(--success);
+      border: 1px solid #a6f4c5;
+      background: #ecfdf3;
+    }
+
+    .message.error {
+      color: var(--danger);
+      border: 1px solid #fecdca;
+      background: #fef3f2;
+    }
+
+    .message.warning {
+      color: var(--warning);
+      border: 1px solid #fedf89;
+      background: #fffaeb;
+    }
+
+    .side-stack {
+      display: grid;
+      gap: 24px;
+    }
+
+    .summary-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .summary-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .summary-item:last-child {
+      border-bottom: 0;
+    }
+
+    .summary-item span {
+      font-size: 0.83rem;
+      color: var(--text-soft);
+    }
+
+    .summary-item strong {
+      max-width: 58%;
+      font-size: 0.83rem;
+      text-align: right;
+      overflow-wrap: anywhere;
+    }
+
+    .quick-links {
+      display: grid;
+      gap: 11px;
+    }
+
+    .quick-link {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 55px;
+      padding: 0 16px;
+      font-size: 0.86rem;
+      font-weight: 800;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      background: #ffffff;
+      transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .quick-link:hover {
+      border-color: rgba(11, 107, 58, 0.35);
+      background: rgba(11, 107, 58, 0.04);
+      transform: translateY(-1px);
+    }
+
+    .orders-section {
+      margin-top: 24px;
+    }
+
+    .orders-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .empty-orders {
+      padding: 34px 20px;
+      text-align: center;
+      border: 1px dashed var(--border);
+      border-radius: 16px;
+      background: var(--surface-soft);
+    }
+
+    .empty-orders strong {
+      display: block;
+      font-size: 1rem;
+    }
+
+    .empty-orders p {
+      margin-top: 8px;
+      font-size: 0.84rem;
+      line-height: 1.6;
+      color: var(--text-soft);
+    }
+
+    .empty-orders a {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 43px;
+      margin-top: 17px;
+      padding: 0 16px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: #ffffff;
+      border-radius: 999px;
+      background: var(--primary);
+    }
+
+    .order-card {
+      padding: 18px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: #ffffff;
+    }
+
+    .order-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 18px;
+    }
+
+    .order-id {
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    .order-date {
+      margin-top: 5px;
+      font-size: 0.74rem;
+      color: var(--text-soft);
+    }
+
+    .order-status {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 10px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: capitalize;
+      border-radius: 999px;
+      background: #eef2f4;
+    }
+
+    .order-details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    .order-detail span {
+      display: block;
+      font-size: 0.72rem;
+      color: var(--text-soft);
+    }
+
+    .order-detail strong {
+      display: block;
+      margin-top: 4px;
+      font-size: 0.84rem;
+    }
+
+    .danger-zone {
+      margin-top: 24px;
+      padding: 20px;
+      border: 1px solid #fecdca;
+      border-radius: 16px;
+      background: #fff8f7;
+    }
+
+    .danger-zone h3 {
+      color: var(--danger);
+      font-size: 1rem;
+    }
+
+    .danger-zone p {
+      margin-top: 8px;
+      font-size: 0.8rem;
+      line-height: 1.55;
+      color: var(--text-soft);
+    }
+
+    .danger-zone button {
+      min-height: 42px;
+      margin-top: 14px;
+      padding: 0 15px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--danger);
+      border: 1px solid #fecdca;
+      border-radius: 11px;
+      background: #ffffff;
+    }
+
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-header {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .user-badge {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .topbar {
+        padding: 12px 14px;
+      }
+
+      .brand-text span {
+        display: none;
+      }
+
+      .top-actions {
+        gap: 7px;
+      }
+
+      .top-link,
+      .logout-top {
+        min-height: 39px;
+        padding: 0 11px;
+        font-size: 0.76rem;
+      }
+
+      .page {
+        width: min(100% - 20px, 1180px);
+        padding-top: 25px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .card-header,
+      .card-body {
+        padding-left: 19px;
+        padding-right: 19px;
+      }
+
+      .order-head {
+        flex-direction: column;
+      }
+
+      .order-details {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .brand img {
+        width: 42px;
+        height: 42px;
+      }
+
+      .brand-text strong {
+        font-size: 0.85rem;
+      }
+
+      .top-link {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="topbar">
+    <a
+      href="index.html"
+      class="brand"
+      aria-label="Volver a GOALWEAR"
+    >
+      <img
+        src="logo-goalwear.png"
+        alt="Logo GOALWEAR"
+      >
+
+      <span class="brand-text">
+        <strong>GOALWEAR</strong>
+        <span>Área de clientes</span>
+      </span>
+    </a>
+
+    <div class="top-actions">
+
+      <a
+        class="top-link"
+        href="index.html"
+      >
+        Volver a la tienda
+      </a>
+
+      <button
+        id="logoutTopButton"
+        class="logout-top"
+        type="button"
+      >
+        Cerrar sesión
+      </button>
+
+    </div>
+  </header>
+
+  <main class="page">
+
+    <section
+      id="loadingScreen"
+      class="loading-screen"
+    >
+      <div class="loading-card">
+        <div class="spinner"></div>
+
+        <strong>
+          Cargando tu perfil...
+        </strong>
+      </div>
+    </section>
+
+    <section
+      id="dashboard"
+      class="dashboard"
+    >
+
+      <div class="profile-header">
+
+        <div class="profile-title">
+          <span>Mi cuenta</span>
+
+          <h1>
+            Hola,
+            <span id="welcomeName">cliente</span>
+          </h1>
+
+          <p>
+            Gestiona tus datos personales y consulta tus pedidos.
+          </p>
+        </div>
+
+        <div class="user-badge">
+
+          <div
+            id="userAvatar"
+            class="user-avatar"
+          >
+            G
+          </div>
+
+          <div class="user-info">
+            <strong id="userBadgeName">
+              Cliente GOALWEAR
+            </strong>
+
+            <span id="userBadgeEmail">
+              correo@ejemplo.com
+            </span>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="grid">
+
+        <section class="card">
+
+          <div class="card-header">
+            <h2>
+              Datos personales
+            </h2>
+
+            <p>
+              Guarda tus datos para completar tus pedidos más rápido.
+            </p>
+          </div>
+
+          <div class="card-body">
+
+            <div
+              id="profileMessage"
+              class="message"
+              role="status"
+              aria-live="polite"
+            ></div>
+
+            <form
+              id="profileForm"
+              class="profile-form"
+              novalidate
+            >
+
+              <div class="form-row">
+
+                <div class="field">
+                  <label for="nombre">
+                    Nombre
+                  </label>
+
+                  <input
+                    id="nombre"
+                    name="nombre"
+                    type="text"
+                    autocomplete="name"
+                    maxlength="80"
+                    placeholder="Tu nombre"
+                    required
+                  >
+                </div>
+
+                <div class="field">
+                  <label for="telefono">
+                    Teléfono
+                  </label>
+
+                  <input
+                    id="telefono"
+                    name="telefono"
+                    type="tel"
+                    inputmode="tel"
+                    autocomplete="tel"
+                    maxlength="20"
+                    placeholder="633 32 94 23"
+                  >
+                </div>
+
+              </div>
+
+              <div class="form-row">
+
+                <div class="field">
+                  <label for="talla">
+                    Talla habitual
+                  </label>
+
+                  <select
+                    id="talla"
+                    name="talla"
+                  >
+                    <option value="">
+                      Selecciona una talla
+                    </option>
+
+                    <option value="XS">XS</option>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                    <option value="2XL">2XL</option>
+                    <option value="3XL">3XL</option>
+                    <option value="4XL">4XL</option>
+                  </select>
+                </div>
+
+                <div class="field">
+                  <label for="email">
+                    Correo electrónico
+                  </label>
+
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    readonly
+                  >
+
+                  <p class="field-help">
+                    El correo pertenece a tu cuenta y no puede modificarse aquí.
+                  </p>
+                </div>
+
+              </div>
+
+              <div class="field">
+                <label for="direccion">
+                  Dirección
+                </label>
+
+                <textarea
+                  id="direccion"
+                  name="direccion"
+                  autocomplete="street-address"
+                  maxlength="300"
+                  placeholder="Calle, número, localidad y código postal"
+                ></textarea>
+              </div>
+
+              <button
+                id="saveButton"
+                class="save-button"
+                type="submit"
+              >
+                Guardar mis datos
+              </button>
+
+            </form>
+
+          </div>
+
+        </section>
+
+        <aside class="side-stack">
+
+          <section class="card">
+
+            <div class="card-header">
+              <h2>
+                Resumen de cuenta
+              </h2>
+
+              <p>
+                Información principal de tu perfil.
+              </p>
+            </div>
+
+            <div class="card-body">
+
+              <div class="summary-list">
+
+                <div class="summary-item">
+                  <span>Correo</span>
+                  <strong id="summaryEmail">—</strong>
+                </div>
+
+                <div class="summary-item">
+                  <span>Talla habitual</span>
+                  <strong id="summarySize">Sin indicar</strong>
+                </div>
+
+                <div class="summary-item">
+                  <span>Teléfono</span>
+                  <strong id="summaryPhone">Sin indicar</strong>
+                </div>
+
+                <div class="summary-item">
+                  <span>Miembro desde</span>
+                  <strong id="summaryCreated">—</strong>
+                </div>
+
+              </div>
+
+            </div>
+
+          </section>
+
+          <section class="card">
+
+            <div class="card-header">
+              <h2>
+                Accesos rápidos
+              </h2>
+            </div>
+
+            <div class="card-body">
+
+              <div class="quick-links">
+
+                <a
+                  class="quick-link"
+                  href="index.html"
+                >
+                  <span>Seguir comprando</span>
+                  <span>→</span>
+                </a>
+
+                <a
+                  class="quick-link"
+                  href="carrito.html"
+                >
+                  <span>Ver mi carrito</span>
+                  <span>→</span>
+                </a>
+
+                <a
+                  class="quick-link"
+                  href="checkout.html"
+                >
+                  <span>Finalizar pedido</span>
+                  <span>→</span>
+                </a>
+
+              </div>
+
+            </div>
+
+          </section>
+
+        </aside>
+
+      </div>
+
+      <section class="card orders-section">
+
+        <div class="card-header">
+          <h2>
+            Mis pedidos
+          </h2>
+
+          <p>
+            Aquí aparecerán los pedidos asociados a tu cuenta.
+          </p>
+        </div>
+
+        <div class="card-body">
+
+          <div
+            id="ordersMessage"
+            class="message"
+            role="status"
+            aria-live="polite"
+          ></div>
+
+          <div
+            id="ordersList"
+            class="orders-list"
+          ></div>
+
+        </div>
+
+      </section>
+
+      <section class="danger-zone">
+
+        <h3>
+          Cerrar sesión
+        </h3>
+
+        <p>
+          Podrás volver a entrar en cualquier momento con tu correo y contraseña.
+        </p>
+
+        <button
+          id="logoutBottomButton"
+          type="button"
+        >
+          Cerrar mi sesión
+        </button>
+
+      </section>
+
+    </section>
+
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <script src="supabase-config.js"></script>
+
+  <script>
+    "use strict";
+
+    const loadingScreen =
+      document.getElementById("loadingScreen");
+
+    const dashboard =
+      document.getElementById("dashboard");
+
+    const profileForm =
+      document.getElementById("profileForm");
+
+    const saveButton =
+      document.getElementById("saveButton");
+
+    const profileMessage =
+      document.getElementById("profileMessage");
+
+    const ordersMessage =
+      document.getElementById("ordersMessage");
+
+    const ordersList =
+      document.getElementById("ordersList");
+
+    const logoutTopButton =
+      document.getElementById("logoutTopButton");
+
+    const logoutBottomButton =
+      document.getElementById("logoutBottomButton");
+
+    let currentUser = null;
+    let currentProfile = null;
+
+    function showDashboard() {
+      loadingScreen.style.display = "none";
+      dashboard.classList.add("show");
+    }
+
+    function showMessage(
+      element,
+      text,
+      type = "success"
+    ) {
+      element.textContent = text;
+
+      element.className =
+        `message show ${type}`;
+    }
+
+    function clearMessage(element) {
+      element.textContent = "";
+      element.className = "message";
+    }
+
+    function setLoading(
+      button,
+      loading,
+      text
+    ) {
+      if (loading) {
+        button.disabled = true;
+
+        button.dataset.originalText =
+          button.textContent;
+
+        button.innerHTML =
+          `<span class="button-loader"></span>${text}`;
+
+      } else {
+        button.disabled = false;
+
+        button.textContent =
+          button.dataset.originalText ||
+          "Guardar mis datos";
+      }
+    }
+
+    function getInitials(name, email) {
+      const cleanName =
+        String(name || "").trim();
+
+      if (cleanName) {
+        const parts =
+          cleanName.split(/\s+/);
+
+        return parts
+          .slice(0, 2)
+          .map((part) => part.charAt(0))
+          .join("")
+          .toUpperCase();
+      }
+
+      return String(email || "G")
+        .charAt(0)
+        .toUpperCase();
+    }
+
+    function formatDate(value) {
+      if (!value) {
+        return "—";
+      }
+
+      const date =
+        new Date(value);
+
+      if (
+        Number.isNaN(date.getTime())
+      ) {
+        return "—";
+      }
+
+      return new Intl.DateTimeFormat(
+        "es-ES",
+        {
+          day: "2-digit",
+          month: "2-digit",
+          year: "numeric"
+        }
+      ).format(date);
+    }
+
+    function formatPrice(value) {
+      const amount =
+        Number(value || 0);
+
+      return new Intl.NumberFormat(
+        "es-ES",
+        {
+          style: "currency",
+          currency: "EUR"
+        }
+      ).format(amount);
+    }
+
+    function capitalizeStatus(status) {
+      const value =
+        String(status || "pendiente");
+
+      return value.charAt(0).toUpperCase() +
+        value.slice(1);
+    }
+
+    function updateProfileView(profile) {
+      const nombre =
+        profile?.nombre?.trim() ||
+        currentUser?.user_metadata?.nombre ||
+        "cliente";
+
+      const telefono =
+        profile?.telefono || "";
+
+      const talla =
+        profile?.talla || "";
+
+      const direccion =
+        profile?.direccion || "";
+
+      const email =
+        currentUser?.email || "";
+
+      document
+        .getElementById("nombre")
+        .value = nombre === "cliente"
+          ? ""
+          : nombre;
+
+      document
+        .getElementById("telefono")
+        .value = telefono;
+
+      document
+        .getElementById("talla")
+        .value = talla;
+
+      document
+        .getElementById("direccion")
+        .value = direccion;
+
+      document
+        .getElementById("email")
+        .value = email;
+
+      document
+        .getElementById("welcomeName")
+        .textContent = nombre;
+
+      document
+        .getElementById("userBadgeName")
+        .textContent = nombre;
+
+      document
+        .getElementById("userBadgeEmail")
+        .textContent = email;
+
+      document
+        .getElementById("userAvatar")
+        .textContent = getInitials(
+          nombre,
+          email
+        );
+
+      document
+        .getElementById("summaryEmail")
+        .textContent = email || "—";
+
+      document
+        .getElementById("summarySize")
+        .textContent = talla || "Sin indicar";
+
+      document
+        .getElementById("summaryPhone")
+        .textContent = telefono || "Sin indicar";
+
+      document
+        .getElementById("summaryCreated")
+        .textContent = formatDate(
+          profile?.created_at ||
+          currentUser?.created_at
+        );
+    }
+
+    async function requireSession() {
+      const {
+        data,
+        error
+      } =
+        await supabase.auth.getSession();
+
+      if (error) {
+        throw error;
+      }
+
+      if (!data.session?.user) {
+        window.location.href =
+          "cuenta.html?redirect=perfil.html";
+
+        return null;
+      }
+
+      currentUser =
+        data.session.user;
+
+      return currentUser;
+    }
+
+    async function loadProfile() {
+      const {
+        data,
+        error
+      } =
+        await supabase
+          .from("profiles")
+          .select(
+            "id, nombre, telefono, talla, direccion, created_at, updated_at"
+          )
+          .eq("id", currentUser.id)
+          .maybeSingle();
+
+      if (error) {
+        throw error;
+      }
+
+      if (!data) {
+        const fallbackName =
+          currentUser.user_metadata?.nombre || "";
+
+        const {
+          data: insertedProfile,
+          error: insertError
+        } =
+          await supabase
+            .from("profiles")
+            .insert({
+              id: currentUser.id,
+              nombre: fallbackName
+            })
+            .select(
+              "id, nombre, telefono, talla, direccion, created_at, updated_at"
+            )
+            .single();
+
+        if (insertError) {
+          throw insertError;
+        }
+
+        currentProfile =
+          insertedProfile;
+
+      } else {
+        currentProfile =
+          data;
+      }
+
+      updateProfileView(
+        currentProfile
+      );
+    }
+
+    function createEmptyOrders() {
+      ordersList.innerHTML = `
+        <div class="empty-orders">
+          <strong>
+            Todavía no tienes pedidos
+          </strong>
+
+          <p>
+            Cuando completes una compra,
+            aparecerá aquí para que puedas consultar su estado.
+          </p>
+
+          <a href="index.html">
+            Ver camisetas
+          </a>
+        </div>
+      `;
+    }
+
+    function renderOrders(orders) {
+      if (
+        !Array.isArray(orders) ||
+        orders.length === 0
+      ) {
+        createEmptyOrders();
+        return;
+      }
+
+      ordersList.innerHTML =
+        orders.map((order) => {
+          const shortId =
+            String(order.id)
+              .split("-")[0]
+              .toUpperCase();
+
+          const itemsCount =
+            Array.isArray(order.items)
+              ? order.items.reduce(
+                  (total, item) =>
+                    total +
+                    Number(item.cantidad || 1),
+                  0
+                )
+              : 0;
+
+          return `
+            <article class="order-card">
+
+              <div class="order-head">
+
+                <div>
+                  <div class="order-id">
+                    Pedido #${shortId}
+                  </div>
+
+                  <div class="order-date">
+                    ${formatDate(order.created_at)}
+                  </div>
+                </div>
+
+                <span class="order-status">
+                  ${capitalizeStatus(order.estado)}
+                </span>
+
+              </div>
+
+              <div class="order-details">
+
+                <div class="order-detail">
+                  <span>Productos</span>
+                  <strong>${itemsCount}</strong>
+                </div>
+
+                <div class="order-detail">
+                  <span>Total</span>
+                  <strong>${formatPrice(order.total)}</strong>
+                </div>
+
+                <div class="order-detail">
+                  <span>Método de pago</span>
+                  <strong>
+                    ${capitalizeStatus(order.metodo_pago)}
+                  </strong>
+                </div>
+
+                <div class="order-detail">
+                  <span>Estado</span>
+                  <strong>
+                    ${capitalizeStatus(order.estado)}
+                  </strong>
+                </div>
+
+              </div>
+
+            </article>
+          `;
+        }).join("");
+    }
+
+    async function loadOrders() {
+      clearMessage(
+        ordersMessage
+      );
+
+      const {
+        data,
+        error
+      } =
+        await supabase
+          .from("orders")
+          .select(
+            "id, estado, metodo_pago, total, items, created_at"
+          )
+          .eq("user_id", currentUser.id)
+          .order(
+            "created_at",
+            {
+              ascending: false
+            }
+          );
+
+      if (error) {
+        showMessage(
+          ordersMessage,
+          "No se han podido cargar los pedidos.",
+          "error"
+        );
+
+        createEmptyOrders();
+        return;
+      }
+
+      renderOrders(data);
+    }
+
+    profileForm.addEventListener(
+      "submit",
+      async (event) => {
+        event.preventDefault();
+
+        clearMessage(
+          profileMessage
+        );
+
+        const nombre =
+          document
+            .getElementById("nombre")
+            .value
+            .trim();
+
+        const telefono =
+          document
+            .getElementById("telefono")
+            .value
+            .trim();
+
+        const talla =
+          document
+            .getElementById("talla")
+            .value;
+
+        const direccion =
+          document
+            .getElementById("direccion")
+            .value
+            .trim();
+
+        if (!nombre) {
+          showMessage(
+            profileMessage,
+            "Escribe tu nombre antes de guardar.",
+            "warning"
+          );
+
+          return;
+        }
+
+        try {
+          setLoading(
+            saveButton,
+            true,
+            "Guardando..."
+          );
+
+          const {
+            data,
+            error
+          } =
+            await supabase
+              .from("profiles")
+              .update({
+                nombre,
+                telefono,
+                talla,
+                direccion
+              })
+              .eq(
+                "id",
+                currentUser.id
+              )
+              .select(
+                "id, nombre, telefono, talla, direccion, created_at, updated_at"
+              )
+              .single();
+
+          if (error) {
+            throw error;
+          }
+
+          currentProfile = data;
+
+          updateProfileView(
+            currentProfile
+          );
+
+          showMessage(
+            profileMessage,
+            "Tus datos se han guardado correctamente.",
+            "success"
+          );
+
+        } catch (error) {
+          console.error(error);
+
+          showMessage(
+            profileMessage,
+            "No se han podido guardar los datos. Inténtalo de nuevo.",
+            "error"
+          );
+
+        } finally {
+          setLoading(
+            saveButton,
+            false,
+            "Guardar mis datos"
+          );
+        }
+      }
+    );
+
+    async function logout() {
+      const { error } =
+        await supabase.auth.signOut();
+
+      if (error) {
+        showMessage(
+          profileMessage,
+          "No se ha podido cerrar la sesión.",
+          "error"
+        );
+
+        return;
+      }
+
+      window.location.href =
+        "cuenta.html";
+    }
+
+    logoutTopButton.addEventListener(
+      "click",
+      logout
+    );
+
+    logoutBottomButton.addEventListener(
+      "click",
+      logout
+    );
+
+    supabase.auth.onAuthStateChange(
+      (event, session) => {
+        if (
+          event === "SIGNED_OUT" ||
+          !session
+        ) {
+          window.location.href =
+            "cuenta.html";
+        }
+      }
+    );
+
+    async function initializeProfile() {
+      try {
+        const user =
+          await requireSession();
+
+        if (!user) {
+          return;
+        }
+
+        await loadProfile();
+        await loadOrders();
+
+        showDashboard();
+
+      } catch (error) {
+        console.error(error);
+
+        loadingScreen.innerHTML = `
+          <div class="loading-card">
+            <strong>
+              No se ha podido cargar tu perfil
+            </strong>
+
+            <p
+              style="
+                margin-top: 10px;
+                color: #66707a;
+                line-height: 1.6;
+              "
+            >
+              Revisa la conexión o vuelve a iniciar sesión.
+            </p>
+
+            <a
+              href="cuenta.html"
+              style="
+                display: inline-flex;
+                margin-top: 18px;
+                padding: 12px 18px;
+                color: white;
+                font-weight: 800;
+                border-radius: 999px;
+                background: #0b6b3a;
+              "
+            >
+              Ir a mi cuenta
+            </a>
+          </div>
+        `;
+      }
+    }
+
+    initializeProfile();
+  </script>
+
+</body>
+</html>
