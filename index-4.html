@@ -1,0 +1,1711 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="GOALWEAR - Camisetas de fútbol, parches y serigrafía personalizada.">
+<meta name="theme-color" content="#050505">
+<title>GOALWEAR | Camisetas de fútbol</title>
+
+<style>
+:root{
+    --negro:#050505;
+    --negro-2:#111;
+    --amarillo:#f4c400;
+    --blanco:#fff;
+    --gris:#f4f4f2;
+    --texto:#111;
+    --texto-suave:#666;
+    --borde:#e3e3e3;
+    --radio:22px;
+    --sombra:0 18px 50px rgba(0,0,0,.12);
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:var(--gris);
+    color:var(--texto);
+    overflow-x:hidden;
+}
+
+body.menu-abierto{
+    overflow:hidden;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+a{
+    color:inherit;
+}
+
+button,
+input{
+    font:inherit;
+}
+
+/* BARRA SUPERIOR */
+
+.barra-promociones{
+    min-height:40px;
+    padding:10px 18px;
+    background:var(--amarillo);
+    color:#000;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:34px;
+    font-size:13px;
+    font-weight:900;
+    text-align:center;
+}
+
+.barra-promociones span{
+    white-space:nowrap;
+}
+
+/* CABECERA PREMIUM */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1100;
+    background:rgba(5,5,5,.95);
+    color:#fff;
+    border-bottom:1px solid rgba(255,255,255,.08);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+}
+
+.cabecera{
+    max-width:1220px;
+    min-height:70px;
+    margin:auto;
+    padding:0 24px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:28px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    text-decoration:none;
+    flex-shrink:0;
+}
+
+.logo img{
+    width:118px;
+}
+
+.menu{
+    display:flex;
+    align-items:center;
+    gap:26px;
+}
+
+.menu a{
+    color:#fff;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:800;
+    transition:.2s ease;
+}
+
+.menu a:hover{
+    color:var(--amarillo);
+}
+
+.contacto{
+    background:var(--amarillo);
+    color:#000 !important;
+    padding:12px 20px;
+    border-radius:999px;
+}
+
+.boton-menu{
+    display:none;
+    width:46px;
+    height:46px;
+    border:1px solid rgba(255,255,255,.18);
+    border-radius:50%;
+    background:#151515;
+    cursor:pointer;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    gap:5px;
+}
+
+.boton-menu span{
+    width:20px;
+    height:2px;
+    border-radius:3px;
+    background:#fff;
+    transition:.25s ease;
+}
+
+/* HERO */
+
+.hero{
+    position:relative;
+    min-height:720px;
+    padding:70px 24px;
+    background:
+        linear-gradient(90deg,rgba(0,0,0,.96) 0%,rgba(0,0,0,.72) 52%,rgba(0,0,0,.28) 100%),
+        linear-gradient(0deg,rgba(0,0,0,.72),rgba(0,0,0,.10) 52%),
+        url("espana-local.jpg") center top/cover no-repeat;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    right:-150px;
+    bottom:-170px;
+    width:500px;
+    height:500px;
+    border-radius:50%;
+    background:rgba(244,196,0,.18);
+    filter:blur(70px);
+}
+
+.hero-contenido{
+    position:relative;
+    z-index:2;
+    width:100%;
+    max-width:1220px;
+    margin:auto;
+    color:#fff;
+}
+
+.hero-etiqueta{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:22px;
+    padding:10px 15px;
+    border:1px solid rgba(255,255,255,.22);
+    border-radius:999px;
+    background:rgba(255,255,255,.08);
+    font-size:12px;
+    font-weight:900;
+    letter-spacing:2px;
+}
+
+.hero-etiqueta::before{
+    content:"";
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:var(--amarillo);
+    box-shadow:0 0 0 6px rgba(244,196,0,.15);
+}
+
+.hero h1{
+    max-width:780px;
+    text-shadow:0 4px 20px rgba(0,0,0,.55);
+    margin-bottom:26px;
+    font-size:clamp(58px,7vw,96px);
+    line-height:.92;
+    letter-spacing:-4px;
+}
+
+.hero h1 span{
+    color:var(--amarillo);
+}
+
+.hero-texto{
+    max-width:650px;
+    text-shadow:0 3px 14px rgba(0,0,0,.50);
+    margin-bottom:32px;
+    color:#e8e8e8;
+    font-size:20px;
+    line-height:1.6;
+}
+
+.hero-botones{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+}
+
+.hero-boton{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:16px 26px;
+    border-radius:999px;
+    text-decoration:none;
+    font-size:15px;
+    font-weight:900;
+    transition:.25s ease;
+}
+
+.hero-boton-principal{
+    background:var(--amarillo);
+    color:#000;
+}
+
+.hero-boton-principal:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 28px rgba(244,196,0,.25);
+}
+
+.hero-boton-secundario{
+    border:1px solid rgba(255,255,255,.28);
+    background:rgba(255,255,255,.08);
+    color:#fff;
+}
+
+.hero-datos{
+    display:flex;
+    flex-wrap:wrap;
+    gap:18px;
+    margin-top:42px;
+}
+
+.hero-dato{
+    min-width:155px;
+    padding:16px 18px;
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:16px;
+    background:rgba(0,0,0,.26);
+    backdrop-filter:blur(8px);
+}
+
+.hero-dato strong{
+    display:block;
+    margin-bottom:4px;
+    font-size:22px;
+}
+
+.hero-dato span{
+    color:#d3d3d3;
+    font-size:12px;
+}
+
+/* FRANJA DE CONFIANZA */
+
+.tira-confianza{
+    background:#fff;
+    border-bottom:1px solid var(--borde);
+}
+
+.tira-confianza-contenido{
+    max-width:1220px;
+    margin:auto;
+    padding:24px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px;
+}
+
+.tira-item{
+    display:flex;
+    align-items:center;
+    gap:13px;
+}
+
+.tira-icono{
+    width:42px;
+    height:42px;
+    flex-shrink:0;
+    border-radius:50%;
+    background:#111;
+    color:var(--amarillo);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:19px;
+}
+
+.tira-item strong{
+    display:block;
+    margin-bottom:3px;
+    font-size:14px;
+}
+
+.tira-item span{
+    color:#777;
+    font-size:12px;
+}
+
+/* GENERALES */
+
+.categorias,
+.buscador-seccion,
+.catalogo,
+.personalizacion-contenido,
+.confianza-contenido{
+    max-width:1220px;
+    margin:auto;
+}
+
+.seccion-etiqueta{
+    margin-bottom:12px;
+    color:#777;
+    font-size:12px;
+    font-weight:900;
+    letter-spacing:2px;
+}
+
+.seccion-titulo{
+    margin-bottom:16px;
+    font-size:clamp(38px,5vw,58px);
+    line-height:1;
+    letter-spacing:-2px;
+}
+
+.seccion-descripcion{
+    max-width:690px;
+    color:#606060;
+    font-size:18px;
+    line-height:1.65;
+}
+
+/* CATEGORÍAS */
+
+.categorias{
+    padding:90px 24px 45px;
+}
+
+.categorias-cabecera{
+    margin-bottom:42px;
+}
+
+.categorias-grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:26px;
+}
+
+.categoria-card{
+    position:relative;
+    min-height:520px;
+    border-radius:var(--radio);
+    overflow:hidden;
+    color:#fff;
+    text-decoration:none;
+    display:flex;
+    align-items:flex-end;
+    box-shadow:var(--sombra);
+    isolation:isolate;
+}
+
+.categoria-card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:-1;
+    background:linear-gradient(180deg,rgba(0,0,0,.02) 25%,rgba(0,0,0,.92) 100%);
+}
+
+.categoria-card::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:-1;
+    background:rgba(244,196,0,.10);
+    opacity:0;
+    transition:.3s ease;
+}
+
+.categoria-card:hover::after{
+    opacity:1;
+}
+
+.categoria-card:hover .categoria-contenido{
+    transform:translateY(-8px);
+}
+
+.categoria-espana{
+    background:url("espana-local.jpg") center top/cover no-repeat;
+}
+
+.categoria-betis{
+    background:url("betis-local.jpg") center/cover no-repeat;
+}
+
+.categoria-contenido{
+    width:100%;
+    padding:34px;
+    transition:.3s ease;
+}
+
+.categoria-mini{
+    display:inline-block;
+    margin-bottom:14px;
+    padding:8px 12px;
+    border-radius:999px;
+    background:var(--amarillo);
+    color:#000;
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:1px;
+}
+
+.categoria-card h3{
+    margin-bottom:11px;
+    font-size:40px;
+}
+
+.categoria-card p{
+    max-width:430px;
+    margin-bottom:20px;
+    color:#e9e9e9;
+    font-size:15px;
+    line-height:1.6;
+}
+
+.categoria-enlace{
+    display:inline-flex;
+    padding:13px 20px;
+    border-radius:999px;
+    background:#fff;
+    color:#000;
+    font-size:13px;
+    font-weight:900;
+}
+
+/* BUSCADOR */
+
+.buscador-seccion{
+    padding:45px 24px 0;
+}
+
+.buscador-panel{
+    position:relative;
+    overflow:hidden;
+    padding:34px;
+    border-radius:var(--radio);
+    background:#0a0a0a;
+    color:#fff;
+    box-shadow:var(--sombra);
+}
+
+.buscador-panel h2{
+    margin-bottom:9px;
+    font-size:31px;
+}
+
+.buscador-panel > p{
+    margin-bottom:22px;
+    color:#bbb;
+    font-size:15px;
+    line-height:1.5;
+}
+
+.buscador-controles{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.buscador-campo{
+    flex:1;
+}
+
+.buscador-campo input{
+    width:100%;
+    padding:16px 20px;
+    border:1px solid transparent;
+    border-radius:999px;
+    outline:none;
+    background:#fff;
+    color:#111;
+    font-size:15px;
+}
+
+.buscador-campo input:focus{
+    border-color:var(--amarillo);
+    box-shadow:0 0 0 4px rgba(244,196,0,.14);
+}
+
+.filtros{
+    display:flex;
+    gap:10px;
+}
+
+.filtro-boton{
+    padding:13px 18px;
+    border:1px solid #3c3c3c;
+    border-radius:999px;
+    background:#1b1b1b;
+    color:#fff;
+    font-size:13px;
+    font-weight:800;
+    cursor:pointer;
+    transition:.2s ease;
+}
+
+.filtro-boton:hover,
+.filtro-boton.activo{
+    background:var(--amarillo);
+    color:#000;
+    border-color:var(--amarillo);
+}
+
+.sin-resultados{
+    display:none;
+    margin-top:22px;
+    padding:18px;
+    border-radius:12px;
+    background:#fff;
+    color:#111;
+    text-align:center;
+    font-weight:800;
+}
+
+/* CATÁLOGO */
+
+.catalogo{
+    padding:80px 24px 100px;
+}
+
+.catalogo-cabecera{
+    margin-bottom:48px;
+}
+
+.grupo-productos{
+    scroll-margin-top:140px;
+    margin-bottom:76px;
+}
+
+.grupo-productos:last-child{
+    margin-bottom:0;
+}
+
+.grupo-titulo{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:20px;
+    padding-bottom:18px;
+    margin-bottom:28px;
+    border-bottom:1px solid #d8d8d8;
+}
+
+.grupo-titulo h3{
+    font-size:34px;
+}
+
+.grupo-titulo p{
+    color:#777;
+    font-size:14px;
+}
+
+.productos-grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:28px;
+}
+
+.producto-card{
+    overflow:hidden;
+    border:1px solid rgba(0,0,0,.05);
+    border-radius:var(--radio);
+    background:#fff;
+    box-shadow:0 14px 38px rgba(0,0,0,.08);
+    transition:transform .3s ease,box-shadow .3s ease;
+}
+
+.producto-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 24px 55px rgba(0,0,0,.14);
+}
+
+.producto-imagen{
+    position:relative;
+    display:block;
+    overflow:hidden;
+    background:#e9e9e9;
+}
+
+.producto-imagen img{
+    width:100%;
+    height:520px;
+    object-fit:cover;
+    transition:transform .5s ease;
+}
+
+.producto-card:hover .producto-imagen img{
+    transform:scale(1.035);
+}
+
+.producto-etiqueta{
+    position:absolute;
+    top:16px;
+    left:16px;
+    z-index:2;
+    padding:9px 13px;
+    border-radius:999px;
+    background:var(--amarillo);
+    color:#000;
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:1px;
+}
+
+.producto-info{
+    padding:25px;
+}
+
+.producto-categoria{
+    margin-bottom:8px;
+    color:#858585;
+    font-size:12px;
+    font-weight:900;
+    letter-spacing:1px;
+    text-transform:uppercase;
+}
+
+.producto-info h3{
+    margin-bottom:11px;
+    font-size:27px;
+    line-height:1.2;
+}
+
+.producto-descripcion{
+    margin-bottom:24px;
+    color:#666;
+    font-size:14px;
+    line-height:1.6;
+}
+
+.producto-final{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+}
+
+.producto-precio{
+    font-size:21px;
+    font-weight:900;
+}
+
+.producto-boton{
+    padding:13px 19px;
+    border-radius:999px;
+    background:#111;
+    color:#fff;
+    text-decoration:none;
+    font-size:13px;
+    font-weight:900;
+    transition:.2s ease;
+}
+
+.producto-boton:hover{
+    background:var(--amarillo);
+    color:#000;
+}
+
+/* PERSONALIZACIÓN */
+
+.personalizacion{
+    padding:90px 24px;
+    background:#0a0a0a;
+    color:#fff;
+}
+
+.personalizacion-contenido{
+    display:grid;
+    grid-template-columns:.9fr 1.1fr;
+    gap:55px;
+    align-items:center;
+}
+
+.personalizacion-texto .seccion-etiqueta{
+    color:var(--amarillo);
+}
+
+.personalizacion-texto p{
+    margin-bottom:28px;
+    color:#c9c9c9;
+    font-size:17px;
+    line-height:1.7;
+}
+
+.personalizacion-boton{
+    display:inline-flex;
+    padding:15px 23px;
+    border-radius:999px;
+    background:var(--amarillo);
+    color:#000;
+    text-decoration:none;
+    font-weight:900;
+}
+
+.pasos{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:16px;
+}
+
+.paso{
+    padding:25px;
+    border:1px solid #2c2c2c;
+    border-radius:18px;
+    background:#141414;
+}
+
+.paso-numero{
+    width:42px;
+    height:42px;
+    margin-bottom:18px;
+    border-radius:50%;
+    background:var(--amarillo);
+    color:#000;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:900;
+}
+
+.paso h3{
+    margin-bottom:8px;
+    font-size:19px;
+}
+
+.paso p{
+    color:#aaa;
+    font-size:14px;
+    line-height:1.55;
+}
+
+/* CONFIANZA */
+
+.confianza{
+    padding:90px 24px;
+    background:#fff;
+}
+
+.confianza-cabecera{
+    max-width:760px;
+    margin-bottom:42px;
+}
+
+.confianza-grid{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:24px;
+}
+
+.confianza-card{
+    padding:30px;
+    border:1px solid var(--borde);
+    border-radius:18px;
+    background:#f7f7f7;
+}
+
+.confianza-icono{
+    width:56px;
+    height:56px;
+    margin-bottom:20px;
+    border-radius:50%;
+    background:#111;
+    color:var(--amarillo);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:25px;
+}
+
+.confianza-card h3{
+    margin-bottom:10px;
+    font-size:21px;
+}
+
+.confianza-card p{
+    color:#666;
+    font-size:15px;
+    line-height:1.6;
+}
+
+.confianza-aviso{
+    margin-top:30px;
+    padding:25px;
+    border-radius:18px;
+    background:#111;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.confianza-aviso p{
+    color:#ddd;
+    font-size:15px;
+    line-height:1.6;
+}
+
+.confianza-boton{
+    flex-shrink:0;
+    padding:14px 22px;
+    border-radius:999px;
+    background:var(--amarillo);
+    color:#000;
+    text-decoration:none;
+    font-weight:900;
+}
+
+/* FOOTER */
+
+footer{
+    padding:65px 24px 30px;
+    background:#050505;
+    color:#fff;
+}
+
+.footer-contenido{
+    max-width:1220px;
+    margin:auto;
+    padding-bottom:40px;
+    display:grid;
+    grid-template-columns:1.4fr 1fr 1fr;
+    gap:45px;
+}
+
+.footer-logo{
+    width:145px;
+    margin-bottom:20px;
+}
+
+.footer-marca p{
+    max-width:410px;
+    color:#aaa;
+    font-size:15px;
+    line-height:1.7;
+}
+
+.footer-columna h3{
+    margin-bottom:18px;
+    color:var(--amarillo);
+    font-size:17px;
+}
+
+.footer-columna a{
+    display:block;
+    margin-bottom:13px;
+    color:#ddd;
+    text-decoration:none;
+    font-size:15px;
+}
+
+.footer-nota{
+    margin-top:18px;
+    color:#999;
+    font-size:13px;
+    line-height:1.6;
+}
+
+.footer-inferior{
+    max-width:1220px;
+    margin:auto;
+    padding-top:25px;
+    border-top:1px solid #292929;
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.footer-inferior p{
+    color:#777;
+    font-size:13px;
+}
+
+/* WHATSAPP */
+
+.whatsapp-flotante{
+    position:fixed;
+    right:16px;
+    bottom:12px;
+    z-index:1200;
+    width:54px;
+    height:54px;
+    border-radius:50%;
+    background:#25d366;
+    color:#fff;
+    text-decoration:none;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:25px;
+    box-shadow:0 12px 30px rgba(0,0,0,.28);
+}
+
+/* ANIMACIONES */
+
+.revelar{
+    opacity:0;
+    transform:translateY(30px);
+    transition:opacity .7s ease,transform .7s ease;
+}
+
+.revelar.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:950px){
+    .tira-confianza-contenido{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .personalizacion-contenido{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:850px){
+    .barra-promociones span{
+        display:none;
+    }
+
+    .barra-promociones span:first-child{
+        display:block;
+    }
+
+    .cabecera{
+        min-height:64px;
+        padding:8px 16px;
+    }
+
+    .logo img{
+        width:102px;
+    }
+
+    .boton-menu{
+        display:flex;
+    }
+
+    .menu{
+        position:fixed;
+        top:108px;
+        left:16px;
+        right:16px;
+        padding:12px;
+        border:1px solid #2b2b2b;
+        border-radius:18px;
+        background:#0b0b0b;
+        box-shadow:0 20px 50px rgba(0,0,0,.35);
+        flex-direction:column;
+        align-items:stretch;
+        gap:4px;
+        opacity:0;
+        visibility:hidden;
+        transform:translateY(-12px);
+        transition:.25s ease;
+    }
+
+    .menu.activo{
+        opacity:1;
+        visibility:visible;
+        transform:translateY(0);
+    }
+
+    .menu a{
+        padding:11px 14px;
+        border-radius:10px;
+        text-align:center;
+        font-size:14px;
+    }
+
+    .contacto{
+        margin-top:4px;
+    }
+
+    .hero{
+        min-height:620px;
+        padding:48px 20px;
+        background-position:58% top;
+        align-items:flex-end;
+    }
+
+    .hero h1{
+        font-size:54px;
+        letter-spacing:-2px;
+    }
+
+    .hero-texto{
+        font-size:17px;
+    }
+
+    .hero-datos{
+        display:none;
+    }
+
+    .categorias{
+        padding:65px 18px 35px;
+    }
+
+    .categorias-grid{
+        grid-template-columns:1fr;
+    }
+
+    .categoria-card{
+        min-height:440px;
+    }
+
+    .buscador-seccion{
+        padding:35px 18px 0;
+    }
+
+    .buscador-panel{
+        padding:24px;
+    }
+
+    .buscador-controles{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .filtros{
+        width:100%;
+    }
+
+    .filtro-boton{
+        flex:1;
+        padding:12px 8px;
+    }
+
+    .catalogo{
+        padding:65px 18px 80px;
+    }
+
+    .grupo-titulo{
+        align-items:flex-start;
+        flex-direction:column;
+        gap:7px;
+    }
+
+    .productos-grid{
+        grid-template-columns:1fr;
+    }
+
+    .producto-imagen img{
+        height:440px;
+    }
+
+    .personalizacion{
+        padding:70px 18px;
+    }
+
+    .confianza{
+        padding:70px 18px;
+    }
+
+    .confianza-grid{
+        grid-template-columns:1fr;
+    }
+
+    .confianza-aviso{
+        align-items:flex-start;
+        flex-direction:column;
+    }
+
+    .confianza-boton{
+        width:100%;
+        text-align:center;
+    }
+
+    .footer-contenido{
+        grid-template-columns:1fr;
+        gap:35px;
+    }
+
+    .footer-inferior{
+        flex-direction:column;
+    }
+}
+
+@media(max-width:540px){
+    .hero{
+        min-height:610px;
+    }
+
+    .hero h1{
+        font-size:45px;
+    }
+
+    .hero-botones{
+        flex-direction:column;
+    }
+
+    .hero-boton{
+        width:100%;
+    }
+
+    .tira-confianza-contenido{
+        grid-template-columns:1fr;
+        padding:20px 18px;
+    }
+
+    .categoria-card{
+        min-height:405px;
+    }
+
+    .categoria-contenido{
+        padding:26px;
+    }
+
+    .producto-imagen img{
+        height:390px;
+    }
+
+    .producto-final{
+        align-items:flex-start;
+        flex-direction:column;
+    }
+
+    .producto-boton{
+        width:100%;
+        text-align:center;
+    }
+
+    .pasos{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="barra-promociones">
+    <span>🚚 Envíos a toda España</span>
+    <span>⭐ Personalización disponible</span>
+    <span>💬 Atención directa por WhatsApp</span>
+</div>
+
+<header>
+    <div class="cabecera">
+        <a href="index.html" class="logo">
+            <img src="logo-goalwear.png" alt="Logo GOALWEAR">
+        </a>
+
+        <button class="boton-menu" id="boton-menu" type="button" aria-label="Abrir menú" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="menu" id="menu">
+            <a href="index.html">Inicio</a>
+            <a href="#categorias">Equipos</a>
+            <a href="#buscador">Buscar</a>
+            <a href="#productos">Camisetas</a>
+            <a href="#personalizacion">Personalización</a>
+            <a href="https://wa.me/34633329423" class="contacto">Contacto</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+
+<section class="hero">
+    <div class="hero-contenido">
+        <p class="hero-etiqueta">NUEVA TEMPORADA 2026/27</p>
+
+        <h1>Viste tu <span>pasión.</span></h1>
+
+        <p class="hero-texto">
+            Camisetas de fútbol con parches y serigrafía personalizada.
+            Elige tu equipo, tu talla y el acabado que más te guste.
+        </p>
+
+        <div class="hero-botones">
+            <a href="#productos" class="hero-boton hero-boton-principal">
+                Ver camisetas →
+            </a>
+
+            <a href="https://wa.me/34633329423" class="hero-boton hero-boton-secundario">
+                Hablar por WhatsApp
+            </a>
+        </div>
+
+        <div class="hero-datos">
+            <div class="hero-dato">
+                <strong>Desde 18€</strong>
+                <span>Camisetas disponibles</span>
+            </div>
+
+            <div class="hero-dato">
+                <strong>3 acabados</strong>
+                <span>Sola, parches o completa</span>
+            </div>
+
+            <div class="hero-dato">
+                <strong>Atención directa</strong>
+                <span>Confirmación por WhatsApp</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="tira-confianza">
+    <div class="tira-confianza-contenido">
+        <div class="tira-item">
+            <div class="tira-icono">✓</div>
+            <div>
+                <strong>Pedido revisado</strong>
+                <span>Confirmamos todos los detalles</span>
+            </div>
+        </div>
+
+        <div class="tira-item">
+            <div class="tira-icono">⭐</div>
+            <div>
+                <strong>Personalización</strong>
+                <span>Nombre, dorsal y parches</span>
+            </div>
+        </div>
+
+        <div class="tira-item">
+            <div class="tira-icono">💬</div>
+            <div>
+                <strong>Atención cercana</strong>
+                <span>Contacto directo por WhatsApp</span>
+            </div>
+        </div>
+
+        <div class="tira-item">
+            <div class="tira-icono">📦</div>
+            <div>
+                <strong>Seguimiento</strong>
+                <span>Información sobre tu pedido</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="categorias revelar" id="categorias">
+    <div class="categorias-cabecera">
+        <p class="seccion-etiqueta">ENCUENTRA TU CAMISETA</p>
+        <h2 class="seccion-titulo">Elige tu equipo</h2>
+        <p class="seccion-descripcion">
+            Accede directamente a las camisetas disponibles de España o del Real Betis.
+        </p>
+    </div>
+
+    <div class="categorias-grid">
+        <a href="#espana" class="categoria-card categoria-espana">
+            <div class="categoria-contenido">
+                <span class="categoria-mini">SELECCIÓN</span>
+                <h3>España</h3>
+                <p>Equipaciones local y visitante de la Selección Española.</p>
+                <span class="categoria-enlace">Ver camisetas →</span>
+            </div>
+        </a>
+
+        <a href="#betis" class="categoria-card categoria-betis">
+            <div class="categoria-contenido">
+                <span class="categoria-mini">LALIGA</span>
+                <h3>Real Betis</h3>
+                <p>Equipaciones local y visitante del Real Betis Balompié.</p>
+                <span class="categoria-enlace">Ver camisetas →</span>
+            </div>
+        </a>
+    </div>
+</section>
+
+<section class="buscador-seccion revelar" id="buscador">
+    <div class="buscador-panel">
+        <h2>Busca tu camiseta</h2>
+
+        <p>
+            Escribe España, Betis, local o visitante, o utiliza los filtros.
+        </p>
+
+        <div class="buscador-controles">
+            <div class="buscador-campo">
+                <input
+                    type="search"
+                    id="campo-busqueda"
+                    placeholder="Ejemplo: España local"
+                    aria-label="Buscar camisetas">
+            </div>
+
+            <div class="filtros">
+                <button type="button" class="filtro-boton activo" data-filtro="todos">Todos</button>
+                <button type="button" class="filtro-boton" data-filtro="espana">España</button>
+                <button type="button" class="filtro-boton" data-filtro="betis">Betis</button>
+            </div>
+        </div>
+
+        <div class="sin-resultados" id="sin-resultados">
+            No hemos encontrado camisetas con esa búsqueda.
+        </div>
+    </div>
+</section>
+
+<section class="catalogo" id="productos">
+    <div class="catalogo-cabecera revelar">
+        <p class="seccion-etiqueta">NUEVA COLECCIÓN</p>
+        <h2 class="seccion-titulo">Productos destacados</h2>
+        <p class="seccion-descripcion">
+            Elige tu camiseta y personalízala con nombre, dorsal y parches.
+        </p>
+    </div>
+
+    <div class="grupo-productos revelar" id="espana" data-grupo="espana">
+        <div class="grupo-titulo">
+            <h3>Selección Española</h3>
+            <p>2 camisetas disponibles</p>
+        </div>
+
+        <div class="productos-grid">
+            <article class="producto-card" data-equipo="espana" data-busqueda="españa espana local roja selección seleccion 2026">
+                <a href="producto-espana-local.html" class="producto-imagen">
+                    <span class="producto-etiqueta">NUEVO</span>
+                    <img src="espana-local.jpg" alt="Camiseta España Local 2026">
+                </a>
+
+                <div class="producto-info">
+                    <p class="producto-categoria">España</p>
+                    <h3>España Local 2026</h3>
+                    <p class="producto-descripcion">
+                        Disponible sola, con parches o con parches y serigrafía personalizada.
+                    </p>
+
+                    <div class="producto-final">
+                        <span class="producto-precio">Desde 18€</span>
+                        <a href="producto-espana-local.html" class="producto-boton">Ver producto</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="producto-card" data-equipo="espana" data-busqueda="españa espana visitante blanca selección seleccion 2026">
+                <a href="producto-espana-visitante.html" class="producto-imagen">
+                    <span class="producto-etiqueta">NUEVO</span>
+                    <img src="espana-visitante.jpg" alt="Camiseta España Visitante 2026">
+                </a>
+
+                <div class="producto-info">
+                    <p class="producto-categoria">España</p>
+                    <h3>España Visitante 2026</h3>
+                    <p class="producto-descripcion">
+                        Disponible sola, con parches o con parches y serigrafía personalizada.
+                    </p>
+
+                    <div class="producto-final">
+                        <span class="producto-precio">Desde 18€</span>
+                        <a href="producto-espana-visitante.html" class="producto-boton">Ver producto</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <div class="grupo-productos revelar" id="betis" data-grupo="betis">
+        <div class="grupo-titulo">
+            <h3>Real Betis</h3>
+            <p>2 camisetas disponibles</p>
+        </div>
+
+        <div class="productos-grid">
+            <article class="producto-card" data-equipo="betis" data-busqueda="betis real betis local verdiblanca verde blanca 2026">
+                <a href="producto-betis-local.html" class="producto-imagen">
+                    <span class="producto-etiqueta">NUEVO</span>
+                    <img src="betis-local.jpg" alt="Camiseta Betis Local 2026">
+                </a>
+
+                <div class="producto-info">
+                    <p class="producto-categoria">Real Betis</p>
+                    <h3>Betis Local 2026</h3>
+                    <p class="producto-descripcion">
+                        Disponible sola, con parches o con parches y serigrafía personalizada.
+                    </p>
+
+                    <div class="producto-final">
+                        <span class="producto-precio">Desde 18€</span>
+                        <a href="producto-betis-local.html" class="producto-boton">Ver producto</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="producto-card" data-equipo="betis" data-busqueda="betis real betis visitante verde negra 2026">
+                <a href="producto-betis-visitante.html" class="producto-imagen">
+                    <span class="producto-etiqueta">NUEVO</span>
+                    <img src="betis-visitante.jpg" alt="Camiseta Betis Visitante 2026">
+                </a>
+
+                <div class="producto-info">
+                    <p class="producto-categoria">Real Betis</p>
+                    <h3>Betis Visitante 2026</h3>
+                    <p class="producto-descripcion">
+                        Disponible sola, con parches o con parches y serigrafía personalizada.
+                    </p>
+
+                    <div class="producto-final">
+                        <span class="producto-precio">Desde 18€</span>
+                        <a href="producto-betis-visitante.html" class="producto-boton">Ver producto</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="personalizacion" id="personalizacion">
+    <div class="personalizacion-contenido">
+        <div class="personalizacion-texto revelar">
+            <p class="seccion-etiqueta">HAZLA TUYA</p>
+            <h2 class="seccion-titulo">Personaliza cada detalle</h2>
+            <p>
+                Selecciona la camiseta, la talla y el acabado.
+                Puedes pedirla sola, con parches o con nombre, dorsal y parches.
+            </p>
+
+            <a href="#productos" class="personalizacion-boton">
+                Elegir camiseta
+            </a>
+        </div>
+
+        <div class="pasos revelar">
+            <div class="paso">
+                <div class="paso-numero">1</div>
+                <h3>Elige el modelo</h3>
+                <p>Selecciona el equipo y la equipación que prefieras.</p>
+            </div>
+
+            <div class="paso">
+                <div class="paso-numero">2</div>
+                <h3>Selecciona la talla</h3>
+                <p>Comprueba la disponibilidad antes de confirmar.</p>
+            </div>
+
+            <div class="paso">
+                <div class="paso-numero">3</div>
+                <h3>Añade el acabado</h3>
+                <p>Elige camiseta sola, parches o personalización completa.</p>
+            </div>
+
+            <div class="paso">
+                <div class="paso-numero">4</div>
+                <h3>Confirma por WhatsApp</h3>
+                <p>Revisamos contigo todos los detalles del pedido.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="confianza" id="confianza">
+    <div class="confianza-contenido">
+        <div class="confianza-cabecera revelar">
+            <p class="seccion-etiqueta">COMPRA CON TRANQUILIDAD</p>
+            <h2 class="seccion-titulo">Una atención cercana en cada pedido</h2>
+            <p class="seccion-descripcion">
+                Antes de realizar el pago confirmamos contigo la camiseta,
+                la talla, el acabado y la disponibilidad por WhatsApp.
+            </p>
+        </div>
+
+        <div class="confianza-grid revelar">
+            <div class="confianza-card">
+                <div class="confianza-icono">✓</div>
+                <h3>Pedido confirmado</h3>
+                <p>Revisamos contigo la talla, el nombre, el dorsal y los parches.</p>
+            </div>
+
+            <div class="confianza-card">
+                <div class="confianza-icono">💬</div>
+                <h3>Atención personal</h3>
+                <p>Puedes hablar directamente con GOALWEAR por WhatsApp.</p>
+            </div>
+
+            <div class="confianza-card">
+                <div class="confianza-icono">📦</div>
+                <h3>Seguimiento</h3>
+                <p>Te informamos sobre la preparación y entrega de tus camisetas.</p>
+            </div>
+        </div>
+
+        <div class="confianza-aviso revelar">
+            <p>Confirma disponibilidad y plazo de entrega antes de realizar el pago.</p>
+            <a href="https://wa.me/34633329423" class="confianza-boton">
+                Resolver una duda
+            </a>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <div class="footer-contenido">
+        <div class="footer-marca">
+            <img src="logo-goalwear.png" alt="Logo GOALWEAR" class="footer-logo">
+            <p>
+                GOALWEAR ofrece camisetas de fútbol con opciones de parches
+                y serigrafía personalizada.
+            </p>
+        </div>
+
+        <div class="footer-columna">
+            <h3>Enlaces rápidos</h3>
+            <a href="index.html">Inicio</a>
+            <a href="#categorias">Equipos</a>
+            <a href="#buscador">Buscador</a>
+            <a href="#espana">Selección Española</a>
+            <a href="#betis">Real Betis</a>
+        </div>
+
+        <div class="footer-columna">
+            <h3>Contacto</h3>
+            <a href="https://wa.me/34633329423">WhatsApp: +34 633 32 94 23</a>
+            <a href="https://www.instagram.com/goal.wearstore/">Instagram: @goal.wearstore</a>
+            <p class="footer-nota">
+                Consulta disponibilidad, tallas, acabados, envíos y formas de pago.
+            </p>
+        </div>
+    </div>
+
+    <div class="footer-inferior">
+        <p>© 2026 GOALWEAR.</p>
+        <p>Pedidos gestionados por WhatsApp.</p>
+    </div>
+</footer>
+
+<a href="https://wa.me/34633329423" class="whatsapp-flotante" aria-label="Contactar por WhatsApp">
+    💬
+</a>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+
+    const campoBusqueda = document.getElementById("campo-busqueda");
+    const botonesFiltro = document.querySelectorAll(".filtro-boton");
+    const productos = document.querySelectorAll(".producto-card");
+    const grupos = document.querySelectorAll(".grupo-productos");
+    const mensajeSinResultados = document.getElementById("sin-resultados");
+    const botonMenu = document.getElementById("boton-menu");
+    const menu = document.getElementById("menu");
+    const enlacesMenu = menu.querySelectorAll("a");
+    const elementosRevelar = document.querySelectorAll(".revelar");
+
+    let filtroActivo = "todos";
+
+    function normalizarTexto(texto){
+        return texto
+            .toLowerCase()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "");
+    }
+
+    function filtrarProductos(){
+        const busqueda = normalizarTexto(campoBusqueda.value.trim());
+        let productosVisibles = 0;
+
+        productos.forEach(function(producto){
+            const equipo = producto.dataset.equipo;
+            const textoProducto = normalizarTexto(producto.dataset.busqueda);
+
+            const coincideEquipo =
+                filtroActivo === "todos" ||
+                filtroActivo === equipo;
+
+            const coincideBusqueda =
+                busqueda === "" ||
+                textoProducto.includes(busqueda);
+
+            if(coincideEquipo && coincideBusqueda){
+                producto.style.display = "";
+                productosVisibles++;
+            }else{
+                producto.style.display = "none";
+            }
+        });
+
+        grupos.forEach(function(grupo){
+            const productosDelGrupo = grupo.querySelectorAll(".producto-card");
+
+            const hayProductosVisibles = Array.from(productosDelGrupo).some(
+                function(producto){
+                    return producto.style.display !== "none";
+                }
+            );
+
+            grupo.style.display = hayProductosVisibles ? "" : "none";
+        });
+
+        mensajeSinResultados.style.display =
+            productosVisibles === 0 ? "block" : "none";
+    }
+
+    campoBusqueda.addEventListener("input", filtrarProductos);
+
+    botonesFiltro.forEach(function(boton){
+        boton.addEventListener("click", function(){
+            filtroActivo = boton.dataset.filtro;
+
+            botonesFiltro.forEach(function(otroBoton){
+                otroBoton.classList.remove("activo");
+            });
+
+            boton.classList.add("activo");
+            filtrarProductos();
+        });
+    });
+
+    function cerrarMenu(){
+        menu.classList.remove("activo");
+        document.body.classList.remove("menu-abierto");
+        botonMenu.setAttribute("aria-expanded", "false");
+    }
+
+    botonMenu.addEventListener("click", function(){
+        const estaAbierto = menu.classList.toggle("activo");
+        document.body.classList.toggle("menu-abierto", estaAbierto);
+        botonMenu.setAttribute("aria-expanded", String(estaAbierto));
+    });
+
+    enlacesMenu.forEach(function(enlace){
+        enlace.addEventListener("click", cerrarMenu);
+    });
+
+    document.addEventListener("keydown", function(evento){
+        if(evento.key === "Escape"){
+            cerrarMenu();
+        }
+    });
+
+    const observador = new IntersectionObserver(
+        function(entradas){
+            entradas.forEach(function(entrada){
+                if(entrada.isIntersecting){
+                    entrada.target.classList.add("visible");
+                    observador.unobserve(entrada.target);
+                }
+            });
+        },
+        {threshold:.12}
+    );
+
+    elementosRevelar.forEach(function(elemento){
+        observador.observe(elemento);
+    });
+});
+</script>
+
+</body>
+</html>
