@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Inicia sesión o crea tu cuenta en GOALWEAR."
+  >
+
+  <title>Mi cuenta | GOALWEAR</title>
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    :root {
+      --bg: #f4f6f8;
+      --surface: #ffffff;
+      --surface-dark: #101316;
+      --text: #15191d;
+      --text-soft: #66707a;
+      --border: #dfe4e8;
+      --primary: #0b6b3a;
+      --primary-hover: #07572f;
+      --danger: #b42318;
+      --success: #067647;
+      --warning: #b54708;
+      --shadow: 0 20px 60px rgba(16, 24, 40, 0.12);
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: "Inter", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(
+          circle at top left,
+          rgba(11, 107, 58, 0.15),
+          transparent 34%
+        ),
+        linear-gradient(
+          135deg,
+          #f8fafb 0%,
+          #eef2f4 100%
+        );
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      min-height: 76px;
+      padding: 14px clamp(18px, 5vw, 70px);
+      color: #ffffff;
+      background: rgba(16, 19, 22, 0.96);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      border-radius: 50%;
+      background: #ffffff;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.05;
+    }
+
+    .brand-text strong {
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+    }
+
+    .brand-text span {
+      margin-top: 5px;
+      font-size: 0.78rem;
+      color: #bfc7ce;
+    }
+
+    .home-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 18px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 999px;
+      transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .home-link:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-1px);
+    }
+
+    .page {
+      display: grid;
+      place-items: center;
+      min-height: calc(100vh - 76px);
+      padding: 38px 18px;
+    }
+
+    .account-shell {
+      width: min(100%, 980px);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      border-radius: 30px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .account-hero {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 650px;
+      padding: 46px;
+      color: #ffffff;
+      background:
+        linear-gradient(
+          145deg,
+          rgba(5, 40, 24, 0.95),
+          rgba(11, 107, 58, 0.88)
+        ),
+        url("logo-goalwear.png") center / 250px no-repeat;
+      isolation: isolate;
+    }
+
+    .account-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(
+          to bottom,
+          transparent,
+          rgba(0, 0, 0, 0.26)
+        );
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      width: fit-content;
+      padding: 8px 12px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .hero-copy h1 {
+      max-width: 430px;
+      margin-top: 22px;
+      font-size: clamp(2.3rem, 5vw, 4.6rem);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+    }
+
+    .hero-copy p {
+      max-width: 440px;
+      margin-top: 22px;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .benefits {
+      display: grid;
+      gap: 13px;
+      margin-top: 30px;
+    }
+
+    .benefit {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .benefit-icon {
+      display: grid;
+      place-items: center;
+      flex: 0 0 34px;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.14);
+    }
+
+    .hero-footer {
+      font-size: 0.76rem;
+      color: rgba(255, 255, 255, 0.62);
+    }
+
+    .account-panel {
+      padding: 42px;
+    }
+
+    .panel-header h2 {
+      font-size: 2rem;
+      letter-spacing: -0.04em;
+    }
+
+    .panel-header p {
+      margin-top: 10px;
+      line-height: 1.6;
+      color: var(--text-soft);
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 7px;
+      margin-top: 30px;
+      padding: 6px;
+      border-radius: 16px;
+      background: #eef2f4;
+    }
+
+    .tab-button {
+      min-height: 46px;
+      padding: 8px 12px;
+      font-weight: 800;
+      color: var(--text-soft);
+      border: 0;
+      border-radius: 12px;
+      background: transparent;
+      transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .tab-button.active {
+      color: var(--text);
+      background: #ffffff;
+      box-shadow: 0 6px 18px rgba(16, 24, 40, 0.08);
+    }
+
+    .form {
+      display: none;
+      margin-top: 28px;
+    }
+
+    .form.active {
+      display: block;
+    }
+
+    .field {
+      margin-bottom: 18px;
+    }
+
+    .field label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 0.86rem;
+      font-weight: 800;
+    }
+
+    .field input {
+      width: 100%;
+      min-height: 52px;
+      padding: 0 16px;
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      outline: none;
+      background: #ffffff;
+      transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .field input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(11, 107, 58, 0.11);
+    }
+
+    .field-help {
+      margin-top: 7px;
+      font-size: 0.74rem;
+      line-height: 1.5;
+      color: var(--text-soft);
+    }
+
+    .password-wrap {
+      position: relative;
+    }
+
+    .password-wrap input {
+      padding-right: 55px;
+    }
+
+    .toggle-password {
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      border: 0;
+      border-radius: 10px;
+      background: transparent;
+    }
+
+    .toggle-password:hover {
+      background: #f0f3f5;
+    }
+
+    .submit-button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      min-height: 54px;
+      margin-top: 5px;
+      padding: 0 20px;
+      font-weight: 800;
+      color: #ffffff;
+      border: 0;
+      border-radius: 14px;
+      background: var(--primary);
+      transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        opacity 0.2s ease;
+    }
+
+    .submit-button:hover {
+      background: var(--primary-hover);
+      transform: translateY(-1px);
+    }
+
+    .submit-button:disabled {
+      cursor: not-allowed;
+      opacity: 0.65;
+      transform: none;
+    }
+
+    .forgot-button {
+      display: block;
+      margin: 17px auto 0;
+      padding: 6px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--primary);
+      border: 0;
+      background: transparent;
+    }
+
+    .forgot-button:hover {
+      text-decoration: underline;
+    }
+
+    .message {
+      display: none;
+      margin-top: 20px;
+      padding: 13px 15px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      line-height: 1.5;
+      border-radius: 12px;
+    }
+
+    .message.show {
+      display: block;
+    }
+
+    .message.success {
+      color: var(--success);
+      border: 1px solid #a6f4c5;
+      background: #ecfdf3;
+    }
+
+    .message.error {
+      color: var(--danger);
+      border: 1px solid #fecdca;
+      background: #fef3f2;
+    }
+
+    .message.warning {
+      color: var(--warning);
+      border: 1px solid #fedf89;
+      background: #fffaeb;
+    }
+
+    .session-box {
+      display: none;
+      margin-top: 28px;
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: #f8fafb;
+    }
+
+    .session-box.show {
+      display: block;
+    }
+
+    .session-box h3 {
+      font-size: 1.05rem;
+    }
+
+    .session-box p {
+      margin-top: 8px;
+      font-size: 0.86rem;
+      line-height: 1.55;
+      color: var(--text-soft);
+      overflow-wrap: anywhere;
+    }
+
+    .session-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .secondary-button,
+    .logout-button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 45px;
+      padding: 0 14px;
+      font-size: 0.84rem;
+      font-weight: 800;
+      border-radius: 12px;
+    }
+
+    .secondary-button {
+      color: #ffffff;
+      border: 0;
+      background: var(--primary);
+    }
+
+    .logout-button {
+      color: var(--danger);
+      border: 1px solid #fecdca;
+      background: #ffffff;
+    }
+
+    .loader {
+      width: 18px;
+      height: 18px;
+      margin-right: 9px;
+      border: 2px solid rgba(255, 255, 255, 0.35);
+      border-top-color: #ffffff;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @media (max-width: 780px) {
+      .account-shell {
+        grid-template-columns: 1fr;
+        max-width: 560px;
+      }
+
+      .account-hero {
+        min-height: auto;
+        padding: 34px 26px;
+      }
+
+      .hero-copy h1 {
+        font-size: 2.8rem;
+      }
+
+      .benefits {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-footer {
+        margin-top: 34px;
+      }
+
+      .account-panel {
+        padding: 32px 24px 38px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .topbar {
+        padding: 12px 14px;
+      }
+
+      .brand-text span {
+        display: none;
+      }
+
+      .home-link {
+        min-height: 40px;
+        padding: 0 13px;
+        font-size: 0.8rem;
+      }
+
+      .page {
+        padding: 18px 12px 30px;
+      }
+
+      .account-shell {
+        border-radius: 22px;
+      }
+
+      .account-hero {
+        padding: 28px 22px;
+      }
+
+      .hero-copy h1 {
+        font-size: 2.4rem;
+      }
+
+      .account-panel {
+        padding: 28px 20px 34px;
+      }
+
+      .session-actions {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="topbar">
+    <a
+      href="index.html"
+      class="brand"
+      aria-label="Volver al inicio de GOALWEAR"
+    >
+      <img
+        src="logo-goalwear.png"
+        alt="Logo GOALWEAR"
+      >
+
+      <span class="brand-text">
+        <strong>GOALWEAR</strong>
+        <span>Tu camiseta, tu pasión</span>
+      </span>
+    </a>
+
+    <a
+      href="index.html"
+      class="home-link"
+    >
+      Volver a la tienda
+    </a>
+  </header>
+
+  <main class="page">
+
+    <section class="account-shell">
+
+      <div class="account-hero">
+
+        <div class="hero-copy">
+          <span class="eyebrow">
+            Área de clientes
+          </span>
+
+          <h1>
+            Todo tu fútbol en un solo lugar.
+          </h1>
+
+          <p>
+            Crea tu cuenta para guardar tus datos,
+            consultar tus pedidos y comprar tus camisetas
+            de forma más rápida.
+          </p>
+
+          <div class="benefits">
+
+            <div class="benefit">
+              <span class="benefit-icon">✓</span>
+              <span>Acceso seguro con Supabase</span>
+            </div>
+
+            <div class="benefit">
+              <span class="benefit-icon">✓</span>
+              <span>Historial de pedidos</span>
+            </div>
+
+            <div class="benefit">
+              <span class="benefit-icon">✓</span>
+              <span>Datos guardados para futuras compras</span>
+            </div>
+
+          </div>
+        </div>
+
+        <p class="hero-footer">
+          GOALWEAR · Camisetas de fútbol y personalización
+        </p>
+
+      </div>
+
+      <div class="account-panel">
+
+        <div class="panel-header">
+          <h2 id="panelTitle">
+            Bienvenido
+          </h2>
+
+          <p id="panelDescription">
+            Inicia sesión o crea una cuenta nueva.
+          </p>
+        </div>
+
+        <div
+          id="authArea"
+          aria-live="polite"
+        >
+
+          <div class="tabs">
+
+            <button
+              id="loginTab"
+              class="tab-button active"
+              type="button"
+            >
+              Iniciar sesión
+            </button>
+
+            <button
+              id="registerTab"
+              class="tab-button"
+              type="button"
+            >
+              Crear cuenta
+            </button>
+
+          </div>
+
+          <form
+            id="loginForm"
+            class="form active"
+            novalidate
+          >
+
+            <div class="field">
+              <label for="loginEmail">
+                Correo electrónico
+              </label>
+
+              <input
+                id="loginEmail"
+                name="email"
+                type="email"
+                inputmode="email"
+                autocomplete="email"
+                placeholder="tuemail@ejemplo.com"
+                required
+              >
+            </div>
+
+            <div class="field">
+              <label for="loginPassword">
+                Contraseña
+              </label>
+
+              <div class="password-wrap">
+                <input
+                  id="loginPassword"
+                  name="password"
+                  type="password"
+                  autocomplete="current-password"
+                  placeholder="Tu contraseña"
+                  minlength="6"
+                  required
+                >
+
+                <button
+                  class="toggle-password"
+                  type="button"
+                  data-target="loginPassword"
+                  aria-label="Mostrar contraseña"
+                >
+                  👁️
+                </button>
+              </div>
+            </div>
+
+            <button
+              id="loginButton"
+              class="submit-button"
+              type="submit"
+            >
+              Iniciar sesión
+            </button>
+
+            <button
+              id="forgotPasswordButton"
+              class="forgot-button"
+              type="button"
+            >
+              He olvidado mi contraseña
+            </button>
+
+          </form>
+
+          <form
+            id="registerForm"
+            class="form"
+            novalidate
+          >
+
+            <div class="field">
+              <label for="registerName">
+                Nombre
+              </label>
+
+              <input
+                id="registerName"
+                name="nombre"
+                type="text"
+                autocomplete="name"
+                placeholder="Tu nombre"
+                maxlength="80"
+                required
+              >
+            </div>
+
+            <div class="field">
+              <label for="registerEmail">
+                Correo electrónico
+              </label>
+
+              <input
+                id="registerEmail"
+                name="email"
+                type="email"
+                inputmode="email"
+                autocomplete="email"
+                placeholder="tuemail@ejemplo.com"
+                required
+              >
+            </div>
+
+            <div class="field">
+              <label for="registerPassword">
+                Contraseña
+              </label>
+
+              <div class="password-wrap">
+                <input
+                  id="registerPassword"
+                  name="password"
+                  type="password"
+                  autocomplete="new-password"
+                  placeholder="Mínimo 6 caracteres"
+                  minlength="6"
+                  required
+                >
+
+                <button
+                  class="toggle-password"
+                  type="button"
+                  data-target="registerPassword"
+                  aria-label="Mostrar contraseña"
+                >
+                  👁️
+                </button>
+              </div>
+
+              <p class="field-help">
+                Utiliza al menos 6 caracteres.
+              </p>
+            </div>
+
+            <div class="field">
+              <label for="registerPasswordConfirm">
+                Repite la contraseña
+              </label>
+
+              <div class="password-wrap">
+                <input
+                  id="registerPasswordConfirm"
+                  name="passwordConfirm"
+                  type="password"
+                  autocomplete="new-password"
+                  placeholder="Repite la contraseña"
+                  minlength="6"
+                  required
+                >
+
+                <button
+                  class="toggle-password"
+                  type="button"
+                  data-target="registerPasswordConfirm"
+                  aria-label="Mostrar contraseña"
+                >
+                  👁️
+                </button>
+              </div>
+            </div>
+
+            <button
+              id="registerButton"
+              class="submit-button"
+              type="submit"
+            >
+              Crear mi cuenta
+            </button>
+
+          </form>
+
+        </div>
+
+        <div
+          id="message"
+          class="message"
+          role="status"
+          aria-live="polite"
+        ></div>
+
+        <section
+          id="sessionBox"
+          class="session-box"
+        >
+          <h3>
+            Sesión iniciada
+          </h3>
+
+          <p id="sessionEmail"></p>
+
+          <div class="session-actions">
+
+            <a
+              class="secondary-button"
+              href="perfil.html"
+            >
+              Ver mi perfil
+            </a>
+
+            <button
+              id="logoutButton"
+              class="logout-button"
+              type="button"
+            >
+              Cerrar sesión
+            </button>
+
+          </div>
+        </section>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <script src="supabase-config.js"></script>
+
+  <script>
+    "use strict";
+
+    const loginTab =
+      document.getElementById("loginTab");
+
+    const registerTab =
+      document.getElementById("registerTab");
+
+    const loginForm =
+      document.getElementById("loginForm");
+
+    const registerForm =
+      document.getElementById("registerForm");
+
+    const loginButton =
+      document.getElementById("loginButton");
+
+    const registerButton =
+      document.getElementById("registerButton");
+
+    const forgotPasswordButton =
+      document.getElementById("forgotPasswordButton");
+
+    const logoutButton =
+      document.getElementById("logoutButton");
+
+    const messageBox =
+      document.getElementById("message");
+
+    const authArea =
+      document.getElementById("authArea");
+
+    const sessionBox =
+      document.getElementById("sessionBox");
+
+    const sessionEmail =
+      document.getElementById("sessionEmail");
+
+    const panelTitle =
+      document.getElementById("panelTitle");
+
+    const panelDescription =
+      document.getElementById("panelDescription");
+
+    function setActiveTab(tabName) {
+      const showLogin =
+        tabName === "login";
+
+      loginTab.classList.toggle(
+        "active",
+        showLogin
+      );
+
+      registerTab.classList.toggle(
+        "active",
+        !showLogin
+      );
+
+      loginForm.classList.toggle(
+        "active",
+        showLogin
+      );
+
+      registerForm.classList.toggle(
+        "active",
+        !showLogin
+      );
+
+      clearMessage();
+    }
+
+    function showMessage(text, type = "success") {
+      messageBox.textContent = text;
+
+      messageBox.className =
+        `message show ${type}`;
+    }
+
+    function clearMessage() {
+      messageBox.textContent = "";
+      messageBox.className = "message";
+    }
+
+    function setLoading(button, loading, text) {
+      if (loading) {
+        button.disabled = true;
+
+        button.dataset.originalText =
+          button.textContent;
+
+        button.innerHTML =
+          `<span class="loader"></span>${text}`;
+      } else {
+        button.disabled = false;
+
+        button.textContent =
+          button.dataset.originalText || text;
+      }
+    }
+
+    function normalizeEmail(email) {
+      return String(email)
+        .trim()
+        .toLowerCase();
+    }
+
+    function translateAuthError(error) {
+      const rawMessage =
+        error?.message || "";
+
+      const message =
+        rawMessage.toLowerCase();
+
+      if (
+        message.includes("invalid login credentials")
+      ) {
+        return "El correo o la contraseña no son correctos.";
+      }
+
+      if (
+        message.includes("email not confirmed")
+      ) {
+        return "Debes confirmar tu correo electrónico antes de iniciar sesión.";
+      }
+
+      if (
+        message.includes("user already registered")
+      ) {
+        return "Ya existe una cuenta registrada con ese correo.";
+      }
+
+      if (
+        message.includes("password should be at least")
+      ) {
+        return "La contraseña debe tener al menos 6 caracteres.";
+      }
+
+      if (
+        message.includes("unable to validate email")
+      ) {
+        return "El correo electrónico no es válido.";
+      }
+
+      if (
+        message.includes("email rate limit exceeded")
+      ) {
+        return "Se han enviado demasiados correos. Espera unos minutos y vuelve a intentarlo.";
+      }
+
+      return rawMessage ||
+        "Ha ocurrido un error. Inténtalo de nuevo.";
+    }
+
+    async function updateSessionView(session) {
+      const user =
+        session?.user || null;
+
+      if (user) {
+        authArea.style.display = "none";
+
+        sessionBox.classList.add("show");
+
+        sessionEmail.textContent =
+          `Has iniciado sesión como ${user.email}.`;
+
+        panelTitle.textContent =
+          "Tu cuenta está activa";
+
+        panelDescription.textContent =
+          "Ya puedes acceder a tu perfil y realizar pedidos.";
+      } else {
+        authArea.style.display = "block";
+
+        sessionBox.classList.remove("show");
+
+        sessionEmail.textContent = "";
+
+        panelTitle.textContent =
+          "Bienvenido";
+
+        panelDescription.textContent =
+          "Inicia sesión o crea una cuenta nueva.";
+      }
+    }
+
+    loginTab.addEventListener(
+      "click",
+      () => setActiveTab("login")
+    );
+
+    registerTab.addEventListener(
+      "click",
+      () => setActiveTab("register")
+    );
+
+    document
+      .querySelectorAll(".toggle-password")
+      .forEach((button) => {
+        button.addEventListener(
+          "click",
+          () => {
+            const input =
+              document.getElementById(
+                button.dataset.target
+              );
+
+            const isPassword =
+              input.type === "password";
+
+            input.type =
+              isPassword
+                ? "text"
+                : "password";
+
+            button.textContent =
+              isPassword
+                ? "🙈"
+                : "👁️";
+
+            button.setAttribute(
+              "aria-label",
+              isPassword
+                ? "Ocultar contraseña"
+                : "Mostrar contraseña"
+            );
+          }
+        );
+      });
+
+    loginForm.addEventListener(
+      "submit",
+      async (event) => {
+        event.preventDefault();
+        clearMessage();
+
+        const email =
+          normalizeEmail(
+            document
+              .getElementById("loginEmail")
+              .value
+          );
+
+        const password =
+          document
+            .getElementById("loginPassword")
+            .value;
+
+        if (!email || !password) {
+          showMessage(
+            "Completa el correo y la contraseña.",
+            "warning"
+          );
+
+          return;
+        }
+
+        try {
+          setLoading(
+            loginButton,
+            true,
+            "Entrando..."
+          );
+
+          const {
+            data,
+            error
+          } =
+            await supabase.auth
+              .signInWithPassword({
+                email,
+                password
+              });
+
+          if (error) {
+            throw error;
+          }
+
+          showMessage(
+            "Has iniciado sesión correctamente.",
+            "success"
+          );
+
+          await updateSessionView(
+            data.session
+          );
+
+          const redirect =
+            new URLSearchParams(
+              window.location.search
+            ).get("redirect");
+
+          window.setTimeout(
+            () => {
+              window.location.href =
+                redirect || "perfil.html";
+            },
+            700
+          );
+
+        } catch (error) {
+          showMessage(
+            translateAuthError(error),
+            "error"
+          );
+
+        } finally {
+          setLoading(
+            loginButton,
+            false,
+            "Iniciar sesión"
+          );
+        }
+      }
+    );
+
+    registerForm.addEventListener(
+      "submit",
+      async (event) => {
+        event.preventDefault();
+        clearMessage();
+
+        const nombre =
+          document
+            .getElementById("registerName")
+            .value
+            .trim();
+
+        const email =
+          normalizeEmail(
+            document
+              .getElementById("registerEmail")
+              .value
+          );
+
+        const password =
+          document
+            .getElementById("registerPassword")
+            .value;
+
+        const passwordConfirm =
+          document
+            .getElementById(
+              "registerPasswordConfirm"
+            )
+            .value;
+
+        if (
+          !nombre ||
+          !email ||
+          !password ||
+          !passwordConfirm
+        ) {
+          showMessage(
+            "Completa todos los campos.",
+            "warning"
+          );
+
+          return;
+        }
+
+        if (password.length < 6) {
+          showMessage(
+            "La contraseña debe tener al menos 6 caracteres.",
+            "warning"
+          );
+
+          return;
+        }
+
+        if (password !== passwordConfirm) {
+          showMessage(
+            "Las contraseñas no coinciden.",
+            "warning"
+          );
+
+          return;
+        }
+
+        try {
+          setLoading(
+            registerButton,
+            true,
+            "Creando cuenta..."
+          );
+
+          const redirectUrl =
+            `${window.location.origin}` +
+            `${window.location.pathname}` +
+            "?registro=confirmado";
+
+          const {
+            data,
+            error
+          } =
+            await supabase.auth.signUp({
+              email,
+              password,
+
+              options: {
+                data: {
+                  nombre
+                },
+
+                emailRedirectTo:
+                  redirectUrl
+              }
+            });
+
+          if (error) {
+            throw error;
+          }
+
+          registerForm.reset();
+
+          if (data.session) {
+            showMessage(
+              "Cuenta creada correctamente. Ya has iniciado sesión.",
+              "success"
+            );
+
+            await updateSessionView(
+              data.session
+            );
+
+            window.setTimeout(
+              () => {
+                window.location.href =
+                  "perfil.html";
+              },
+              900
+            );
+
+          } else {
+            showMessage(
+              "Cuenta creada. Revisa tu correo y pulsa el enlace de confirmación para activar tu cuenta.",
+              "success"
+            );
+
+            setActiveTab("login");
+          }
+
+        } catch (error) {
+          showMessage(
+            translateAuthError(error),
+            "error"
+          );
+
+        } finally {
+          setLoading(
+            registerButton,
+            false,
+            "Crear mi cuenta"
+          );
+        }
+      }
+    );
+
+    forgotPasswordButton.addEventListener(
+      "click",
+      async () => {
+        clearMessage();
+
+        const email =
+          normalizeEmail(
+            document
+              .getElementById("loginEmail")
+              .value
+          );
+
+        if (!email) {
+          showMessage(
+            "Escribe primero tu correo electrónico en el formulario.",
+            "warning"
+          );
+
+          return;
+        }
+
+        try {
+          forgotPasswordButton.disabled =
+            true;
+
+          forgotPasswordButton.textContent =
+            "Enviando...";
+
+          const redirectTo =
+            `${window.location.origin}` +
+            `${window.location.pathname}`;
+
+          const { error } =
+            await supabase.auth
+              .resetPasswordForEmail(
+                email,
+                {
+                  redirectTo
+                }
+              );
+
+          if (error) {
+            throw error;
+          }
+
+          showMessage(
+            "Te hemos enviado un correo para restablecer tu contraseña.",
+            "success"
+          );
+
+        } catch (error) {
+          showMessage(
+            translateAuthError(error),
+            "error"
+          );
+
+        } finally {
+          forgotPasswordButton.disabled =
+            false;
+
+          forgotPasswordButton.textContent =
+            "He olvidado mi contraseña";
+        }
+      }
+    );
+
+    logoutButton.addEventListener(
+      "click",
+      async () => {
+        clearMessage();
+
+        const { error } =
+          await supabase.auth.signOut();
+
+        if (error) {
+          showMessage(
+            translateAuthError(error),
+            "error"
+          );
+
+          return;
+        }
+
+        await updateSessionView(null);
+
+        showMessage(
+          "Has cerrado la sesión.",
+          "success"
+        );
+
+        setActiveTab("login");
+      }
+    );
+
+    supabase.auth.onAuthStateChange(
+      async (_event, session) => {
+        await updateSessionView(session);
+      }
+    );
+
+    async function initializePage() {
+      try {
+        const {
+          data,
+          error
+        } =
+          await supabase.auth.getSession();
+
+        if (error) {
+          throw error;
+        }
+
+        await updateSessionView(
+          data.session
+        );
+
+        const params =
+          new URLSearchParams(
+            window.location.search
+          );
+
+        if (
+          params.get("registro") ===
+          "confirmado"
+        ) {
+          showMessage(
+            "Correo confirmado correctamente. Ya puedes iniciar sesión.",
+            "success"
+          );
+        }
+
+      } catch (error) {
+        showMessage(
+          "No se ha podido comprobar la sesión. Revisa la conexión e inténtalo de nuevo.",
+          "error"
+        );
+      }
+    }
+
+    initializePage();
+  </script>
+
+</body>
+</html>
